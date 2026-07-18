@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T13:58:05.417107+00:00",
+  "generated_at": "2026-07-18T14:00:48.767804+00:00",
   "timezone": "Asia/Singapore",
   "market_signal": "Constructive",
   "story_count": 18,
@@ -241,7 +241,7 @@
     }
   ],
   "health": {
-    "feed_error_count": 0,
-    "summary_error_count": 1
+    "feed_error_count": 2,
+    "summary_error_count": 0
   }
 }
