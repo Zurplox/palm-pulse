@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-07-18T10:30:00Z",
+  "timezone": "Asia/Singapore",
+  "market_signal": "Balanced",
+  "story_count": 5,
+  "gemini_enabled": false,
+  "stories": [
+    {
+      "id": "gapki-output-may",
+      "title": "Indonesia’s palm oil output slips in May as CPO stocks rise",
+      "url": "https://www.palmoilmagazine.com/market/2026/07/16/gapki-indonesias-palm-oil-output-slips-in-may-2026-but-cpo-stocks-rise-to-3-04-million-tons/",
+      "source": "Palm Oil Magazine",
+      "country": "Indonesia",
+      "category": "Market",
+      "impact": "Neutral",
+      "published_at": "2026-07-16T08:00:00Z",
+      "snippet": "Indonesia’s palm oil production declined in May while crude palm oil stocks increased.",
+      "summary": "Indonesia’s palm oil production declined in May while crude palm oil stocks increased. Open the original report for the detailed production, export and inventory figures.",
+      "summary_type": "extract"
+    },
+    {
+      "id": "b50-trilemma",
+      "title": "B50 and Indonesia’s palm oil trilemma: food, energy and exports",
+      "url": "https://www.palmoilmagazine.com/opinion/2026/07/15/b50-and-indonesias-palm-oil-trilemma-balancing-food-energy-and-exports/",
+      "source": "Palm Oil Magazine",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Positive",
+      "published_at": "2026-07-15T09:00:00Z",
+      "snippet": "The B50 programme increases palm oil’s role in energy while creating new trade-offs for domestic food supply and exports.",
+      "summary": "The B50 programme increases palm oil’s role in energy while creating new trade-offs for domestic food supply and exports. The final market impact depends on implementation and available supply.",
+      "summary_type": "extract"
+    },
+    {
+      "id": "malaysia-gain-b50",
+      "title": "Malaysia poised to gain as Indonesia reduces exportable palm oil supply",
+      "url": "https://www.malaymail.com/news/money/2026/07/13/malaysia-poised-to-gain-as-indonesia-likely-to-cut-palm-oil-exports-says-mpoc/227436",
+      "source": "Malay Mail",
+      "country": "Malaysia",
+      "category": "Market",
+      "impact": "Positive",
+      "published_at": "2026-07-13T09:03:00Z",
+      "snippet": "MPOC says Malaysia may gain market share if Indonesia’s B50 mandate diverts more palm oil into domestic consumption.",
+      "summary": "MPOC says Malaysia may gain market share if Indonesia’s B50 mandate diverts more palm oil into domestic consumption. Malaysia could become an alternative source for importers seeking supply.",
+      "summary_type": "extract"
+    },
+    {
+      "id": "palm-oil-crude-rally",
+      "title": "Palm oil advances as crude rally improves the biofuel outlook",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-14/palm-oil-advances-as-crude-rally-boosts-outlook-for-biofuels",
+      "source": "Bloomberg",
+      "country": "Global",
+      "category": "Market",
+      "impact": "Positive",
+      "published_at": "2026-07-14T04:38:00Z",
+      "snippet": "Palm oil gained as stronger crude prices improved demand prospects for biofuels.",
+      "summary": "Palm oil gained as stronger crude prices improved demand prospects for biofuels. Full details may require access to the publisher’s website.",
+      "summary_type": "extract"
+    },
+    {
+      "id": "fgv-b100",
+      "title": "From plantation to power: FGV expands palm oil’s possibilities",
+      "url": "https://www.thestar.com.my/starpicks/2026/07/18/from-plantation-to-power-how-fgv-is-expanding-the-possibilities-of-palm-oil",
+      "source": "The Star",
+      "country": "Malaysia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-07-18T01:19:00Z",
+      "snippet": "FGV is testing B100 biodiesel as part of a phased renewable-energy programme.",
+      "summary": "FGV is testing B100 biodiesel as part of a phased renewable-energy programme. The initiative focuses on operational learning before wider implementation.",
+      "summary_type": "extract"
+    }
+  ],
+  "health": {
+    "feed_errors": [],
+    "summary_errors": []
+  },
+  "ai_model": null,
+  "master_summary": "EXECUTIVE OVERVIEW\n- Today’s edition focuses on Indonesia’s biodiesel expansion, regional export availability and energy-linked support for CPO.\n- Market conditions remain balanced, with policy-driven demand offset by changing production and stock levels.\n\nINDONESIA\n- B50 could redirect more palm oil toward domestic fuel demand and reduce exportable supply.\n- Smallholder outcomes will depend on how policy changes translate into mill demand and TBS pricing.\n\nMALAYSIA\n- Malaysian suppliers may benefit if importers seek alternatives to tighter Indonesian exports.\n- Industry initiatives include B100 testing and further development of palm-based renewable energy.\n\nPRICE & MARKET DRIVERS\n- Crude-oil strength supports biofuel economics, while production, stocks and currency movements remain important.\n\nSMALLHOLDER IMPLICATIONS\n- Monitor local mill prices, export policy and fertiliser costs rather than relying on FCPO movements alone.\n\nWATCHLIST\n- Watch B50 implementation, Malaysian stock data and major changes to export duties or sustainability rules.",
+  "master_summary_type": "extract",
+  "ai_summary_count": 0,
+  "tbs_price_updated_at": "2026-07-21T11:58:00+00:00",
+  "tbs_prices": [
+    {
+      "region": "Riau",
+      "reference_for": "Siak",
+      "scheme": "Plasma",
+      "palm_age_years": 9,
+      "price_rp_per_kg": 3890.97,
+      "age_prices_rp_per_kg": {
+        "4": 3400.16,
+        "5": 3603.09,
+        "6": 3759.77,
+        "9": 3890.97
+      },
+      "change_rp_per_kg": 31.1,
+      "change_percent": 0.81,
+      "trend": "up",
+      "valid_from": "2026-07-15",
+      "valid_to": "2026-07-21",
+      "published_at": "2026-07-14T00:00:00+00:00",
+      "source_name": "InfoSAWIT",
+      "source_url": "https://www.infosawit.com/2026/07/14/harga-tbs-sawit-plasma-riau-15-21-juli-2026-naik-rp-311-per-kg/",
+      "status": "current_period",
+      "confidence": "infosawit",
+      "cross_checked_sources": 1
+    },
+    {
+      "region": "Riau",
+      "reference_for": "Siak",
+      "scheme": "Swadaya",
+      "palm_age_years": 9,
+      "price_rp_per_kg": 3832.75,
+      "age_prices_rp_per_kg": {
+        "4": 3309.23,
+        "5": 3552.03,
+        "6": 3689.13,
+        "9": 3832.75
+      },
+      "change_rp_per_kg": 36.71,
+      "change_percent": 0.97,
+      "trend": "up",
+      "valid_from": "2026-07-15",
+      "valid_to": "2026-07-21",
+      "published_at": "2026-07-15T00:00:00+00:00",
+      "source_name": "InfoSAWIT",
+      "source_url": "https://www.infosawit.com/2026/07/15/harga-tbs-sawit-swadaya-riau-periode-15-21-juli-2026-naik-rp3671-per-kg/",
+      "status": "current_period",
+      "confidence": "infosawit",
+      "cross_checked_sources": 1
+    }
+  ]
+}
