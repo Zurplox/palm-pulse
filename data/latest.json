@@ -79,55 +79,57 @@
   "master_summary": "EXECUTIVE OVERVIEW\n- Today’s edition focuses on Indonesia’s biodiesel expansion, regional export availability and energy-linked support for CPO.\n- Market conditions remain balanced, with policy-driven demand offset by changing production and stock levels.\n\nINDONESIA\n- B50 could redirect more palm oil toward domestic fuel demand and reduce exportable supply.\n- Smallholder outcomes will depend on how policy changes translate into mill demand and TBS pricing.\n\nMALAYSIA\n- Malaysian suppliers may benefit if importers seek alternatives to tighter Indonesian exports.\n- Industry initiatives include B100 testing and further development of palm-based renewable energy.\n\nPRICE & MARKET DRIVERS\n- Crude-oil strength supports biofuel economics, while production, stocks and currency movements remain important.\n\nSMALLHOLDER IMPLICATIONS\n- Monitor local mill prices, export policy and fertiliser costs rather than relying on FCPO movements alone.\n\nWATCHLIST\n- Watch B50 implementation, Malaysian stock data and major changes to export duties or sustainability rules.",
   "master_summary_type": "extract",
   "ai_summary_count": 0,
-  "tbs_price_updated_at": "2026-07-21T11:58:00+00:00",
+  "tbs_price_updated_at": "2026-07-23T05:10:00+00:00",
   "tbs_prices": [
     {
       "region": "Riau",
       "reference_for": "Siak",
       "scheme": "Plasma",
       "palm_age_years": 9,
-      "price_rp_per_kg": 3890.97,
+      "price_rp_per_kg": 3930.55,
       "age_prices_rp_per_kg": {
-        "4": 3400.16,
-        "5": 3603.09,
-        "6": 3759.77,
-        "9": 3890.97
+        "4": 3434.68,
+        "5": 3639.59,
+        "6": 3797.84,
+        "9": 3930.55
       },
-      "change_rp_per_kg": 31.1,
-      "change_percent": 0.81,
+      "change_rp_per_kg": 39.58,
+      "change_percent": 1.02,
       "trend": "up",
-      "valid_from": "2026-07-15",
-      "valid_to": "2026-07-21",
-      "published_at": "2026-07-14T00:00:00+00:00",
+      "valid_from": "2026-07-22",
+      "valid_to": "2026-07-28",
+      "published_at": "2026-07-21T00:00:00+00:00",
       "source_name": "InfoSAWIT",
-      "source_url": "https://www.infosawit.com/2026/07/14/harga-tbs-sawit-plasma-riau-15-21-juli-2026-naik-rp-311-per-kg/",
+      "source_url": "https://www.infosawit.com/2026/07/21/harga-tbs-sawit-plasma-riau-22-28-juli-2026-naik-rp3958-per-kg/",
       "status": "current_period",
       "confidence": "infosawit",
-      "cross_checked_sources": 1
+      "cross_checked_sources": 2,
+      "data_quality": "full_age_table"
     },
     {
       "region": "Riau",
       "reference_for": "Siak",
       "scheme": "Swadaya",
       "palm_age_years": 9,
-      "price_rp_per_kg": 3832.75,
+      "price_rp_per_kg": 3846.0,
       "age_prices_rp_per_kg": {
-        "4": 3309.23,
-        "5": 3552.03,
-        "6": 3689.13,
-        "9": 3832.75
+        "4": 3320.8,
+        "5": 3564.42,
+        "6": 3701.97,
+        "9": 3846.0
       },
-      "change_rp_per_kg": 36.71,
-      "change_percent": 0.97,
+      "change_rp_per_kg": 13.25,
+      "change_percent": 0.35,
       "trend": "up",
-      "valid_from": "2026-07-15",
-      "valid_to": "2026-07-21",
-      "published_at": "2026-07-15T00:00:00+00:00",
+      "valid_from": "2026-07-22",
+      "valid_to": "2026-07-28",
+      "published_at": "2026-07-22T00:00:00+00:00",
       "source_name": "InfoSAWIT",
-      "source_url": "https://www.infosawit.com/2026/07/15/harga-tbs-sawit-swadaya-riau-periode-15-21-juli-2026-naik-rp3671-per-kg/",
+      "source_url": "https://www.infosawit.com/2026/07/22/harga-tbs-sawit-swadaya-riau-periode-22-28-juli-2026-naik-rp1325-per-kg/",
       "status": "current_period",
       "confidence": "infosawit",
-      "cross_checked_sources": 1
+      "cross_checked_sources": 2,
+      "data_quality": "full_age_table"
     }
   ]
 }
