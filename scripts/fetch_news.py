@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Collect palm-oil RSS news, optionally summarize with Gemini, and write static JSON."""
 from __future__ import annotations
-import html, json, os, re, sys, time
+import html, json, os, re, sys, time, unicodedata
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 
 import feedparser
 import requests
@@ -24,7 +24,10 @@ LIVE_JSON = "https://zurplox.github.io/palm-pulse/data/latest.json"
 MONTHS_ID = {"januari":1,"februari":2,"maret":3,"april":4,"mei":5,"juni":6,"juli":7,"agustus":8,"september":9,"oktober":10,"november":11,"desember":12}
 TBS_FEEDS = [
     ("InfoSAWIT", "https://www.infosawit.com/feed/"),
-    ("Google News · InfoSAWIT Riau", "https://news.google.com/rss/search?q=site%3Ainfosawit.com%20%22harga%20TBS%22%20Riau&hl=id&gl=ID&ceid=ID:id"),
+    ("InfoSAWIT Riau tag", "https://www.infosawit.com/tag/harga-tbs-sawit-riau/feed/"),
+    ("Google News · InfoSAWIT Plasma Riau", "https://news.google.com/rss/search?q=site%3Ainfosawit.com%20%22Harga%20TBS%20Sawit%20Plasma%20Riau%22&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · InfoSAWIT Swadaya Riau", "https://news.google.com/rss/search?q=site%3Ainfosawit.com%20%22Harga%20TBS%20Sawit%20Swadaya%20Riau%22&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · InfoSAWIT Sumatera", "https://news.google.com/rss/search?q=site%3Asumatera.infosawit.com%20%22TBS%22%20Riau&hl=id&gl=ID&ceid=ID:id"),
     ("Google News · TBS Riau", "https://news.google.com/rss/search?q=%28%22harga%20TBS%22%20OR%20%22TBS%20sawit%22%29%20Riau&hl=id&gl=ID&ceid=ID:id"),
     ("Google News · TBS Siak", "https://news.google.com/rss/search?q=%28%22harga%20TBS%22%20OR%20%22TBS%20sawit%22%29%20Siak&hl=id&gl=ID&ceid=ID:id"),
     ("Google News · Official Riau", "https://news.google.com/rss/search?q=%28site%3Adisbun.riau.go.id%20OR%20site%3Ariau.go.id%20OR%20site%3Amediacenter.riau.go.id%29%20%22harga%20TBS%22&hl=id&gl=ID&ceid=ID:id"),
@@ -287,6 +290,102 @@ def parse_tbs_period(text: str) -> tuple[str, str] | None:
     return None
 
 
+def infosawit_article_url(title: str, published: datetime, original_url: str) -> str:
+    """Turn a newly discovered Google News item into its weekly InfoSAWIT URL."""
+    host = urlparse(original_url).netloc.lower()
+    if host.endswith("infosawit.com"):
+        return original_url.split("?", 1)[0]
+    base_title = re.sub(r"\s+-\s+InfoSAWIT.*$", "", title, flags=re.I).strip()
+    normalized = unicodedata.normalize("NFKD", base_title).encode("ascii", "ignore").decode("ascii").lower()
+    normalized = re.sub(r"(?<=\d)[.,](?=\d)", "", normalized)
+    slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+    day = published.astimezone(timezone.utc).date()
+    return f"https://www.infosawit.com/{day:%Y/%m/%d}/{slug}/"
+
+
+def fetch_article_text(url: str) -> str:
+    """Fetch article text, trying normal and AMP pages; never trust verification pages."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "id-ID,id;q=0.9,en;q=0.7",
+        "Cache-Control": "no-cache",
+    }
+    clean_url = url.split("?", 1)[0].rstrip("/") + "/"
+    variants = [clean_url, clean_url + "amp/", clean_url + "?output=1"]
+    for candidate in dict.fromkeys(variants):
+        try:
+            response = requests.get(candidate, timeout=20, headers=headers, allow_redirects=True)
+            response.raise_for_status()
+            lowered = response.text[:5000].lower()
+            if "please wait while your request is being verified" in lowered or "one moment, please" in lowered:
+                continue
+            soup = BeautifulSoup(response.text, "html.parser")
+            for node in soup(["script", "style", "nav", "footer", "aside"]): node.decompose()
+            article = soup.find("article") or soup.find("main") or soup.body
+            text = clean_text(article.get_text(" ", strip=True) if article else "")
+            if len(text) > 250 and "tbs" in text.lower(): return text
+        except Exception:
+            continue
+    return ""
+
+
+def infosawit_slug(title: str) -> str:
+    title = re.sub(r"\s+-\s+InfoSAWIT.*$", "", title, flags=re.I)
+    title = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode("ascii")
+    title = re.sub(r"(?<=\d)[.,](?=\d)", "", title)
+    title = re.sub(r"\brp\.", "rp", title, flags=re.I)
+    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+
+
+def infosawit_url_candidates(title: str, published: datetime, original_url: str) -> list[str]:
+    candidates = []
+    host = urlparse(original_url).netloc.lower()
+    if "infosawit.com" in host:
+        candidates.append(original_url.split("?", 1)[0])
+    slug = infosawit_slug(title)
+    local_date = published.astimezone(timezone(timedelta(hours=7))).date()
+    for offset in (0, -1, 1):
+        day = local_date + timedelta(days=offset)
+        for domain in ("www.infosawit.com", "sumatera.infosawit.com"):
+            candidates.append(f"https://{domain}/{day:%Y/%m/%d}/{slug}/")
+    return list(dict.fromkeys(candidates))
+
+
+def fetch_tbs_article(url: str) -> tuple[str, str]:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36 PalmPulse/2.0",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "id-ID,id;q=0.9,en;q=0.7",
+        "Cache-Control": "no-cache",
+    }
+    variants = [url, url.rstrip("/") + "/amp/"]
+    for candidate in variants:
+        try:
+            response = requests.get(candidate, timeout=18, headers=headers, allow_redirects=True)
+            response.raise_for_status()
+            raw = response.text
+            lower = raw.lower()
+            if len(raw) < 500 or "please wait while your request is being verified" in lower or "one moment, please" in lower:
+                continue
+            soup = BeautifulSoup(raw, "html.parser")
+            canonical = soup.find("link", rel="canonical")
+            canonical_url = canonical.get("href") if canonical and canonical.get("href") else response.url
+            parts = []
+            for selector in ("article", "main", ".entry-content", ".post-content"):
+                node = soup.select_one(selector)
+                if node:
+                    parts.append(node.get_text(" ", strip=True))
+            for node in soup.select('script[type="application/ld+json"]'):
+                parts.append(node.get_text(" ", strip=True))
+            text = clean_text(" ".join(parts) or soup.get_text(" ", strip=True))
+            if "tbs" in text.lower() and ("riau" in text.lower() or "siak" in text.lower()):
+                return text, canonical_url
+        except Exception:
+            continue
+    return "", url
+
+
 def parse_tbs_candidate(title: str, body: str, url: str, publisher: str, published: datetime) -> dict | None:
     text = clean_text(f"{title} {body}"); lower = text.lower()
     if "tbs" not in lower or not ("riau" in lower or "siak" in lower): return None
@@ -301,22 +400,23 @@ def parse_tbs_candidate(title: str, body: str, url: str, publisher: str, publish
     if "9" not in age_prices and targeted:
         value = parse_id_number(targeted[1])
         if value is not None and 2000 <= value <= 8000: age_prices["9"] = round(value, 2)
-    if not age_prices: return None
-    price = age_prices.get("9") or age_prices.get("6") or age_prices.get("5") or age_prices.get("4")
     change_match = re.search(r"\b(naik|turun)\s*(?:sebesar\s*)?Rp\.?\s*([\d.]+(?:,\d+)?)", text, re.I)
     change = None
     if change_match:
         magnitude = parse_id_number(change_match[2])
         if magnitude is not None and magnitude < 1000: change = round(magnitude if change_match[1].lower() == "naik" else -magnitude, 2)
+    if not age_prices and change is None: return None
+    price = age_prices.get("9") or age_prices.get("6") or age_prices.get("5") or age_prices.get("4")
     scheme = "Swadaya" if "swadaya" in lower else "Plasma" if "plasma" in lower else "Umum"
     region = "Siak" if "siak" in title.lower() else "Riau"
     source_text = f"{publisher} {url}".lower()
     official = ("disbun", "riau.go.id", "siak.go.id", "media center riau", "pemprov riau", "diskominfo siak")
     priority = 0 if "infosawit" in source_text else 1 if any(x in source_text for x in official) else 2
     return {"region":region,"reference_for":None if region=="Siak" else "Siak","scheme":scheme,
-            "palm_age_years":9,"price_rp_per_kg":round(price,2),"age_prices_rp_per_kg":age_prices,
-            "change_rp_per_kg":change,"valid_from":period[0],"valid_to":period[1],
-            "published_at":published.isoformat(),"source_name":publisher,"source_url":url,"source_priority":priority}
+            "palm_age_years":9,"price_rp_per_kg":round(price,2) if price is not None else None,
+            "age_prices_rp_per_kg":age_prices,"change_rp_per_kg":change,
+            "valid_from":period[0],"valid_to":period[1],"published_at":published.isoformat(),
+            "source_name":publisher,"source_url":url,"source_priority":priority}
 
 
 def previous_tbs_prices() -> list[dict]:
@@ -334,25 +434,60 @@ def previous_tbs_prices() -> list[dict]:
 
 def collect_tbs_prices() -> tuple[list[dict], list[str]]:
     candidates, errors = [], []
+    previous = previous_tbs_prices()
     for feed_name, feed_url in TBS_FEEDS:
         try:
-            response = requests.get(feed_url, timeout=22, headers={"User-Agent":USER_AGENT}); response.raise_for_status()
+            response = requests.get(feed_url, timeout=22, headers={"User-Agent":USER_AGENT,"Cache-Control":"no-cache"}); response.raise_for_status()
             feed = feedparser.parse(response.content.lstrip())
-            for entry in feed.entries[:30]:
-                title = clean_text(entry.get("title")); url = entry.get("link", "").strip(); content = entry.get("content") or []
+            for entry in feed.entries[:35]:
+                title = clean_text(entry.get("title")); original_url = entry.get("link", "").strip(); content = entry.get("content") or []
                 raw = entry.get("summary") or entry.get("description") or (content[0].get("value", "") if content else "")
                 clean_title, publisher = source_from_title(title, feed_name)
-                item = parse_tbs_candidate(clean_title, raw, url, publisher, parse_date(entry).astimezone(timezone.utc))
+                published = parse_date(entry).astimezone(timezone.utc)
+                is_infosawit = "infosawit" in f"{publisher} {feed_name} {clean_title}".lower()
+                source_url = original_url
+                if is_infosawit:
+                    article_text = ""
+                    urls = infosawit_url_candidates(clean_title, published, original_url)
+                    if urls: source_url = urls[0]
+                    for candidate_url in urls:
+                        article_text, canonical_url = fetch_tbs_article(candidate_url)
+                        if article_text:
+                            source_url = canonical_url
+                            break
+                    raw = f"{raw} {article_text}"
+                    publisher = "InfoSAWIT"
+                item = parse_tbs_candidate(clean_title, raw, source_url, publisher, published)
                 if item: candidates.append(item)
-        except Exception as exc: errors.append(f"{feed_name}: {type(exc).__name__}")
+        except Exception as exc:
+            errors.append(f"{feed_name}: {type(exc).__name__}")
+
     chosen = []
     for scheme in ("Plasma", "Swadaya", "Umum"):
         pool = [x for x in candidates if x["scheme"] == scheme]
-        pool.sort(key=lambda x:(x["valid_to"],-x["source_priority"],x["published_at"]), reverse=True)
-        if pool:
-            best = pool[0]; matches = {x["source_name"] for x in pool if x["valid_to"]==best["valid_to"] and abs(x["price_rp_per_kg"]-best["price_rp_per_kg"])<2}
-            best["cross_checked_sources"] = len(matches); best["confidence"] = "infosawit" if best["source_priority"]==0 else "official" if best["source_priority"]==1 else "reported"; chosen.append(best)
-    if not chosen: chosen = previous_tbs_prices()
+        pool.sort(key=lambda x:(x["valid_to"], -x["source_priority"], x["published_at"]), reverse=True)
+        if not pool: continue
+        best = dict(pool[0])
+        same_period = [x for x in pool if x["valid_from"] == best["valid_from"] and x["valid_to"] == best["valid_to"]]
+        for candidate in sorted(same_period, key=lambda x: len(x.get("age_prices_rp_per_kg") or {}), reverse=True):
+            for age, value in (candidate.get("age_prices_rp_per_kg") or {}).items():
+                best.setdefault("age_prices_rp_per_kg", {}).setdefault(age, value)
+            if best.get("price_rp_per_kg") is None and candidate.get("price_rp_per_kg") is not None:
+                best["price_rp_per_kg"] = candidate["price_rp_per_kg"]
+        previous_scheme = sorted([x for x in previous if x.get("scheme") == scheme], key=lambda x:x.get("valid_to", ""), reverse=True)
+        if best.get("price_rp_per_kg") is None and best.get("change_rp_per_kg") is not None and previous_scheme:
+            old_price = previous_scheme[0].get("price_rp_per_kg")
+            if old_price is not None: best["price_rp_per_kg"] = round(float(old_price) + float(best["change_rp_per_kg"]), 2)
+        if best.get("price_rp_per_kg") is None: continue
+        best.setdefault("age_prices_rp_per_kg", {})
+        best["age_prices_rp_per_kg"].setdefault("9", best["price_rp_per_kg"])
+        sources = {x["source_name"] for x in same_period if x.get("price_rp_per_kg") is not None}
+        best["cross_checked_sources"] = len(sources)
+        best["confidence"] = "infosawit" if best["source_priority"] == 0 else "official" if best["source_priority"] == 1 else "reported"
+        best["data_quality"] = "full_age_table" if all(str(age) in best["age_prices_rp_per_kg"] for age in (4,5,6,9)) else "benchmark_only"
+        chosen.append(best)
+
+    if not chosen: chosen = previous
     today = datetime.now(timezone.utc).date()
     for item in chosen:
         try:
@@ -360,7 +495,7 @@ def collect_tbs_prices() -> tuple[list[dict], list[str]]:
         except Exception: item["status"]="latest_available"
         change=item.get("change_rp_per_kg"); item["trend"]="up" if change and change>0 else "down" if change and change<0 else "flat"
         if change and item.get("price_rp_per_kg"):
-            previous=item["price_rp_per_kg"]-change; item["change_percent"]=round(change/previous*100,2) if previous else None
+            prior=item["price_rp_per_kg"]-change; item["change_percent"]=round(change/prior*100,2) if prior else None
         item.pop("source_priority",None)
     return chosen[:3], errors
 

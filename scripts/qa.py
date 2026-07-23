@@ -31,8 +31,9 @@ for i,p in enumerate(data['tbs_prices']):
     for key in ['region','scheme','price_rp_per_kg','valid_from','valid_to','source_name','source_url','status','trend']:
         assert key in p and p[key] not in (None,''), f'TBS price {i} missing {key}'
     ages=p.get('age_prices_rp_per_kg',{})
-    for age in ('4','5','6'):
-        assert float(ages.get(age,0)) > 0, f'TBS price {i} missing age {age}'
+    if p.get('data_quality','full_age_table') == 'full_age_table':
+        for age in ('4','5','6'):
+            assert float(ages.get(age,0)) > 0, f'TBS price {i} missing age {age}'
 manifest=json.loads((ROOT/'manifest.webmanifest').read_text())
 sources=json.loads((ROOT/'config/sources.json').read_text())
 assert manifest.get('display')=='standalone'
