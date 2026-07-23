@@ -56,7 +56,9 @@ Supported categories: `Indonesia`, `Malaysia`, `Market`, `Policy`, `Plantation`.
 
 ## TBS prices for Riau and Siak
 
-For TBS only, Palm Pulse prioritises InfoSAWIT, then uses official Disbun/Riau/Siak publications and regional reports as cross-checks. Ages 4, 5 and 6 are the primary field view, with age 9 retained as the standard comparison benchmark. Every card includes the exact validity period, trend and a link to the full source article. If no new publication is available, the latest confirmed value is retained. Riau values are labelled as references for Siak unless a Siak-specific publication is found. Prices are never estimated.
+For TBS only, Palm Pulse performs a fresh weekly discovery instead of using a fixed article URL. Every workflow run searches dedicated Google News RSS queries and the InfoSAWIT Riau feed for the newest Plasma and Swadaya pages, reconstructs the new direct InfoSAWIT URL, then fetches the article (including its AMP fallback) to extract the validity period and age table. Official Riau/Siak and InfoSAWIT Sumatera reports are used as cross-checks.
+
+Ages 4, 5 and 6 are the primary field view, with age 9 retained as the standard comparison benchmark. If a newly discovered page is temporarily protected from crawling, Palm Pulse still flags its new period and calculates only the published age-9 movement from the previous confirmed benchmark; it never relabels older age 4–6 values as current. Every card links to the newly discovered source page.
 
 ## Local testing
 
