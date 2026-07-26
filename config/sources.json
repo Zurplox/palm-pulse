@@ -1,0 +1,17 @@
+[
+  {"name":"GAPKI","url":"https://gapki.id/en/feed/","country":"Indonesia","category":"Indonesia","lang":"en"},
+  {"name":"MPOC","url":"https://www.mpoc.org.my/feed/","country":"Malaysia","category":"Malaysia","lang":"en"},
+  {"name":"RSPO","url":"https://rspo.org/feed/","country":"Global","category":"Policy","lang":"en"},
+  {"name":"Google News · Indonesia","url":"https://news.google.com/rss/search?q=%28palm%20oil%20OR%20CPO%20OR%20kelapa%20sawit%29%20Indonesia&hl=en-SG&gl=SG&ceid=SG:en","country":"Indonesia","category":"Indonesia","lang":"en"},
+  {"name":"Google News · Malaysia","url":"https://news.google.com/rss/search?q=%28palm%20oil%20OR%20CPO%20OR%20MPOB%29%20Malaysia&hl=en-MY&gl=MY&ceid=MY:en","country":"Malaysia","category":"Malaysia","lang":"en"},
+  {"name":"Google News · Market","url":"https://news.google.com/rss/search?q=%28palm%20oil%20price%20OR%20FCPO%20OR%20CPO%20futures%29&hl=en-SG&gl=SG&ceid=SG:en","country":"Global","category":"Market","lang":"en"},
+  {"name":"Google News · Policy","url":"https://news.google.com/rss/search?q=%28palm%20oil%20policy%20OR%20biodiesel%20B50%20OR%20EUDR%20OR%20export%20levy%29&hl=en-SG&gl=SG&ceid=SG:en","country":"Global","category":"Policy","lang":"en"},
+  {"name":"Google News · Plantation","url":"https://news.google.com/rss/search?q=%28oil%20palm%20plantation%20OR%20smallholder%20OR%20replanting%20OR%20ganoderma%29&hl=en-SG&gl=SG&ceid=SG:en","country":"Global","category":"Plantation","lang":"en"},
+  {"name":"GAPKI (Bahasa)","url":"https://gapki.id/feed/","country":"Indonesia","category":"Indonesia","lang":"id"},
+  {"name":"InfoSAWIT","url":"https://www.infosawit.com/feed/","country":"Indonesia","category":"Indonesia","lang":"id"},
+  {"name":"Google News · Bahasa","url":"https://news.google.com/rss/search?q=%28kelapa%20sawit%20OR%20CPO%20OR%20harga%20TBS%29%20Indonesia&hl=id&gl=ID&ceid=ID:id","country":"Indonesia","category":"Indonesia","lang":"id"},
+  {"name":"Google News · Pasar (Bahasa)","url":"https://news.google.com/rss/search?q=%28harga%20CPO%20OR%20harga%20minyak%20sawit%20OR%20ekspor%20CPO%20OR%20lelang%20KPBN%29&hl=id&gl=ID&ceid=ID:id","country":"Indonesia","category":"Market","lang":"id"},
+  {"name":"Google News · Kebijakan (Bahasa)","url":"https://news.google.com/rss/search?q=%28kebijakan%20sawit%20OR%20pungutan%20ekspor%20CPO%20OR%20biodiesel%20B50%20OR%20EUDR%20OR%20ISPO%20OR%20BPDPKS%29&hl=id&gl=ID&ceid=ID:id","country":"Indonesia","category":"Policy","lang":"id"},
+  {"name":"Google News · Perkebunan (Bahasa)","url":"https://news.google.com/rss/search?q=%28perkebunan%20kelapa%20sawit%20OR%20pekebun%20swadaya%20OR%20peremajaan%20sawit%20rakyat%20OR%20pabrik%20kelapa%20sawit%29&hl=id&gl=ID&ceid=ID:id","country":"Indonesia","category":"Plantation","lang":"id"},
+  {"name":"Google News · Malaysia (Bahasa)","url":"https://news.google.com/rss/search?q=%28minyak%20sawit%20OR%20sawit%20OR%20MPOB%29%20Malaysia&hl=id&gl=ID&ceid=ID:id","country":"Malaysia","category":"Malaysia","lang":"id"}
+]
