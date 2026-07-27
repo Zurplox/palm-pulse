@@ -1,0 +1,743 @@
+#!/usr/bin/env python3
+"""Collect palm-oil RSS news, optionally summarize with Gemini, and write static JSON."""
+from __future__ import annotations
+import html, json, os, re, sys, time, unicodedata
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
+from urllib.parse import quote, urlparse
+
+import feedparser
+import requests
+from bs4 import BeautifulSoup
+from dateutil import parser as dateparser
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+SOURCES = json.loads((ROOT / "config" / "sources.json").read_text(encoding="utf-8"))
+KEY = os.getenv("GEMINI_API_KEY", "").strip()
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash").strip()
+FALLBACK_MODEL = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-3.5-flash").strip()
+FALLBACK_MODEL_2 = os.getenv("GEMINI_FALLBACK_MODEL_2", "gemini-3.1-flash-lite").strip()
+# Tried in order; the first model that answers wins. Mirrors the Android app.
+MODEL_CHAIN = [m for m in dict.fromkeys([MODEL, FALLBACK_MODEL, FALLBACK_MODEL_2]) if m]
+MAX_STORIES = int(os.getenv("MAX_STORIES", "18"))
+# Hard freshness window for the news list. Anything published before this many
+# days ago is dropped at collection time, so a slow-moving feed cannot pad the
+# edition with last week's headlines. At least 1 day, so a bad value cannot
+# silently empty the edition.
+MAX_NEWS_AGE_DAYS = max(1, int(os.getenv("MAX_NEWS_AGE_DAYS", "4")))
+MAX_AI = int(os.getenv("MAX_AI_SUMMARIES", "18"))
+USER_AGENT = "PalmPulse/1.0 (+personal news reader)"
+START = time.monotonic()
+
+
+def log(message: str) -> None:
+    """Timestamped progress line, flushed so CI shows it live instead of at the end."""
+    print(f"[{time.monotonic() - START:7.1f}s] {message}", file=sys.stderr, flush=True)
+
+
+def _pages_base() -> str:
+    """Published Pages base URL, derived so forks keep price continuity."""
+    override = os.getenv("PAGES_BASE_URL", "").strip().rstrip("/")
+    if override:
+        return override
+    repo = os.getenv("GITHUB_REPOSITORY", "").strip()
+    if "/" in repo:
+        owner, name = repo.split("/", 1)
+        return "https://" + owner.lower() + ".github.io/" + name
+    return "https://zurplox.github.io/palm-pulse"
+
+
+PAGES_BASE = _pages_base()
+LIVE_JSON = PAGES_BASE + "/data/latest.json"
+HISTORY_URL = PAGES_BASE + "/data/history.json"
+# TBS sanity band. Configurable so a genuine market move cannot silently void
+# every reading the way a hardcoded band eventually would.
+PRICE_MIN = float(os.getenv("TBS_PRICE_MIN", "2000"))
+PRICE_MAX = float(os.getenv("TBS_PRICE_MAX", "8000"))
+AI_BATCH_SIZE = max(1, int(os.getenv("AI_BATCH_SIZE", "6")))
+AI_BATCH_PAUSE = int(os.getenv("AI_BATCH_PAUSE", "15"))
+# Coarse per-stage status published in health.stages for observability. Never
+# contains exception text, URLs or keys.
+STAGE_STATUS: dict[str, str] = {}
+REJECTED_PRICES: list[str] = []
+MONTHS_ID = {"januari":1,"februari":2,"maret":3,"april":4,"mei":5,"juni":6,"juli":7,"agustus":8,"september":9,"oktober":10,"november":11,"desember":12}
+TBS_FEEDS = [
+    ("InfoSAWIT", "https://www.infosawit.com/feed/"),
+    ("InfoSAWIT Riau tag", "https://www.infosawit.com/tag/harga-tbs-sawit-riau/feed/"),
+    ("Google News · InfoSAWIT Plasma Riau", "https://news.google.com/rss/search?q=site%3Ainfosawit.com%20%22Harga%20TBS%20Sawit%20Plasma%20Riau%22&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · InfoSAWIT Swadaya Riau", "https://news.google.com/rss/search?q=site%3Ainfosawit.com%20%22Harga%20TBS%20Sawit%20Swadaya%20Riau%22&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · InfoSAWIT Sumatera", "https://news.google.com/rss/search?q=site%3Asumatera.infosawit.com%20%22TBS%22%20Riau&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · TBS Riau", "https://news.google.com/rss/search?q=%28%22harga%20TBS%22%20OR%20%22TBS%20sawit%22%29%20Riau&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · TBS Siak", "https://news.google.com/rss/search?q=%28%22harga%20TBS%22%20OR%20%22TBS%20sawit%22%29%20Siak&hl=id&gl=ID&ceid=ID:id"),
+    ("Google News · Official Riau", "https://news.google.com/rss/search?q=%28site%3Adisbun.riau.go.id%20OR%20site%3Ariau.go.id%20OR%20site%3Amediacenter.riau.go.id%29%20%22harga%20TBS%22&hl=id&gl=ID&ceid=ID:id"),
+]
+
+# Keyword sets are bilingual so Indonesian-language stories are categorised and
+# scored just as accurately as the English ones.
+POSITIVE = {"rise", "rises", "gain", "gains", "higher", "tight", "shortage", "decline in stocks", "b50", "b40", "strong demand", "export growth",
+            "naik", "menguat", "meningkat", "kenaikan", "melonjak", "tumbuh", "positif", "permintaan kuat", "pasokan ketat", "rekor tertinggi", "insentif"}
+NEGATIVE = {"fall", "falls", "drop", "drops", "lower", "surplus", "weak demand", "export decline", "higher output", "oversupply",
+            "turun", "melemah", "anjlok", "penurunan", "tertekan", "merosot", "lesu", "pasokan melimpah", "permintaan lemah", "koreksi", "kemarau", "banjir"}
+POLICY = {"policy", "law", "regulation", "levy", "duty", "tax", "eudr", "ispo", "mspo", "rspo", "biodiesel", "b40", "b50",
+          "kebijakan", "aturan", "peraturan", "regulasi", "permentan", "pungutan", "bea keluar", "pajak", "subsidi", "mandatori", "pemerintah", "kementerian", "bpdpks", "dmo"}
+PLANTATION = {"plantation", "smallholder", "fertilizer", "fertiliser", "ganoderma", "replanting", "yield", "harvest", "tbs", "ffb",
+              "perkebunan", "kebun", "pekebun", "petani", "swadaya", "plasma", "pupuk", "peremajaan", "replanting sawit", "psr", "panen", "rendemen", "bibit", "pabrik kelapa sawit", "pks"}
+MARKET = {"price", "futures", "fcpo", "cpo", "stock", "export", "import", "production", "demand", "supply",
+          "harga", "pasar", "berjangka", "stok", "ekspor", "impor", "produksi", "permintaan", "pasokan", "kpbn", "lelang", "minyak sawit"}
+
+
+def clean_text(value: str | None) -> str:
+    soup = BeautifulSoup(html.unescape(value or ""), "html.parser")
+    text = " ".join(soup.get_text(" ", strip=True).split())
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def clean_multiline(value: str | None) -> str:
+    soup = BeautifulSoup(html.unescape(value or ""), "html.parser")
+    text = soup.get_text("\n", strip=True)
+    lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
+    return "\n".join(line for line in lines if line)
+
+
+def clip_sentence(text: str, limit: int = 300) -> str:
+    text = clean_text(text)
+    if not text:
+        return "Preview unavailable. Open the original article to read more."
+    parts = re.split(r"(?<=[.!?])\s+", text)
+    chosen = parts[0]
+    if len(chosen) < 70 and len(parts) > 1:
+        chosen += " " + parts[1]
+    if len(chosen) <= limit:
+        return chosen
+    cut = chosen[: limit - 1].rsplit(" ", 1)[0]
+    return cut + "…"
+
+
+def parse_date(entry) -> datetime:
+    for key in ("published", "updated", "created"):
+        value = entry.get(key)
+        if value:
+            try:
+                dt = dateparser.parse(value)
+                return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+            except Exception:
+                pass
+    return datetime.now(timezone.utc)
+
+
+def title_key(title: str) -> str:
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    stop = {"the", "a", "an", "and", "or", "to", "of", "in", "on", "for", "with", "as", "at", "from"}
+    return " ".join(w for w in words if w not in stop)[:140]
+
+
+def classify(title: str, snippet: str, default_category: str) -> tuple[str, str]:
+    text = f"{title} {snippet}".lower()
+    category = default_category
+    if any(k in text for k in POLICY): category = "Policy"
+    elif any(k in text for k in PLANTATION): category = "Plantation"
+    elif any(k in text for k in MARKET): category = "Market"
+    pos = sum(k in text for k in POSITIVE)
+    neg = sum(k in text for k in NEGATIVE)
+    impact = "Positive" if pos > neg else "Negative" if neg > pos else "Neutral"
+    return category, impact
+
+
+def source_from_title(title: str, fallback: str) -> tuple[str, str]:
+    # Google News often appends the original publisher after " - ".
+    if " - " in title:
+        base, publisher = title.rsplit(" - ", 1)
+        if 1 < len(publisher.split()) < 8:
+            return base.strip(), publisher.strip()
+    return title.strip(), fallback
+
+
+def collect() -> tuple[list[dict], list[str]]:
+    found, errors = [], []
+    cutoff = datetime.now(timezone.utc) - timedelta(days=MAX_NEWS_AGE_DAYS)
+    for source in SOURCES:
+        try:
+            log(f"news feed: {source.get('name') or source['url']}")
+            response = requests.get(source["url"], timeout=22, headers={"User-Agent": USER_AGENT})
+            response.raise_for_status()
+            feed = feedparser.parse(response.content.lstrip())
+            if feed.bozo and not feed.entries:
+                raise RuntimeError(str(feed.bozo_exception))
+            for entry in feed.entries[:25]:
+                title = clean_text(entry.get("title"))
+                url = entry.get("link", "").strip()
+                if not title or not url: continue
+                published = parse_date(entry).astimezone(timezone.utc)
+                if published < cutoff: continue
+                raw = entry.get("summary") or entry.get("description") or ""
+                snippet = clip_sentence(raw)
+                clean_title, publisher = source_from_title(title, source["name"])
+                category, impact = classify(clean_title, snippet, source["category"])
+                country = source["country"]
+                lower = f"{clean_title} {snippet}".lower()
+                if "indonesia" in lower or "jakarta" in lower: country = "Indonesia"
+                elif "malaysia" in lower or "mpob" in lower or "kuala lumpur" in lower: country = "Malaysia"
+                found.append({
+                    "id": title_key(clean_title), "title": clean_title, "url": url,
+                    "source": publisher, "country": country, "category": category,
+                    "impact": impact, "published_at": published.isoformat(),
+                    "lang": source.get("lang", "en"),
+                    "snippet": snippet, "summary": snippet, "summary_type": "extract"
+                })
+        except Exception as exc:
+            errors.append(f"{source['name']}: {exc}")
+    found.sort(key=lambda x: x["published_at"], reverse=True)
+    deduped, seen = [], set()
+    for story in found:
+        key = story["id"]
+        tokens = set(key.split())
+        duplicate = key in seen or any(len(tokens & set(old.split())) / max(1, len(tokens | set(old.split()))) > .82 for old in seen)
+        if duplicate: continue
+        seen.add(key); deduped.append(story)
+    # Keep every edition bilingual. Without this, a burst of Indonesian-language
+    # items (the Google News Bahasa feeds are prolific) could fill MAX_STORIES and
+    # push out the English wire coverage, or vice versa. Alternate the two pools
+    # by recency, then restore chronological order for display.
+    pools = {"id": [s for s in deduped if s.get("lang") == "id"],
+             "en": [s for s in deduped if s.get("lang") != "id"]}
+    unique = []
+    while len(unique) < MAX_STORIES and (pools["id"] or pools["en"]):
+        for lang in ("id", "en"):
+            if pools[lang] and len(unique) < MAX_STORIES:
+                unique.append(pools[lang].pop(0))
+    unique.sort(key=lambda x: x["published_at"], reverse=True)
+    return unique, errors
+
+
+def call_gemini(model: str, prompt: str, max_tokens: int, preserve_lines: bool = False, json_mode: bool = False) -> str:
+    endpoint = "https://generativelanguage.googleapis.com/v1beta/models/" + quote(model, safe="") + ":generateContent?key=" + quote(KEY, safe="")
+    generation = {"temperature":0.15,"maxOutputTokens":max_tokens}
+    if json_mode: generation["responseMimeType"] = "application/json"
+    payload = {"contents":[{"parts":[{"text":prompt}]}],"generationConfig":generation}
+    response = None
+    for attempt in range(2):
+        response = requests.post(endpoint, json=payload, timeout=35, headers={"Content-Type":"application/json"})
+        if response.status_code != 429 or attempt == 1:
+            break
+        retry_after = response.headers.get("Retry-After", "15")
+        try: delay = max(10, min(int(retry_after), 20))
+        except ValueError: delay = 15
+        time.sleep(delay)
+    response.raise_for_status()
+    data = response.json()
+    candidate = data["candidates"][0]
+    finish_reason = candidate.get("finishReason")
+    if finish_reason not in (None, "STOP"):
+        raise RuntimeError(f"Gemini returned incomplete output ({finish_reason})")
+    text = candidate["content"]["parts"][0]["text"].strip()
+    return clean_multiline(text) if preserve_lines else clean_text(text)
+
+
+def safe_ai_error(exc: Exception, context: str) -> str:
+    response = getattr(exc, "response", None)
+    status = getattr(response, "status_code", None)
+    return f"{context}: Gemini HTTP {status}; publisher preview used." if status else f"{context}: Gemini request failed ({type(exc).__name__}); publisher preview used."
+
+
+def fallback_master(stories: list[dict]) -> str:
+    counts = {country: sum(s["country"] == country for s in stories) for country in ("Indonesia", "Malaysia", "Global")}
+    headlines = "\n".join(f"- {s['title']}" for s in stories[:5])
+    return f"RINGKASAN EKSEKUTIF\n- Edisi hari ini memuat {len(stories)} berita kelapa sawit: {counts['Indonesia']} dari Indonesia, {counts['Malaysia']} dari Malaysia dan {counts['Global']} berita global.\n\nBERITA UTAMA\n{headlines}\n\nCATATAN PENTING\n- Sintesis AI sedang tidak tersedia. Silakan periksa pratinjau penerbit dan sumber aslinya di bawah ini."
+
+
+def build_master_summary(stories: list[dict]) -> tuple[str, str, list[str], str | None]:
+    if not KEY:
+        return fallback_master(stories), "extract", [], None
+    source_text = "\n".join(f"{i+1}. {s['title']} — {s['snippet']}" for i, s in enumerate(stories))
+    prompt = f"""Buat ringkasan pagi (master brief) yang komprehensif dan sangat terstruktur dari berita kelapa sawit di bawah ini. Sintesiskan tema utama, perkembangan di Indonesia dan Malaysia, penggerak harga CPO, perubahan kebijakan, risiko, serta kemungkinan dampaknya bagi pekebun. Utamakan akurasi dan bedakan dengan jelas antara fakta yang sudah pasti dan perkiraan atau opini. Jangan mengarang fakta.
+
+WAJIB: tulis SELURUH keluaran dalam Bahasa Indonesia yang baku dan mudah dipahami pekebun, walaupun sebagian berita sumbernya berbahasa Inggris. Terjemahkan isinya, jangan sekadar menyalin. Pertahankan istilah dan singkatan resmi apa adanya: CPO, TBS, FFB, FCPO, MPOB, GAPKI, RSPO, ISPO, MSPO, EUDR, DMO, B40, B50.
+
+Kembalikan teks biasa PERSIS dengan struktur ini:
+RINGKASAN EKSEKUTIF
+- poin
+
+INDONESIA
+- poin
+
+MALAYSIA
+- poin
+
+PENGGERAK HARGA DAN PASAR
+- poin
+
+DAMPAK BAGI PEKEBUN
+- poin
+
+PANTAUAN
+- poin
+
+Gunakan 2–5 poin ringkas per bagian. Satu poin boleh berisi lebih dari satu kalimat bila memang perlu. Jangan gunakan heading Markdown, tanda pagar, tanda tebal, tabel, atau daftar bernomor. Hanya nama bagian dan poin bertanda strip. Nama bagian harus ditulis huruf kapital semua, persis seperti di atas.
+
+DAFTAR BERITA:
+{source_text}"""
+    errors = []
+    for model in MODEL_CHAIN:
+        try:
+            text = call_gemini(model, prompt, 8192, preserve_lines=True)
+            if len(text) >= 80:
+                STAGE_STATUS["master"] = "ok"
+                return text, "ai", errors, model
+        except Exception as exc:
+            errors.append(safe_ai_error(exc, f"Master summary ({model})"))
+            status = getattr(getattr(exc, "response", None), "status_code", None)
+            STAGE_STATUS["master"] = f"HTTP {status}" if status else type(exc).__name__
+            # An invalid or revoked key will fail identically on every model.
+            if status in {401, 403}:
+                break
+    STAGE_STATUS.setdefault("master", "fallback")
+    return fallback_master(stories), "extract", errors, None
+
+
+def apply_summaries(stories: list[dict], active_model: str | None) -> list[str]:
+    errors = []
+    if not KEY or not active_model: return errors
+    selected = stories[:MAX_AI]
+    for batch_index, chunk in enumerate(_chunks(selected, AI_BATCH_SIZE)):
+        errors += _summarize_chunk(chunk, active_model, batch_index)
+    # Report partial failure honestly: one failed batch must not look like "ok".
+    if selected:
+        done = sum(1 for s in selected if s["summary_type"] == "ai")
+        status = "ok" if done == len(selected) else f"partial {done}/{len(selected)}" if done else "fallback"
+        STAGE_STATUS.setdefault("summaries", status)
+    return errors
+
+
+def _chunks(items: list[dict], size: int) -> list[list[dict]]:
+    return [items[i:i + size] for i in range(0, len(items), size)]
+
+
+def _summarize_chunk(selected: list[dict], active_model: str, batch_index: int) -> list[str]:
+    """Summarize one small batch. A failure here costs only this batch."""
+    errors: list[str] = []
+    source_items = [{"id": story["id"], "title": story["title"], "preview": story["snippet"]} for story in selected]
+    prompt = f"""Ringkas setiap berita kelapa sawit pada input JSON berikut. Kembalikan HANYA array JSON yang valid dengan urutan yang sama, berisi objek dengan tepat dua kunci: id dan summary. Setiap summary berisi 3 sampai 5 kalimat faktual, maksimum 130 kata, mencakup apa yang terjadi, detail yang relevan, dan mengapa hal itu penting. Gunakan hanya judul dan pratinjau penerbit yang diberikan. Jangan pernah mengarang fakta; bila detailnya terbatas, nyatakan hal itu dengan jujur daripada menambah kalimat kosong.
+
+WAJIB: tulis setiap summary dalam Bahasa Indonesia yang baku dan mudah dipahami pekebun, walaupun judul dan pratinjaunya berbahasa Inggris. Terjemahkan isinya, jangan sekadar menyalin. Pertahankan istilah dan singkatan resmi apa adanya: CPO, TBS, FFB, FCPO, MPOB, GAPKI, RSPO, ISPO, MSPO, EUDR, DMO, B40, B50. Nilai kunci id harus disalin persis seperti pada input.
+
+INPUT:
+{json.dumps(source_items, ensure_ascii=False)}"""
+    # The master summary is deliberately requested first. Pause between AI
+    # requests to stay within free-tier RPM limits.
+    log(f"AI batch {batch_index + 1}: {len(selected)} stories")
+    time.sleep(AI_BATCH_PAUSE)
+    for model in dict.fromkeys([active_model, *MODEL_CHAIN]):
+        if not model: continue
+        try:
+            raw = call_gemini(model, prompt, 8192, preserve_lines=True, json_mode=True)
+            parsed = json.loads(raw)
+            if isinstance(parsed, dict): parsed = parsed.get("summaries", [])
+            by_id = {item.get("id"): item.get("summary") for item in parsed if isinstance(item, dict)}
+            for story in selected:
+                summary = clean_text(by_id.get(story["id"], ""))
+                if len(summary) >= 30:
+                    story["summary"] = summary
+                    story["summary_type"] = "ai"
+                    story["summary_model"] = model
+            if any(story["summary_type"] == "ai" for story in selected):
+                return errors
+            raise RuntimeError("Gemini batch returned no usable summaries")
+        except Exception as exc:
+            errors.append(safe_ai_error(exc, f"Batch {batch_index + 1} story summaries ({model})"))
+            status = getattr(getattr(exc, "response", None), "status_code", None)
+            # A bad or revoked key fails identically on every model, so stop.
+            # Everything else (bad model id, quota, 5xx) is worth another model.
+            if status in {401, 403}:
+                STAGE_STATUS["summaries"] = f"HTTP {status}"
+                break
+    return errors
+
+
+def parse_id_number(raw: str) -> float | None:
+    raw = raw.strip().replace(" ", "")
+    if "," in raw: raw = raw.replace(".", "").replace(",", ".")
+    elif raw.count(".") and all(len(p) == 3 for p in raw.split(".")[1:]): raw = raw.replace(".", "")
+    try: return float(raw)
+    except ValueError: return None
+
+
+def parse_tbs_period(text: str) -> tuple[str, str] | None:
+    text = re.sub(r"\s+", " ", text)
+    patterns = [
+        r"(\d{1,2})\s*[-–]\s*(\d{1,2})\s+([A-Za-z]+)\s+(20\d{2})",
+        r"(\d{1,2})\s+([A-Za-z]+)\s*[-–]\s*(\d{1,2})\s+([A-Za-z]+)\s+(20\d{2})",
+    ]
+    for index, pattern in enumerate(patterns):
+        match = re.search(pattern, text, re.I)
+        if not match: continue
+        try:
+            if index == 0:
+                d1, d2, month, year = int(match[1]), int(match[2]), MONTHS_ID[match[3].lower()], int(match[4])
+                return date(year, month, d1).isoformat(), date(year, month, d2).isoformat()
+            d1, m1, d2, m2, year = int(match[1]), MONTHS_ID[match[2].lower()], int(match[3]), MONTHS_ID[match[4].lower()], int(match[5])
+            return date(year, m1, d1).isoformat(), date(year, m2, d2).isoformat()
+        except (KeyError, ValueError): pass
+    return None
+
+
+def infosawit_article_url(title: str, published: datetime, original_url: str) -> str:
+    """Turn a newly discovered Google News item into its weekly InfoSAWIT URL."""
+    host = urlparse(original_url).netloc.lower()
+    if host.endswith("infosawit.com"):
+        return original_url.split("?", 1)[0]
+    base_title = re.sub(r"\s+-\s+InfoSAWIT.*$", "", title, flags=re.I).strip()
+    normalized = unicodedata.normalize("NFKD", base_title).encode("ascii", "ignore").decode("ascii").lower()
+    normalized = re.sub(r"(?<=\d)[.,](?=\d)", "", normalized)
+    slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+    day = published.astimezone(timezone.utc).date()
+    return f"https://www.infosawit.com/{day:%Y/%m/%d}/{slug}/"
+
+
+def fetch_article_text(url: str) -> str:
+    """Fetch article text, trying normal and AMP pages; never trust verification pages."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "id-ID,id;q=0.9,en;q=0.7",
+        "Cache-Control": "no-cache",
+    }
+    clean_url = url.split("?", 1)[0].rstrip("/") + "/"
+    variants = [clean_url, clean_url + "amp/", clean_url + "?output=1"]
+    for candidate in dict.fromkeys(variants):
+        try:
+            response = requests.get(candidate, timeout=20, headers=headers, allow_redirects=True)
+            response.raise_for_status()
+            lowered = response.text[:5000].lower()
+            if "please wait while your request is being verified" in lowered or "one moment, please" in lowered:
+                continue
+            soup = BeautifulSoup(response.text, "html.parser")
+            for node in soup(["script", "style", "nav", "footer", "aside"]): node.decompose()
+            article = soup.find("article") or soup.find("main") or soup.body
+            text = clean_text(article.get_text(" ", strip=True) if article else "")
+            if len(text) > 250 and "tbs" in text.lower(): return text
+        except Exception:
+            continue
+    return ""
+
+
+def infosawit_slug(title: str) -> str:
+    title = re.sub(r"\s+-\s+InfoSAWIT.*$", "", title, flags=re.I)
+    title = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode("ascii")
+    title = re.sub(r"(?<=\d)[.,](?=\d)", "", title)
+    title = re.sub(r"\brp\.", "rp", title, flags=re.I)
+    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+
+
+def infosawit_url_candidates(title: str, published: datetime, original_url: str) -> list[str]:
+    candidates = []
+    host = urlparse(original_url).netloc.lower()
+    if "infosawit.com" in host:
+        candidates.append(original_url.split("?", 1)[0])
+    slug = infosawit_slug(title)
+    local_date = published.astimezone(timezone(timedelta(hours=7))).date()
+    for offset in (0, -1, 1):
+        day = local_date + timedelta(days=offset)
+        for domain in ("www.infosawit.com", "sumatera.infosawit.com"):
+            candidates.append(f"https://{domain}/{day:%Y/%m/%d}/{slug}/")
+    return list(dict.fromkeys(candidates))
+
+
+# Per-run memo for article fetches. A SUCCESS is reused forever. A FAILURE is
+# retried a bounded number of times, because InfoSAWIT's "request is being
+# verified" page is often transient and a later attempt in the same run can
+# still land the price. This removes the 8x redundancy without giving up the
+# retry that actually wins coverage.
+ARTICLE_MAX_ATTEMPTS = max(1, int(os.getenv("ARTICLE_MAX_ATTEMPTS", "2")))
+_ARTICLE_CACHE: dict[str, tuple[str, str]] = {}
+_ARTICLE_ATTEMPTS: dict[str, int] = {}
+
+
+def fetch_tbs_article(url: str) -> tuple[str, str]:
+    """Fetch one InfoSAWIT article, with a bounded per-run retry memo.
+
+    The same weekly price article is returned by several of the TBS feeds, so
+    the identical URL (and its identical 18s timeouts) used to be refetched once
+    per feed. That redundancy, not the scraping itself, is what stretched runs
+    past an hour.
+    """
+    cached = _ARTICLE_CACHE.get(url)
+    if cached and cached[0]:
+        return cached  # already fetched successfully; never pay for it again
+    attempts = _ARTICLE_ATTEMPTS.get(url, 0)
+    if cached and attempts >= ARTICLE_MAX_ATTEMPTS:
+        return cached  # retry budget for this URL is spent for this run
+    _ARTICLE_ATTEMPTS[url] = attempts + 1
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36 PalmPulse/2.0",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "id-ID,id;q=0.9,en;q=0.7",
+        "Cache-Control": "no-cache",
+    }
+    variants = [url, url.rstrip("/") + "/amp/"]
+    for candidate in variants:
+        try:
+            response = requests.get(candidate, timeout=18, headers=headers, allow_redirects=True)
+            response.raise_for_status()
+            raw = response.text
+            lower = raw.lower()
+            if len(raw) < 500 or "please wait while your request is being verified" in lower or "one moment, please" in lower:
+                continue
+            soup = BeautifulSoup(raw, "html.parser")
+            canonical = soup.find("link", rel="canonical")
+            canonical_url = canonical.get("href") if canonical and canonical.get("href") else response.url
+            parts = []
+            for selector in ("article", "main", ".entry-content", ".post-content"):
+                node = soup.select_one(selector)
+                if node:
+                    parts.append(node.get_text(" ", strip=True))
+            for node in soup.select('script[type="application/ld+json"]'):
+                parts.append(node.get_text(" ", strip=True))
+            text = clean_text(" ".join(parts) or soup.get_text(" ", strip=True))
+            if "tbs" in text.lower() and ("riau" in text.lower() or "siak" in text.lower()):
+                _ARTICLE_CACHE[url] = (text, canonical_url)
+                return text, canonical_url
+        except Exception:
+            continue
+    _ARTICLE_CACHE[url] = ("", url)
+    return "", url
+
+
+def parse_tbs_candidate(title: str, body: str, url: str, publisher: str, published: datetime) -> dict | None:
+    text = clean_text(f"{title} {body}"); lower = text.lower()
+    if "tbs" not in lower or not ("riau" in lower or "siak" in lower): return None
+    period = parse_tbs_period(text)
+    if not period: return None
+    age_prices = {}
+    for age in (4, 5, 6, 9):
+        match = re.search(rf"(?:sawit\s*)?(?:umur|usia)\s*{age}\s*tahun\s*(?:[:=-]?\s*)?(?:Rp\.?\s*)?([\d.]+(?:,\d+)?)", text, re.I)
+        value = parse_id_number(match[1]) if match else None
+        if value is not None and PRICE_MIN <= value <= PRICE_MAX: age_prices[str(age)] = round(value, 2)
+        elif value is not None: REJECTED_PRICES.append(f"age {age}: {value} outside {PRICE_MIN:.0f}-{PRICE_MAX:.0f}")
+    targeted = re.search(r"(?:umur|usia)\s*9\s*tahun.{0,260}?(?:menjadi|sebesar|mencapai|dipatok|harga)\s*(?:rp\.?\s*)?([\d.]+(?:,\d+)?)", text, re.I)
+    if "9" not in age_prices and targeted:
+        value = parse_id_number(targeted[1])
+        if value is not None and PRICE_MIN <= value <= PRICE_MAX: age_prices["9"] = round(value, 2)
+    change_match = re.search(r"\b(naik|turun)\s*(?:sebesar\s*)?Rp\.?\s*([\d.]+(?:,\d+)?)", text, re.I)
+    change = None
+    if change_match:
+        magnitude = parse_id_number(change_match[2])
+        if magnitude is not None and magnitude < 1000: change = round(magnitude if change_match[1].lower() == "naik" else -magnitude, 2)
+    if not age_prices and change is None: return None
+    price = age_prices.get("9") or age_prices.get("6") or age_prices.get("5") or age_prices.get("4")
+    scheme = "Swadaya" if "swadaya" in lower else "Plasma" if "plasma" in lower else "Umum"
+    region = "Siak" if "siak" in title.lower() else "Riau"
+    source_text = f"{publisher} {url}".lower()
+    official = ("disbun", "riau.go.id", "siak.go.id", "media center riau", "pemprov riau", "diskominfo siak")
+    priority = 0 if "infosawit" in source_text else 1 if any(x in source_text for x in official) else 2
+    return {"region":region,"reference_for":None if region=="Siak" else "Siak","scheme":scheme,
+            "palm_age_years":9,"price_rp_per_kg":round(price,2) if price is not None else None,
+            "age_prices_rp_per_kg":age_prices,"change_rp_per_kg":change,
+            "valid_from":period[0],"valid_to":period[1],"published_at":published.isoformat(),
+            "source_name":publisher,"source_url":url,"source_priority":priority}
+
+
+def fetch_json(url: str):
+    """Best-effort JSON fetch. Returns None instead of raising."""
+    try:
+        response = requests.get(url, params={"t": int(time.time())}, timeout=12,
+                                headers={"Cache-Control": "no-cache", "User-Agent": USER_AGENT})
+        response.raise_for_status()
+        return response.json()
+    except Exception:
+        return None
+
+
+def update_history(prices: list[dict], generated_at: str) -> None:
+    """Append this week's TBS readings to a long-lived series.
+
+    Written as a separate file that no existing client reads, so it cannot
+    affect the website or the Android app.
+    """
+    path = DATA / "history.json"
+    points: list[dict] = []
+    remote = fetch_json(HISTORY_URL)
+    if isinstance(remote, dict) and isinstance(remote.get("points"), list):
+        points = [p for p in remote["points"] if isinstance(p, dict)]
+    elif path.exists():
+        try:
+            local = json.loads(path.read_text(encoding="utf-8"))
+            points = [p for p in local.get("points", []) if isinstance(p, dict)]
+        except Exception:
+            points = []
+    index = {(p.get("scheme"), p.get("valid_from"), p.get("valid_to")): p for p in points}
+    for item in prices or []:
+        key = (item.get("scheme"), item.get("valid_from"), item.get("valid_to"))
+        if not all(key):
+            continue
+        index[key] = {
+            "scheme": item.get("scheme"), "region": item.get("region"),
+            "valid_from": item.get("valid_from"), "valid_to": item.get("valid_to"),
+            "price_rp_per_kg": item.get("price_rp_per_kg"),
+            "age_prices_rp_per_kg": item.get("age_prices_rp_per_kg") or {},
+            "price_source": item.get("price_source", "published"),
+            "recorded_at": generated_at,
+        }
+    ordered = sorted(index.values(), key=lambda p: (p.get("valid_from") or "", p.get("scheme") or ""))
+    path.write_text(json.dumps({"updated_at": generated_at, "points": ordered[-520:]},
+                               ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def previous_tbs_prices() -> list[dict]:
+    for mode in ("live", "local"):
+        try:
+            if mode == "live":
+                response = requests.get(LIVE_JSON, params={"t":int(time.time())}, timeout=12, headers={"Cache-Control":"no-cache","User-Agent":USER_AGENT})
+                response.raise_for_status(); payload = response.json()
+            else: payload = json.loads((DATA / "latest.json").read_text(encoding="utf-8"))
+            values = payload.get("tbs_prices")
+            if isinstance(values, list) and values: return values
+        except Exception: pass
+    return []
+
+
+def collect_tbs_prices() -> tuple[list[dict], list[str]]:
+    candidates, errors = [], []
+    previous = previous_tbs_prices()
+    for feed_name, feed_url in TBS_FEEDS:
+        try:
+            log(f"TBS feed: {feed_name}")
+            response = requests.get(feed_url, timeout=22, headers={"User-Agent":USER_AGENT,"Cache-Control":"no-cache"}); response.raise_for_status()
+            feed = feedparser.parse(response.content.lstrip())
+            for entry in feed.entries[:35]:
+                title = clean_text(entry.get("title")); original_url = entry.get("link", "").strip(); content = entry.get("content") or []
+                raw = entry.get("summary") or entry.get("description") or (content[0].get("value", "") if content else "")
+                clean_title, publisher = source_from_title(title, feed_name)
+                published = parse_date(entry).astimezone(timezone.utc)
+                is_infosawit = "infosawit" in f"{publisher} {feed_name} {clean_title}".lower()
+                source_url = original_url
+                if is_infosawit:
+                    article_text = ""
+                    log(f"  article: {clean_title[:70]}")
+                    urls = infosawit_url_candidates(clean_title, published, original_url)
+                    if urls: source_url = urls[0]
+                    for candidate_url in urls:
+                        article_text, canonical_url = fetch_tbs_article(candidate_url)
+                        if article_text:
+                            source_url = canonical_url
+                            break
+                    raw = f"{raw} {article_text}"
+                    publisher = "InfoSAWIT"
+                item = parse_tbs_candidate(clean_title, raw, source_url, publisher, published)
+                if item: candidates.append(item)
+        except Exception as exc:
+            errors.append(f"{feed_name}: {type(exc).__name__}")
+
+    chosen = []
+    for scheme in ("Plasma", "Swadaya", "Umum"):
+        pool = [x for x in candidates if x["scheme"] == scheme]
+        pool.sort(key=lambda x:(x["valid_to"], -x["source_priority"], x["published_at"]), reverse=True)
+        if not pool: continue
+        best = dict(pool[0])
+        same_period = [x for x in pool if x["valid_from"] == best["valid_from"] and x["valid_to"] == best["valid_to"]]
+        for candidate in sorted(same_period, key=lambda x: len(x.get("age_prices_rp_per_kg") or {}), reverse=True):
+            for age, value in (candidate.get("age_prices_rp_per_kg") or {}).items():
+                best.setdefault("age_prices_rp_per_kg", {}).setdefault(age, value)
+            if best.get("price_rp_per_kg") is None and candidate.get("price_rp_per_kg") is not None:
+                best["price_rp_per_kg"] = candidate["price_rp_per_kg"]
+        previous_scheme = sorted([x for x in previous if x.get("scheme") == scheme], key=lambda x:x.get("valid_to", ""), reverse=True)
+        if best.get("price_rp_per_kg") is None and best.get("change_rp_per_kg") is not None and previous_scheme:
+            old_price = previous_scheme[0].get("price_rp_per_kg")
+            if old_price is not None:
+                best["price_rp_per_kg"] = round(float(old_price) + float(best["change_rp_per_kg"]), 2)
+                # Reconstructed from last week plus the published change, not a
+                # figure InfoSAWIT actually printed. Flagged so it is auditable.
+                best["price_source"] = "derived"
+        if best.get("price_rp_per_kg") is None: continue
+        best.setdefault("age_prices_rp_per_kg", {})
+        best["age_prices_rp_per_kg"].setdefault("9", best["price_rp_per_kg"])
+        sources = {x["source_name"] for x in same_period if x.get("price_rp_per_kg") is not None}
+        best["cross_checked_sources"] = len(sources)
+        best["confidence"] = "infosawit" if best["source_priority"] == 0 else "official" if best["source_priority"] == 1 else "reported"
+        best["data_quality"] = "full_age_table" if all(str(age) in best["age_prices_rp_per_kg"] for age in (4,5,6,9)) else "benchmark_only"
+        best.setdefault("price_source", "published")
+        chosen.append(best)
+
+    if not chosen: chosen = previous
+    today = datetime.now(timezone.utc).date()
+    for item in chosen:
+        try:
+            start,end=date.fromisoformat(item["valid_from"]),date.fromisoformat(item["valid_to"]); item["status"]="current_period" if start<=today<=end else "latest_available"
+        except Exception: item["status"]="latest_available"
+        change=item.get("change_rp_per_kg"); item["trend"]="up" if change and change>0 else "down" if change and change<0 else "flat"
+        if change and item.get("price_rp_per_kg"):
+            prior=item["price_rp_per_kg"]-change; item["change_percent"]=round(change/prior*100,2) if prior else None
+        item.pop("source_priority",None)
+    return chosen[:3], errors
+
+
+def market_signal(stories: list[dict]) -> str:
+    score = sum(1 if s["impact"] == "Positive" else -1 if s["impact"] == "Negative" else 0 for s in stories)
+    return "Constructive" if score >= 3 else "Cautious" if score <= -3 else "Balanced"
+
+
+def main() -> int:
+    DATA.mkdir(exist_ok=True)
+    stories, feed_errors = collect()
+    STAGE_STATUS["feeds"] = "ok" if not feed_errors else f"{len(feed_errors)}/{len(SOURCES)} sources failed"
+    tbs_prices, tbs_errors = collect_tbs_prices()
+    STAGE_STATUS["tbs"] = "ok" if tbs_prices else "unavailable"
+    existing = DATA / "latest.json"
+    if not stories:
+        # The committed data/latest.json is only a seed. Publishing it would
+        # present week-old news as today's edition, so prefer the last edition
+        # that was genuinely live, and otherwise fail loudly and leave the
+        # existing deployment in place.
+        live = fetch_json(LIVE_JSON)
+        if isinstance(live, dict) and live.get("stories"):
+            health = live.get("health")
+            if not isinstance(health, dict):
+                health = {}
+            health["stale_republish"] = True
+            live["health"] = health
+            existing.write_text(json.dumps(live, ensure_ascii=False, indent=2), encoding="utf-8")
+            print("No fresh stories; republished the last live edition unchanged.", file=sys.stderr)
+            print("\n".join(feed_errors), file=sys.stderr)
+            return 0
+        print("No fresh stories and no live edition available; failing so the "
+              "previous deployment stays untouched.", file=sys.stderr)
+        print("\n".join(feed_errors), file=sys.stderr)
+        return 1
+    master_summary, master_type, master_errors, active_model = build_master_summary(stories)
+    ai_errors = master_errors + apply_summaries(stories, active_model)
+    now = datetime.now(timezone.utc)
+    payload = {
+        "generated_at": now.isoformat(), "timezone": "Asia/Singapore",
+        "market_signal": market_signal(stories), "story_count": len(stories),
+        "gemini_enabled": bool(KEY), "ai_model": active_model,
+        "master_summary": master_summary, "master_summary_type": master_type,
+        "ai_summary_count": sum(s["summary_type"] == "ai" for s in stories),
+        "tbs_prices": tbs_prices, "tbs_price_updated_at": now.isoformat(),
+        "stories": stories,
+        # Store counts only. Exception strings can contain request URLs and secrets.
+        "health": {"feed_error_count": len(feed_errors), "tbs_error_count": len(tbs_errors), "summary_error_count": len(ai_errors),
+                   "sources_total": len(SOURCES), "sources_failed": len(feed_errors),
+                   "rejected_price_count": len(REJECTED_PRICES), "stages": dict(STAGE_STATUS)}
+    }
+    if existing.exists():
+        try:
+            old = json.loads(existing.read_text(encoding="utf-8"))
+            old_date = dateparser.parse(old.get("generated_at", "")).strftime("%Y-%m-%d")
+            archive = DATA / "archive"; archive.mkdir(exist_ok=True)
+            (archive / f"{old_date}.json").write_text(json.dumps(old, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception: pass
+    existing.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    try:
+        update_history(tbs_prices, payload["generated_at"])
+    except Exception as exc:  # history is a nice-to-have, never fatal
+        print(f"History update skipped ({type(exc).__name__}).", file=sys.stderr)
+    if REJECTED_PRICES:
+        print("Rejected price readings:\n- " + "\n- ".join(REJECTED_PRICES[:10]), file=sys.stderr)
+    print(f"Published {len(stories)} stories; {sum(s['summary_type']=='ai' for s in stories)} AI summaries.")
+    if feed_errors: print("Feed warnings:\n- " + "\n- ".join(feed_errors), file=sys.stderr)
+    if tbs_errors: print("TBS warnings:\n- " + "\n- ".join(tbs_errors), file=sys.stderr)
+    if ai_errors: print("Summary warnings:\n- " + "\n- ".join(ai_errors), file=sys.stderr)
+    return 0
+
+if __name__ == "__main__": raise SystemExit(main())
