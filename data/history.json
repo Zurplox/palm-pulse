@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T23:58:09.085954+00:00",
+  "updated_at": "2026-07-28T23:50:19.737535+00:00",
   "points": [
     {
       "scheme": "Plasma",
@@ -54,6 +54,30 @@
       },
       "price_source": "published",
       "recorded_at": "2026-07-27T23:58:09.085954+00:00"
+    },
+    {
+      "scheme": "Plasma",
+      "region": "Riau",
+      "valid_from": "2026-07-29",
+      "valid_to": "2026-08-04",
+      "price_rp_per_kg": 4103.78,
+      "age_prices_rp_per_kg": {
+        "9": 4103.78
+      },
+      "price_source": "derived",
+      "recorded_at": "2026-07-28T23:50:19.737535+00:00"
+    },
+    {
+      "scheme": "Swadaya",
+      "region": "Riau",
+      "valid_from": "2026-07-29",
+      "valid_to": "2026-08-04",
+      "price_rp_per_kg": 4045.74,
+      "age_prices_rp_per_kg": {
+        "9": 4045.74
+      },
+      "price_source": "derived",
+      "recorded_at": "2026-07-28T23:50:19.737535+00:00"
     }
   ]
 }
