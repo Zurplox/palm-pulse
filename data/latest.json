@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-18T03:24:58.379427+00:00",
+  "generated_at": "2026-10-19T00:25:19.734949+00:00",
   "timezone": "Asia/Singapore",
-  "market_signal": "Balanced",
+  "market_signal": "Constructive",
   "story_count": 18,
   "gemini_enabled": true,
-  "ai_model": null,
-  "master_summary": "RINGKASAN EKSEKUTIF\n- Edisi hari ini memuat 18 berita kelapa sawit: 11 dari Indonesia, 7 dari Malaysia dan 0 berita global.\n\nBERITA UTAMA\n- Harga CPO Bursa Malaysia Jumat (16/10) Menguat, Kontrak November Naik RM60 Jadi RM4.536 per Ton - Agricom.id\n- Harga CPO di Malaysia Melonjak ke Level Tertinggi, Kontrak November 2026 Naik 60 Ringgit - TOPIK.ID\n- Jangan Cuma Untungkan Korporasi, Investasi Sawit Harus Angkat Nasib Petani - sawitsetara.co\n- Gubernur Sultra Dorong APKASINDO Perkuat Pendampingan dan Kesejahteraan Petani Sawit - sawitsetara.co\n- Konsumsi CPO Naik akibat B50, Bagaimana Prospek Ekspor Sawit Indonesia? - kontan.co.id\n\nCATATAN PENTING\n- Sintesis AI sedang tidak tersedia. Silakan periksa pratinjau penerbit dan sumber aslinya di bawah ini.",
-  "master_summary_type": "extract",
-  "ai_summary_count": 0,
+  "ai_model": "gemini-3.6-flash",
+  "master_summary": "RINGKASAN EKSEKUTIF\n- Harga CPO global dan regional mengalami kenaikan hingga hampir 4 persen dalam sepekan didorong oleh peningkatan volume ekspor Malaysia, meskipun lelang fisik CPO di KPBN Indonesia berakhir dengan status withdraw.\n- Isu kebakaran hutan dan lahan serta kabut asap menjadi perhatian utama, di mana Pemerintah Malaysia membantah keterlibatan perusahaan perkebunan mereka dan siap menyelesaikan rincian bantuan pemadaman untuk Indonesia.\n- Di Indonesia, upaya penguatan sektor hulu dilakukan melalui gelaran PENAS III APKASINDO dan optimalisasi dana perkebunan oleh BPDP, sementara pengawasan transaksi sawit makin diperketat menggunakan teknologi kecerdasan buatan oleh DJP.\nINDONESIA\n- APKASINDO menyelenggarakan PENAS III di Jakarta yang mengumpulkan ratusan petani sawit nasional untuk merumuskan resolusi hulu hingga hilir serta meningkatkan kesejahteraan dan pendampingan pekebun.\n- Direktorat Jenderal Pajak mulai menerapkan teknologi kecerdasan buatan (machine learning) untuk memantau transaksi bisnis di sektor kelapa sawit guna meningkatkan kepatuhan dan penerimaan negara.\n- BPDP bersama Kanwil DJPb Jambi mendorong percepatan pemanfaatan dana perkebunan kelapa sawit untuk mendukung keberlanjutan dan program-program perkelapasawitan daerah.\n- Rencana peningkatan konsumsi CPO domestik akibat program B50 memicu pembahasan mengenai prospek dan ketersediaan pasokan ekspor minyak sawit Indonesia ke depan.\n- Pemerintah Indonesia melancarkan penyelidikan terhadap sebuah perusahaan yang terdaftar di Singapura atas dugaan pembersihan lahan dengan cara dibakar di tengah ancaman kabut asap dan El Nino.\nMALAYSIA\n- Pemerintah Malaysia melalui Menteri Fahmi menegaskan bahwa tidak ada perusahaan perkebunan asal Malaysia yang terlibat dalam aktivitas kebakaran hutan dan lahan di Indonesia.\n- Industri kelapa sawit Malaysia meningkatkan langkah-langkah pencegahan kebakaran lahan dan perlindungan tanaman guna menjaga produktivitas serta reputasi industri dari dampak El Nino.\n- Pemerintah Malaysia sedang mengevaluasi dan akan memfinalisasi rincian bantuan teknis pemadaman kebakaran hutan yang akan diberikan kepada Indonesia.\nPENGGERAK HARGA DAN PASAR\n- Harga CPO di Bursa Malaysia mengalami penguatan signifikan dengan kontrak bulan November naik sebesar RM60 menjadi RM4.536 per ton, serta mencatatkan kenaikan mingguan hampir 4 persen akibat kuatnya kinerja ekspor Malaysia.\n- Lelang CPO di KPBN Inacom ditutup dengan status withdraw (WD) pada harga Rp14.988 per kg, sementara pergerakan harga minyak sawit di Bursa Rotterdam tercatat mengalami penurunan.\n- Prospek peningkatan penyerapan CPO untuk program B50 di Indonesia dan tingginya permintaan pasar ekspor menjadi sentimen utama yang memengaruhi dinamika pasokan serta harga minyak sawit regional.\nDAMPAK BAGI PEKEBUN\n- Tren kenaikan harga CPO di bursa berjangka memberi sinyal positif bagi peluang kestabilan atau kenaikan harga TBS di tingkat petani.\n- Dukungan pendampingan organisasi petani dan optimalisasi dana BPDP diharapkan mempermudah akses program pembinaan serta peningkatkan produktivitas lahan milik pekebun swadaya.\n- Penerapan kecerdasan buatan dalam pemantauan transaksi sawit oleh DJP menuntut rantai pasok dan tata niaga TBS menjadi lebih transparan dari tingkat petani hingga pabrik kelapa sawit.\nPANTAUAN\n- Keputusan akhir dan penyelesaian rincian bantuan pemadaman karhutla dari Pemerintah Malaysia kepada Indonesia.\n- Perkembangan proses penyelidikan hukum oleh otoritas Indonesia terhadap perusahaan yang terindikasi melakukan pembakaran lahan.\n- Implementasi kebijakan B50 dan penyesuaian regulasi industri untuk memastikan kepastian hukum serta iklim investasi yang sehat di sektor sawit.",
+  "master_summary_type": "ai",
+  "ai_summary_count": 18,
   "tbs_prices": [
     {
       "region": "Riau",
@@ -54,8 +54,68 @@
       "trend": "flat"
     }
   ],
-  "tbs_price_updated_at": "2026-10-18T03:24:58.379427+00:00",
+  "tbs_price_updated_at": "2026-10-19T00:25:19.734949+00:00",
   "stories": [
+    {
+      "id": "bpdp dan kanwil djpb jambi mendorong pemanfaatan dana perkebunan kelapa sawit https jambiekspres disway id",
+      "title": "BPDP dan Kanwil DJPb Jambi Mendorong Pemanfaatan Dana Perkebunan Kelapa Sawit - https://jambiekspres.disway.id/",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPNGNsNUpKbmhHLUp5bVlVeTRyY3kwbTZjRi1IcEoxc3NMazlpeG9LeUpobmpWTno3RUxhVl9VajdZR2t4THNvd0xNRnFHdngzNGJQeDFMSFY3d04zWEozMTBENktNLU50MWFCbS1nQWFQWEhudGk4TXIwa0FDdmhPcTAxVjN3UWVhbFBjNUJlSzFBQ0wxNkIzOEhWcWpmMVNkZGwxREtaVW14NnVBVXpHRzVBYXQwN3EzSGVINVlhR003OEtsVFNmQzhNSkN3QdIBuwFBVV95cUxNVlVDZ3NvR3JtQ0JDWVZjX0k2VEhXNDAxb1hkUFVMdDF1X0N6V1lFOFh5X1N3RHRza29MaEZ0SFNhTGRvQ1FlbFZRR2tNemx4b0MzUVFqaHNJRWhGYk12RzNYSFZvR0psWDV0a3RDUzRzSjVSb2JXRzIwWlF4Q0tqRFlvZDc2cTlGdEdJbTkxeW9mdk14TU1BZjV3ekFvVy1vUlJ3TmJVU05lek9LZFRGdGFpV0hiamdrVmdj?oc=5",
+      "source": "Jambi Ekspres",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-10-18T22:18:00+00:00",
+      "lang": "id",
+      "snippet": "BPDP dan Kanwil DJPb Jambi Mendorong Pemanfaatan Dana Perkebunan Kelapa Sawit - https://jambiekspres.disway.id/ Jambi Ekspres",
+      "summary": "Badan Pengelola Dana Perkebunan (BPDP) bersama Kanwil DJPb Jambi mendorong peningkatan pemanfaatan dana perkebunan kelapa sawit di wilayah Jambi. Upaya ini dilakukan untuk mengoptimalkan efektivitas penyaluran dana agar memberikan manfaat nyata bagi sektor perkebunan daerah. Detail program serta mekanisme alokasi dana secara lengkap belum dijelaskan dalam pratinjau berita ini. Sinergi ini penting bagi para pekebun guna mendukung pengembangan sarana, prasarana, serta tata kelola sawit lokal.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "apkasindo gelar penas iii ratusan petani sawit se indonesia berkumpul di jakarta bahas masa depan dan resolusi hulu hilir",
+      "title": "APKASINDO Gelar PENAS III: Ratusan Petani Sawit se-Indonesia Berkumpul di Jakarta Bahas Masa Depan dan Resolusi Hulu-Hilir",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPazByQzdSd01ic2JwejFMU2M3Tlh4ZFlwOG5EeU1GbjhCRVpnT2VicnlleDdYbm44dUdWbkJUVXdzbGQ5ZWFSWkxZUGNjZ011Mm42WnktUnYyd0pYc1hQdEJMdjFsREJXT0hZMFB2Zm45dndGTDdpdU00Y0QzQ19jczdvWFVPaXFJV3FnTEVSbzdpalkyTVZsbTI1djRUMHdKMDVVR2NJRzduV3JsM21LMWUzTGpnNm1vdTcwMUpEWFU5cmpid1ZCZmtiblZpdGQ0blVZSzh4T2JyRm5CUzAwZW1B?oc=5",
+      "source": "Sawit Indonesia",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-10-18T12:56:17+00:00",
+      "lang": "id",
+      "snippet": "APKASINDO Gelar PENAS III: Ratusan Petani Sawit se-Indonesia Berkumpul di Jakarta Bahas Masa Depan dan Resolusi Hulu-Hilir Sawit Indonesia",
+      "summary": "Asosiasi Petani Kelapa Sawit Indonesia (APKASINDO) menggelar acara PENAS III yang menghimpun ratusan petani sawit se-Indonesia di Jakarta. Pertemuan ini diselenggarakan untuk mendiskusikan arah masa depan industri sawit sekaligus menyusun resolusi dari sektor hulu hingga hilir. Poin-poin hasil kesepakatan resolusi belum dipaparkan secara terperinci dalam pratinjau berita. Kegiatan ini penting bagi pekebun untuk menyuarakan aspirasi dan memperkuat posisi tawar dalam tata niaga sawit nasional.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "bantah tudingan sawit malaysia picu karhutla ri pemerintah malaysia evaluasi bantuan pemadaman",
+      "title": "Bantah Tudingan Sawit Malaysia Picu Karhutla RI, Pemerintah Malaysia Evaluasi Bantuan Pemadaman",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWTFxM2VxUU40OWdLTzhoNEJ5bkFoblVzNjBWLWVUUXo2M1hWUDF0LWphWGhFeGh6d1NIWmVadGVyQzR6YXV6M1h3S3BTTzZSWjdoMG5FVm1ITF9vNmxQZ2dtaElkTzA4ZDZ2ak1BWGZ2MUJvWV9YbzRNZmRHMXNvajllcDdOcGlyTEVKUXNnb1dSV0dwNnl0cGk1V2hGZmtJU1htU0tLRVpibzFZVDR6cndIYzZNRjlUZHdWaFE4TW5hYlVDbHRaX1VFQ1BBVVJBWGfSAdIBQVVfeXFMUFkxcTNlcVFONDlnS084aDRCeW5BaG5VczYwVi1lVFF6NjNYVlAxdC1qYVhoRXhoendTSFplWnRlckM0emF1ejNYd0twU082Ulo3aDBuRVZtSExfbzZsUGdnbWhJZE8wOGQ2dmpNQVhmdjFCb1lfWG80TWZkRzFzb2o5ZXA3TnBpckxFSlFzZ29XUldHcDZ5dHBpNVdoRmZrSVNYbVNLS0VaYm8xWVQ0enJ3SGM2TUY5VGR3VmhROE1uYWJVQ2x0Wl9VRUNQQVVSQVhn?oc=5",
+      "source": "Warta Ekonomi",
+      "country": "Malaysia",
+      "category": "Policy",
+      "impact": "Neutral",
+      "published_at": "2026-10-18T07:44:00+00:00",
+      "lang": "id",
+      "snippet": "Bantah Tudingan Sawit Malaysia Picu Karhutla RI, Pemerintah Malaysia Evaluasi Bantuan Pemadaman Warta Ekonomi",
+      "summary": "Pemerintah Malaysia membantah tuduhan bahwa sektor kelapa sawit mereka menjadi pemicu kebakaran hutan dan lahan (karhutla) di Indonesia. Atas perkembangan isu ini, pihak Malaysia tengah mengevaluasi komitmen serta mekanisme bantuan pemadaman kebakaran. Detail rinci mengenai isi tuduhan maupun skema evaluasi bantuan belum dipaparkan pada pratinjau berita. Penjelasan ini penting untuk menjaga hubungan baik serta kepastian kerja sama penanganan kebakaran di kawasan perkebunan.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "djp gunakan machine learning pantau transaksi bisnis kelapa sawit haisawit",
+      "title": "DJP Gunakan Machine Learning Pantau Transaksi Bisnis Kelapa Sawit - HaiSawit",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQdmNpM29rY2U3S1Z6MlNRLUJHb1Jac2VqWUozWldEQW1pVW9TSmxPMU5nWVZHalI4X0RzT2lCeXh6VnJHWnMzWFF0d2g2MDk3amx0QndFcmFiaVU2elRlLXY2S2VLaXV0aTExTklUSWpkbmN3SS01eEc5WXhoZ3FDR3NRSW9DNUFkT1BxMnJLeW5yaE82TUlfSF9mRUxKazZ4b0E?oc=5",
+      "source": "Google News · Perkebunan (Bahasa)",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-10-18T07:08:05+00:00",
+      "lang": "id",
+      "snippet": "DJP Gunakan Machine Learning Pantau Transaksi Bisnis Kelapa Sawit HaiSawit",
+      "summary": "Direktorat Jenderal Pajak (DJP) kini memanfaatkan teknologi machine learning untuk memantau arus transaksi bisnis di sektor kelapa sawit. Penggunaan teknologi ini bertujuan meningkatkan efektivitas pengawasan serta kepatuhan pajak para pelaku usaha perkebunan. Detail teknis penerapan dan jenis transaksi yang diawasi tidak dijelaskan lebih lanjut dalam pratinjau berita ini. Langkah ini penting agar tercipta keadilan serta transparansi transaksi dalam rantai pasok industri sawit.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
     {
       "id": "harga cpo bursa malaysia jumat 16 10 menguat kontrak november naik rm60 jadi rm4 536 per ton agricom id",
       "title": "Harga CPO Bursa Malaysia Jumat (16/10) Menguat, Kontrak November Naik RM60 Jadi RM4.536 per Ton - Agricom.id",
@@ -67,8 +127,9 @@
       "published_at": "2026-10-17T10:34:01+00:00",
       "lang": "id",
       "snippet": "Harga CPO Bursa Malaysia Jumat (16/10) Menguat, Kontrak November Naik RM60 Jadi RM4.536 per Ton Agricom.id",
-      "summary": "Harga CPO Bursa Malaysia Jumat (16/10) Menguat, Kontrak November Naik RM60 Jadi RM4.536 per Ton Agricom.id",
-      "summary_type": "extract"
+      "summary": "Harga CPO di Bursa Malaysia tercatat menguat pada perdagangan hari Jumat (16/10). Kenaikan terjadi pada kontrak pengiriman November yang melonjak sebesar RM60 hingga mencapai RM4.536 per ton. Faktor utama pendorong kenaikan harga berjangka tersebut tidak disebutkan pada pratinjau berita ini. Penguatan harga CPO global ini penting karena berpotensi memberikan dampak positif terhadap penetapan harga TBS di tingkat pekebun.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "harga cpo di malaysia melonjak ke level tertinggi kontrak november 2026 naik 60 ringgit topik id",
@@ -81,22 +142,9 @@
       "published_at": "2026-10-17T04:20:23+00:00",
       "lang": "id",
       "snippet": "Harga CPO di Malaysia Melonjak ke Level Tertinggi, Kontrak November 2026 Naik 60 Ringgit TOPIK.ID",
-      "summary": "Harga CPO di Malaysia Melonjak ke Level Tertinggi, Kontrak November 2026 Naik 60 Ringgit TOPIK.ID",
-      "summary_type": "extract"
-    },
-    {
-      "id": "jangan cuma untungkan korporasi investasi sawit harus angkat nasib petani sawitsetara co",
-      "title": "Jangan Cuma Untungkan Korporasi, Investasi Sawit Harus Angkat Nasib Petani - sawitsetara.co",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQb2JDMzhJOE95T1duYmJReGszTUR1cWJxc1VFak1LUkx5TmRRc2tVQUJQSUFaODQ2SDYxM1FrSUNaa2Y4TVhEaC1yd0pVc1hOMnBJQ09ERVJkNU1lQW1JanY3RU1mQjZlcWtxaUR6Q1UtUkFYZVo2YzR6STk1YjJCSXR1cTZfWjVneVFvT0VWa3RFOU5qYXNPdkV1Qm81Wl9ISEVGbHB5X3ZFQllRTE90WFlORGR4UQ?oc=5",
-      "source": "Google News · Perkebunan (Bahasa)",
-      "country": "Indonesia",
-      "category": "Plantation",
-      "impact": "Neutral",
-      "published_at": "2026-10-17T04:11:11+00:00",
-      "lang": "id",
-      "snippet": "Jangan Cuma Untungkan Korporasi, Investasi Sawit Harus Angkat Nasib Petani sawitsetara.co",
-      "summary": "Jangan Cuma Untungkan Korporasi, Investasi Sawit Harus Angkat Nasib Petani sawitsetara.co",
-      "summary_type": "extract"
+      "summary": "Harga CPO di pasar Malaysia mengalami peningkatan signifikan hingga menembus level tertinggi. Lonjakan ini ditunjukkan oleh kenaikan harga kontrak November 2026 sebesar 60 ringgit. Rincian pemicu utama di balik kenaikan harga pasar berjangka tersebut tidak dijelaskan secara rinci dalam pratinjau berita. Tren kenaikan harga ini penting sebagai indikator positif bagi prospek pendapatan perkebunan dan harga TBS petani.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "gubernur sultra dorong apkasindo perkuat pendampingan dan kesejahteraan petani sawit sawitsetara co",
@@ -109,8 +157,9 @@
       "published_at": "2026-10-17T03:21:05+00:00",
       "lang": "id",
       "snippet": "Gubernur Sultra Dorong APKASINDO Perkuat Pendampingan dan Kesejahteraan Petani Sawit sawitsetara.co",
-      "summary": "Gubernur Sultra Dorong APKASINDO Perkuat Pendampingan dan Kesejahteraan Petani Sawit sawitsetara.co",
-      "summary_type": "extract"
+      "summary": "Gubernur Sulawesi Tenggara mendorong APKASINDO untuk memperkuat pendampingan serta meningkatkan kesejahteraan para petani sawit di daerah tersebut. Upaya ini difokuskan pada penguatan peran organisasi dalam membantu petani menghadapi berbagai tantangan di lapangan. Langkah pendampingan yang intensif sangat penting agar produktivitas dan taraf hidup pekebun dapat terus meningkat secara berkelanjutan. Informasi teknis mengenai bentuk pendampingan belum dijelaskan lebih rinci dalam pratinjau ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "konsumsi cpo naik akibat b50 bagaimana prospek ekspor sawit indonesia kontan co id",
@@ -123,13 +172,14 @@
       "published_at": "2026-10-17T01:59:15+00:00",
       "lang": "id",
       "snippet": "Konsumsi CPO Naik akibat B50, Bagaimana Prospek Ekspor Sawit Indonesia?",
-      "summary": "Konsumsi CPO Naik akibat B50, Bagaimana Prospek Ekspor Sawit Indonesia?",
-      "summary_type": "extract"
+      "summary": "Rencana penerapan kebijakan B50 diperkirakan akan meningkatkan konsumsi CPO di dalam negeri secara signifikan. Peningkatan penggunaan domestik ini menimbulkan pertanyaan mengenai dampaknya terhadap prospek volume ekspor sawit Indonesia ke pasar global. Hal ini penting karena keseimbangan antara kebutuhan program B50 dan ekspor akan menentukan pasokan CPO serta penerimaan devisa negara. Proyeksi angka ekspor secara spesifik belum disajikan dalam pratinjau berita ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "harga cpo kpbn inacom jumat 16 10 wd di rp14 988 per kg bursa rotterdam melemah agricom id",
       "title": "Harga CPO KPBN Inacom Jumat (16/10) WD di Rp14.988 per Kg, Bursa Rotterdam Melemah - Agricom.id",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOYUYySTZKYzROUUFzYmFYeHdiS3RZWFN5Q3dUUXdyeDRMaEU3TDZmQXk1a3h2blg0bDdGNVlFd2lVYWtfSHdDbHpWLTFJZjBJT25QVzI5elAxSW12MDFURGg5Z19kSkk5QnJ4Q0Z6UXNuMDFGSTlFaW50N0JGV2FBZzBJUVBCRlhKcUtmSXlma1NFUzk5QWFObFQ0aC1DU0t4SnlMMmEzb1RiZkQzU0N3OU9oNUNhQm5HdlFhUEo5RkRGaFRCbEV3Skd3MTZraldmVkHSAdIBQVVfeXFMTmFGMkk2SmM0TlFBc2JhWHh3Ykt0WVhTeUN3VFF3cng0TGhFN0w2ZkF5NWt4dm5YNGw3RjVZRXdpVWFrX0h3Q2x6Vi0xSWYwSU9uUFcyOXpQMUltdjAxVERoOWdfZEpJOUJyeENGelFzbjAxRkk5RWludDdCRldhQWcwSVFQQkZYSnFLZkl5ZmtTRVM5OUFhTmxUNGgtQ1NLeEp5TDJhM29UYmZEM1NDdzlPaDVDYUJuR3ZRYVBKOUZERmhUQmxFd0pHdzE2a2pXZlZB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQQ2pyUk5Gb01LZUE0LTlQaVp5aGNKSEpleDBOdHZMUlN4NjVPa1diYUVzVlRmZlVpZWw4azlDSFUtd0cxNVMtUDFvMVVYeW9SWGNaN1FFNVprRnpNTFhrSktJMDVGc2ZDX2dwakxsZGpUWnAzTkdCRjNsV2V1VHlJbVFpMUs4NUhKenFNWlpHMTg1eDRldEQxUFlaUFFsV2hqdURFbndtZEtWTFE1R3VYQThUY1dsa2ZxT09xVi1tZk52eDUyUTBJQnJUdjBmVE9kN3c2WHQ5VdIB1wFBVV95cUxQQ2pyUk5Gb01LZUE0LTlQaVp5aGNKSEpleDBOdHZMUlN4NjVPa1diYUVzVlRmZlVpZWw4azlDSFUtd0cxNVMtUDFvMVVYeW9SWGNaN1FFNVprRnpNTFhrSktJMDVGc2ZDX2dwakxsZGpUWnAzTkdCRjNsV2V1VHlJbVFpMUs4NUhKenFNWlpHMTg1eDRldEQxUFlaUFFsV2hqdURFbndtZEtWTFE1R3VYQThUY1dsa2ZxT09xVi1tZk52eDUyUTBJQnJUdjBmVE9kN3c2WHQ5VQ?oc=5",
       "source": "Google News · Pasar (Bahasa)",
       "country": "Indonesia",
       "category": "Market",
@@ -137,36 +187,9 @@
       "published_at": "2026-10-17T00:14:44+00:00",
       "lang": "id",
       "snippet": "Harga CPO KPBN Inacom Jumat (16/10) WD di Rp14.988 per Kg, Bursa Rotterdam Melemah Agricom.id",
-      "summary": "Harga CPO KPBN Inacom Jumat (16/10) WD di Rp14.988 per Kg, Bursa Rotterdam Melemah Agricom.id",
-      "summary_type": "extract"
-    },
-    {
-      "id": "harga cpo melesat produksi sawit ri jadi kunci investor id",
-      "title": "Harga CPO Melesat, Produksi Sawit RI Jadi Kunci - investor.id",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQYXVBZ2dsc2RJQk50eGhoeVh4T19wS1JtaUpJazB0MkdyOXhUcExES0RMajdDRWdpUkltdTRpTTdncmNYWFozdUNqSzROS3VDaGVLSzVEU2NzYUNSa3NQTlY3LXUtZndjQTZ2YU5zaUlhajJIOG5yTlhGdElEMkxrSGUxdWwzbWs?oc=5",
-      "source": "Google News · Malaysia (Bahasa)",
-      "country": "Malaysia",
-      "category": "Market",
-      "impact": "Neutral",
-      "published_at": "2026-10-16T23:38:00+00:00",
-      "lang": "id",
-      "snippet": "Harga CPO Melesat, Produksi Sawit RI Jadi Kunci investor.id",
-      "summary": "Harga CPO Melesat, Produksi Sawit RI Jadi Kunci investor.id",
-      "summary_type": "extract"
-    },
-    {
-      "id": "indonesia palm oil sector outlook 2027 legal certainty smallholder productivity hold key",
-      "title": "Indonesia Palm Oil Sector Outlook 2027: Legal Certainty and Smallholder Productivity Hold the Key",
-      "url": "https://gapki.id/news/2026/10/16/indonesia-palm-oil-sector-outlook-2027-legal-certainty-and-smallholder-productivity-hold-the-key/",
-      "source": "GAPKI (Bahasa)",
-      "country": "Indonesia",
-      "category": "Plantation",
-      "impact": "Neutral",
-      "published_at": "2026-10-16T22:03:20+00:00",
-      "lang": "id",
-      "snippet": "Indonesia Palm Oil Sector Outlook 2027: Legal Certainty and Smallholder Productivity Hold the Key As the year draws to a close and 2027 approaches, Indonesia’s palm oil sector stands on a foundation of extraordinary resilience.",
-      "summary": "Indonesia Palm Oil Sector Outlook 2027: Legal Certainty and Smallholder Productivity Hold the Key As the year draws to a close and 2027 approaches, Indonesia’s palm oil sector stands on a foundation of extraordinary resilience.",
-      "summary_type": "extract"
+      "summary": "Hasil lelang harga CPO pada KPBN Inacom hari Jumat (16/10) berakhir Withdraw (WD) di level Rp14.988 per kilogram. Pada saat yang sama, pergerakan harga minyak sawit di Bursa Rotterdam dilaporkan mengalami penurunan atau melemah. Informasi perkembangan harga ini sangat penting bagi para pekebun untuk memantau arah pergerakan pasar CPO domestik maupun internasional. Perubahan harga luar negeri dan hasil lelang tersebut dapat memengaruhi harga penetapan TBS di tingkat petani.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "outlook national palm oil sector 2027",
@@ -179,8 +202,9 @@
       "published_at": "2026-10-16T15:14:48+00:00",
       "lang": "en",
       "snippet": "Selasa, 13 Oktober 2026 Agam Fatchurrochman and Edi Suhardi (The Jakarta Post) The government should put an end to the various rules that stifle investment and instead focus on building a healthy, competitive business climate that ensures legal certainty.",
-      "summary": "Selasa, 13 Oktober 2026 Agam Fatchurrochman and Edi Suhardi (The Jakarta Post) The government should put an end to the various rules that stifle investment and instead focus on building a healthy, competitive business climate that ensures legal certainty.",
-      "summary_type": "extract"
+      "summary": "Pandangan sektor sawit nasional tahun 2027 menyoroti perlunya pemerintah menghentikan berbagai aturan yang menghambat masuknya investasi. Pemerintah didorong untuk fokus membangun iklim usaha yang sehat, kompetitif, serta menjamin kepastian hukum bagi pelaku industri. Kepastian regulasi ini sangat penting agar sektor kelapa sawit Indonesia dapat tumbuh berkelanjutan dan berdaya saing tinggi. Kebijakan yang mendukung investasi akan memberikan dampak positif pada keberlangsungan seluruh rantai pasok sawit.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "singapore listed firm faces indonesian probe over suspected land clearing by burning amid haze",
@@ -193,8 +217,9 @@
       "published_at": "2026-10-16T13:15:00+00:00",
       "lang": "en",
       "snippet": "Singapore-listed firm faces Indonesian probe over suspected land clearing by burning amid haze The Straits Times",
-      "summary": "Singapore-listed firm faces Indonesian probe over suspected land clearing by burning amid haze The Straits Times",
-      "summary_type": "extract"
+      "summary": "Sebuah perusahaan yang terdaftar di bursa Singapura menghadapi penyelidikan dari pemerintah Indonesia terkait dugaan pembukaan lahan dengan cara membakar saat terjadi kabut asap. Langkah hukum ini dilakukan untuk menindak tegas praktik pembakaran yang memperburuk pencemaran udara dan merusak lingkungan. Penyelidikan ini penting guna menegakkan aturan tata kelola lingkungan yang ketat bagi seluruh pengembang perkebunan sawit. Rincian nama perusahaan dan lokasi kejadian belum dijelaskan lebih lanjut pada pratinjau berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "haze malaysia s palm oil industry steps up efforts protect crops reputation cna",
@@ -207,8 +232,9 @@
       "published_at": "2026-10-16T12:54:13+00:00",
       "lang": "en",
       "snippet": "Haze: Malaysia's palm oil industry steps up efforts to protect crops, reputation CNA",
-      "summary": "Haze: Malaysia's palm oil industry steps up efforts to protect crops, reputation CNA",
-      "summary_type": "extract"
+      "summary": "Industri kelapa sawit di Malaysia meningkatkan berbagai langkah pencegahan untuk melindungi tanaman dan menjaga reputasi sektor tersebut di tengah ancaman bencana kabut asap. Upaya ini dilakukan guna meminimalkan risiko kerusakan kualitas hasil panen akibat kondisi cuaca yang buruk. Langkah aktif ini penting dilakukan demi mempertahankan kepercayaan pasar internasional terhadap komitmen keberlanjutan sawit Malaysia. Detail mengenai strategi teknis yang dijalankan belum dipaparkan dalam laporan singkat ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
     },
     {
       "id": "palm oil prices rise nearly 4 over week stronger malaysian exports ukragroconsult",
@@ -221,8 +247,9 @@
       "published_at": "2026-10-16T12:16:33+00:00",
       "lang": "en",
       "snippet": "Palm oil prices rise nearly 4% over the week on stronger Malaysian exports UkrAgroConsult",
-      "summary": "Palm oil prices rise nearly 4% over the week on stronger Malaysian exports UkrAgroConsult",
-      "summary_type": "extract"
+      "summary": "Harga minyak sawit mengalami kenaikan hampir 4% selama sepekan terakhir. Peningkatan ini didorong oleh kinerja ekspor Malaysia yang lebih kuat. Kenaikan harga ini menjadi sinyal positif bagi pasar komoditas global. Bagi pekebun, tren ini berpotensi meningkatkan nilai jual TBS di tingkat pabrik.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
     },
     {
       "id": "malaysia s palm oil industry steps up fire prevention efforts godzilla el nino fuels haze woes cna",
@@ -235,22 +262,9 @@
       "published_at": "2026-10-16T12:10:25+00:00",
       "lang": "en",
       "snippet": "Malaysia's palm oil industry steps up fire prevention efforts as 'Godzilla' El Nino fuels haze woes CNA",
-      "summary": "Malaysia's palm oil industry steps up fire prevention efforts as 'Godzilla' El Nino fuels haze woes CNA",
-      "summary_type": "extract"
-    },
-    {
-      "id": "b50 dongkrak konsumsi sawit domestik iposs proyeksikan ekspor anjlok 37 2 sawitsetara co",
-      "title": "B50 Dongkrak Konsumsi Sawit Domestik, IPOSS Proyeksikan Ekspor Anjlok 37,2% - sawitsetara.co",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMnFpbk9ENHhrb2Q3X0NXYU5kZUpWSGFTYkRFQms4cF95LS1zelhCSVdpM0RxU3B0YTliZzEwVmVibXFhTHZoUkhjNGh3S1hUanJtMURsME04R3pILTFHRkhYbU9fUXE5cHdzYVpvN21DS0o4UjBENUc1OHhRdlpjUFlid21IUWE4djhzZW11SXFiYklPYUo3aXp0azhFU3ZKLWl6RmVLQkdYUG1wVHJfLUFqbkJiZw?oc=5",
-      "source": "Google News · Kebijakan (Bahasa)",
-      "country": "Indonesia",
-      "category": "Policy",
-      "impact": "Neutral",
-      "published_at": "2026-10-16T11:59:45+00:00",
-      "lang": "id",
-      "snippet": "B50 Dongkrak Konsumsi Sawit Domestik, IPOSS Proyeksikan Ekspor Anjlok 37,2% sawitsetara.co",
-      "summary": "B50 Dongkrak Konsumsi Sawit Domestik, IPOSS Proyeksikan Ekspor Anjlok 37,2% sawitsetara.co",
-      "summary_type": "extract"
+      "summary": "Industri kelapa sawit Malaysia meningkatkan upaya pencegahan kebakaran lahan di tengah ancaman fenomena El Nino yang ekstrem. Kondisi cuaca panas ini memicu kekhawatiran akan kabut asap yang meluas di kawasan tersebut. Langkah preventif ini sangat penting untuk menjaga keberlanjutan operasional perkebunan. Selain itu, upaya ini dilakukan untuk memitigasi dampak lingkungan yang merugikan bagi masyarakat luas.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
     },
     {
       "id": "fahmi no malaysian palm oil companies involved burning activities indonesia",
@@ -263,8 +277,24 @@
       "published_at": "2026-10-16T09:34:32+00:00",
       "lang": "en",
       "snippet": "Fahmi: No Malaysian palm oil companies involved in burning activities in Indonesia Malay Mail",
-      "summary": "Fahmi: No Malaysian palm oil companies involved in burning activities in Indonesia Malay Mail",
-      "summary_type": "extract"
+      "summary": "Menteri Komunikasi Malaysia, Fahmi Fadzil, menegaskan bahwa tidak ada perusahaan kelapa sawit asal Malaysia yang terlibat dalam aktivitas pembakaran lahan di Indonesia. Pernyataan ini disampaikan untuk menanggapi isu terkait kabut asap lintas batas. Klarifikasi ini penting untuk menjaga hubungan diplomatik antarnegara. Detail mengenai bukti pendukung atas pernyataan tersebut masih terbatas.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
+    },
+    {
+      "id": "no m sian plantation firms involved indonesian forest fires govt confirms malaysiakini",
+      "title": "No M'sian plantation firms involved in Indonesian forest fires, govt confirms - Malaysiakini",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcnloTF9mR0VoWUdqblN0R2s0MmhDTGVBa3pPY29tLUFaZkpaOXVUZjdOaV9ucXV6aTAtd3dzaDNaV19PNTc3N0NFS1lFYWxtbnZzdmVPbzNoUEg5WGtwbGYxR3JOYW9xUTJFUFFiVEkyZk9YZFNZOHJhT1EzeFJaMU94MEVfb01SSXBRM1Y2T1ZTc2czblJpYmxSRVAwYXdjbmphc0dvZi1ENVBNY2RmeWNiMDNRWHM?oc=5",
+      "source": "Google News · Plantation",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-10-16T09:34:00+00:00",
+      "lang": "en",
+      "snippet": "No M'sian plantation firms involved in Indonesian forest fires, govt confirms Malaysiakini",
+      "summary": "Pemerintah Malaysia secara resmi mengonfirmasi bahwa tidak ada perusahaan perkebunan mereka yang terlibat dalam kebakaran hutan di Indonesia. Konfirmasi ini bertujuan untuk meluruskan informasi yang beredar di publik terkait penyebab kabut asap. Hal ini penting agar tidak terjadi kesalahpahaman antara kedua negara produsen sawit utama. Informasi lebih lanjut mengenai investigasi terkait belum tersedia.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
     },
     {
       "id": "no malaysian plantation firms linked indonesia fires says fahmi",
@@ -277,49 +307,38 @@
       "published_at": "2026-10-16T08:50:12+00:00",
       "lang": "en",
       "snippet": "No Malaysian Plantation Firms Linked To Indonesia Fires, Says Fahmi BusinessToday Malaysia",
-      "summary": "No Malaysian Plantation Firms Linked To Indonesia Fires, Says Fahmi BusinessToday Malaysia",
-      "summary_type": "extract"
+      "summary": "Fahmi Fadzil kembali menegaskan bahwa tidak ditemukan keterkaitan antara perusahaan perkebunan Malaysia dengan kebakaran hutan di wilayah Indonesia. Penegasan ini disampaikan sebagai respons atas tuduhan yang sempat muncul di media. Kejelasan posisi pemerintah ini sangat krusial bagi reputasi industri sawit Malaysia di mata internasional. Tidak ada detail tambahan mengenai data investigasi yang diberikan dalam laporan ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
     },
     {
-      "id": "eds16 cpopc examine how private capital can deliver better jobs across palm oil value chains",
-      "title": "EDS16 and CPOPC Examine How Private Capital Can Deliver Better Jobs Across Palm Oil Value Chains",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQY1hJMXpIU0Myc2JSb19VTDYtS3QxUVdtd29VWFRxTE8xTVh2N3hGUExtNEZCZHQtYW44VFNnb1lpWWx3OVEtS0Jqc2JTNWE5cXo1eTEzWmNFMjlGanpTRGFuS3FKVExiVkxpb1VuX0dLS3RDS0kwMENOckZjV1JtX3ZIVVdOUlpwSEgyMVdSVkdna3piR1JZdVlLSGVEMmNtTkR1czJhVDZqQUR3b1o0YTBHNWI4TkpNSmtKajVvUzF0QQ?oc=5",
-      "source": "Sawit Indonesia",
+      "id": "haze details malaysia s aid indonesia be finalised this monday fahmi",
+      "title": "Haze: Details of Malaysia’s aid to Indonesia to be finalised this Monday – Fahmi",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOdnZIU1NIaS1sQ1ZaRlVlcTg4MkhkZTBWbE85cjNfVGFscXlOVFJwZlJaX2NHZVNxWExUcVBHbVdBS3pldkxkMEtRbkVORm9aMUNTaHY4ZzJNbWhrV3JCaWNpakRhMTFjZ2FwWU5XZFZQU3lfc3FvMVZ1Q2U0MG1kY1JIaXhtOVdLeTFtSmJ4TGNSc3NTZlNKNnlMdjV0dDZubjFydERCVkMwaUJualAxNDU3SkVlVGNMeDRNWndXOA?oc=5",
+      "source": "The Vibes",
       "country": "Indonesia",
-      "category": "Market",
+      "category": "Plantation",
       "impact": "Neutral",
-      "published_at": "2026-10-16T08:12:37+00:00",
+      "published_at": "2026-10-16T08:31:00+00:00",
       "lang": "en",
-      "snippet": "EDS16 and CPOPC Examine How Private Capital Can Deliver Better Jobs Across Palm Oil Value Chains Sawit Indonesia",
-      "summary": "EDS16 and CPOPC Examine How Private Capital Can Deliver Better Jobs Across Palm Oil Value Chains Sawit Indonesia",
-      "summary_type": "extract"
-    },
-    {
-      "id": "india turns palm oil sunflower oil imports hit four year low september",
-      "title": "India turns to palm oil as sunflower oil imports hit four-year low in September",
-      "url": "https://www.mpoc.org.my/india-turns-to-palm-oil-as-sunflower-oil-imports-hit-four-year-low-in-september/",
-      "source": "MPOC",
-      "country": "Malaysia",
-      "category": "Market",
-      "impact": "Negative",
-      "published_at": "2026-10-16T07:33:17+00:00",
-      "lang": "en",
-      "snippet": "MUMBAI (Oct 15): India’s sunflower oil imports slumped to their lowest in more than four years in September as war-related disruptions curbed supplies from Russia and Ukraine, prompting refiners to […]",
-      "summary": "MUMBAI (Oct 15): India’s sunflower oil imports slumped to their lowest in more than four years in September as war-related disruptions curbed supplies from Russia and Ukraine, prompting refiners to […]",
-      "summary_type": "extract"
+      "snippet": "Haze: Details of Malaysia’s aid to Indonesia to be finalised this Monday – Fahmi The Vibes",
+      "summary": "Pemerintah Malaysia dijadwalkan akan memfinalisasi rincian bantuan untuk Indonesia terkait penanganan kabut asap pada hari Senin. Bantuan ini merupakan bentuk kerja sama regional dalam menghadapi dampak kebakaran hutan. Langkah ini penting untuk mempercepat pemulihan kualitas udara di kedua negara. Detail mengenai jenis bantuan yang akan diberikan belum diumumkan secara rinci.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.1-flash-lite"
     }
   ],
   "health": {
     "feed_error_count": 1,
     "tbs_error_count": 2,
-    "summary_error_count": 3,
+    "summary_error_count": 2,
     "sources_total": 15,
     "sources_failed": 1,
     "rejected_price_count": 0,
     "stages": {
       "feeds": "1/15 sources failed",
       "tbs": "ok",
-      "master": "HTTP 503"
+      "master": "ok",
+      "summaries": "ok"
     }
   }
 }
