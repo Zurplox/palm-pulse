@@ -42,7 +42,7 @@ If the key is missing, invalid, rate-limited or out of free quota, the workflow 
 
 Generated news is deployed directly to GitHub Pages and is **not pushed back to `main`**. This prevents non-fast-forward conflicts when multiple workflow runs overlap.
 
-Summaries are written in **Bahasa Indonesia**. The model chain is `gemini-3.6-flash` → `gemini-3.5-flash` → `gemini-3.1-flash-lite`; the first model that responds wins. Override any step with the Actions **variables** `GEMINI_MODEL`, `GEMINI_FALLBACK_MODEL` or `GEMINI_FALLBACK_MODEL_2`.
+Summaries are written in **Bahasa Indonesia**. The model chain is `gemini-3.8-flash` → `gemini-3.6-flash` → `gemini-3.5-flash-lite`; the first model that responds wins. Override any step with the Actions **variables** `GEMINI_MODEL`, `GEMINI_FALLBACK_MODEL` or `GEMINI_FALLBACK_MODEL_2`.
 
 ## Customise sources
 

@@ -15,9 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 SOURCES = json.loads((ROOT / "config" / "sources.json").read_text(encoding="utf-8"))
 KEY = os.getenv("GEMINI_API_KEY", "").strip()
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash").strip()
-FALLBACK_MODEL = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-3.5-flash").strip()
-FALLBACK_MODEL_2 = os.getenv("GEMINI_FALLBACK_MODEL_2", "gemini-3.1-flash-lite").strip()
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
+FALLBACK_MODEL = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-3.6-flash").strip()
+FALLBACK_MODEL_2 = os.getenv("GEMINI_FALLBACK_MODEL_2", "gemini-3.5-flash-lite").strip()
 # Tried in order; the first model that answers wins. Mirrors the Android app.
 MODEL_CHAIN = [m for m in dict.fromkeys([MODEL, FALLBACK_MODEL, FALLBACK_MODEL_2]) if m]
 MAX_STORIES = int(os.getenv("MAX_STORIES", "18"))
