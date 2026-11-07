@@ -76,6 +76,26 @@ class PriceBand(unittest.TestCase):
         self.assertAlmostEqual(item["change_rp_per_kg"], 39.58)
 
 
+class CpoHistory(unittest.TestCase):
+    def test_extracts_investing_rows(self):
+        html = b"""
+        <table><tr><th>Date</th><th>Price</th><th>Change</th></tr>
+        <tr><td>Nov 05, 2026</td><td>4,377.00</td><td>-2.65%</td></tr>
+        <tr><td>Nov 04, 2026</td><td>4,496.00</td><td>0.00%</td></tr></table>
+        """
+        points = fn._cpo_points_from_html(html, "Investing.com")
+        self.assertEqual([p["date"] for p in points], ["2026-11-04", "2026-11-05"])
+        self.assertEqual(points[-1]["price"], 4377.0)
+        self.assertEqual(points[-1]["currency"], "MYR")
+
+    def test_ignores_rows_without_dates_or_prices(self):
+        html = b"""
+        <table><tr><td>Summary</td><td>52 week range</td></tr>
+        <tr><td>Nov 05, 2026</td><td>n/a</td></tr></table>
+        """
+        self.assertEqual(fn._cpo_points_from_html(html, "Trading Economics"), [])
+
+
 class Classification(unittest.TestCase):
     def test_market_signal_vocabulary(self):
         # The Android widget matches these strings; they must not drift.

@@ -82,6 +82,13 @@ for i, p in enumerate(data['tbs_prices']):
             if not float(ages.get(age,0)) > 0:
                 warnings.append(f'TBS price {i} ({p.get("scheme")} {p.get("region")}) has no age {age} value')
 
+cpo_history = data.get('cpo_history', [])
+assert isinstance(cpo_history, list), 'cpo_history must be a list when present'
+for i, point in enumerate(cpo_history):
+    assert re.match(r'^\d{4}-\d{2}-\d{2}$', str(point.get('date', ''))), f'CPO point {i} bad date'
+    assert float(point.get('price', 0)) > 0, f'CPO point {i} price must be positive'
+    assert point.get('currency', 'MYR') == 'MYR', f'CPO point {i} currency must be MYR'
+
 manifest = json.loads((ROOT/'manifest.webmanifest').read_text())
 sources = json.loads((ROOT/'config/sources.json').read_text())
 assert manifest.get('display') == 'standalone'

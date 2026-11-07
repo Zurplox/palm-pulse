@@ -13,6 +13,7 @@ A polished, installable palm-oil news dashboard for Indonesia, Malaysia and glob
 - Automatic headline + publisher-preview fallback
 - Deduplication, simple market-impact tags and JSON feed
 - InfoSAWIT-first Riau/Siak TBS tracking for ages 4–6, with age 9 as a reference
+- Malaysia FCPO daily settlement chart with a rolling 12-month history
 - Built-in security and QA checks
 - No Telegram and no server to maintain
 
@@ -59,6 +60,14 @@ Supported categories: `Indonesia`, `Malaysia`, `Market`, `Policy`, `Plantation`.
 For TBS only, Palm Pulse performs a fresh weekly discovery instead of using a fixed article URL. Every workflow run searches dedicated Google News RSS queries and the InfoSAWIT Riau feed for the newest Plasma and Swadaya pages, reconstructs the new direct InfoSAWIT URL, then fetches the article (including its AMP fallback) to extract the validity period and age table. Official Riau/Siak and InfoSAWIT Sumatera reports are used as cross-checks.
 
 Ages 4, 5 and 6 are the primary field view, with age 9 retained as the standard comparison benchmark. If a newly discovered page is temporarily protected from crawling, Palm Pulse still flags its new period and calculates only the published age-9 movement from the previous confirmed benchmark; it never relabels older age 4–6 values as current. Every card links to the newly discovered source page.
+
+## Malaysia CPO trend
+
+The dashboard plots daily Malaysia Palm Oil Futures (FCPO) settlement prices for
+the latest rolling 12 months. The workflow prefers Investing.com historical
+FCPO data and falls back to Trading Economics when the primary page is
+unavailable. The chart is informational; verify trading decisions against the
+exchange or publisher.
 
 ## Local testing
 
@@ -124,5 +133,6 @@ deployment stays in place. It will never present week-old news as today's editio
 | `AI_BATCH_SIZE` | 6 | Stories per summary request. Smaller batches survive token limits. |
 | `AI_BATCH_PAUSE` | 15 | Seconds between AI requests, for free-tier rate limits. |
 | `TBS_PRICE_MIN`, `TBS_PRICE_MAX` | 2000 / 8000 | Sanity band for TBS prices in Rp/kg. |
+| `CPO_LOOKBACK_DAYS` | 365 | Number of daily Malaysia FCPO points retained for the chart. |
 | `PAGES_BASE_URL` | derived from the repo | Overrides the published site URL used for price continuity. |
 | `ARTICLE_MAX_ATTEMPTS` | 2 | Fetch attempts per InfoSAWIT article URL per run. The same article appears in several feeds; this stops the identical URL (and its timeouts) being retried once per feed, while still allowing one real retry if the site blocks the first try. Raise it to trade run time for price coverage. |

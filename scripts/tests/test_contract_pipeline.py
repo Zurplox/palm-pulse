@@ -109,13 +109,16 @@ class GeneratedEditionPassesQa(unittest.TestCase):
         # tests fail while passing in isolation.
         self.saved = {name: getattr(fn, name) for name in
                       ("DATA", "KEY", "collect", "collect_tbs_prices",
-                       "call_gemini", "fetch_json")}
+                       "call_gemini", "fetch_json", "fetch_cpo_history",
+                       "update_cpo_history")}
         self.saved_sleep = fn.time.sleep
         fn.DATA = self.tmp / "data"
         fn.KEY = "fake-key"
         fn.time.sleep = lambda seconds: None
         fn.STAGE_STATUS.clear()
         fn.fetch_json = lambda url: None
+        fn.fetch_cpo_history = lambda: ([], None, [])
+        fn.update_cpo_history = lambda points, source, generated_at: []
 
     def tearDown(self):
         for name, value in self.saved.items():

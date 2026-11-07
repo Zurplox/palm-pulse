@@ -34,7 +34,7 @@ below on every CI run and fails the build if it drifts.
 Everything else the app reads is nullable and may be omitted: `timezone`,
 `market_signal`, `gemini_enabled`, `ai_model`, `master_summary_type`,
 `ai_summary_count`, `tbs_prices`, `tbs_price_updated_at`, the optional story
-fields, and every `tbs_prices[]` field.
+fields, every `tbs_prices[]` field, and all CPO chart fields.
 
 ## String vocabularies the app matches on
 
@@ -79,8 +79,18 @@ behaviour even though the JSON stays structurally valid.
 ## Fields no current client reads
 
 `data_quality`, `price_source`, `lang`, `health` and the whole of
-`data/history.json` are ignored by both clients today. They are safe places to
-add information, and safe to change.
+`data/history.json`, `data/cpo_history.json`, `cpo_history`, `cpo_source` and
+`cpo_price_updated_at` are ignored by both clients today. They are safe places
+to add information, and safe to change.
+
+## CPO chart data
+
+The website's Malaysia CPO chart reads the additive `cpo_history` list from
+`data/latest.json`. Each point contains an ISO date, a positive MYR/tonne price,
+and a source label. The collector retains the latest rolling year, preferring
+Investing.com daily FCPO history and falling back to Trading Economics. The
+separate `data/cpo_history.json` file is the persisted source of continuity
+between workflow runs.
 
 ## Before changing this feed
 

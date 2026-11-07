@@ -51,6 +51,10 @@ def _pages_base() -> str:
 PAGES_BASE = _pages_base()
 LIVE_JSON = PAGES_BASE + "/data/latest.json"
 HISTORY_URL = PAGES_BASE + "/data/history.json"
+CPO_HISTORY_URL = PAGES_BASE + "/data/cpo_history.json"
+CPO_PRIMARY_URL = "https://www.investing.com/commodities/palm-oil-historical-data"
+CPO_FALLBACK_URL = "https://tradingeconomics.com/commodity/palm-oil"
+CPO_LOOKBACK_DAYS = max(30, int(os.getenv("CPO_LOOKBACK_DAYS", "365")))
 # TBS sanity band. Configurable so a genuine market move cannot silently void
 # every reading the way a hardcoded band eventually would.
 PRICE_MIN = float(os.getenv("TBS_PRICE_MIN", "2000"))
@@ -549,6 +553,85 @@ def fetch_json(url: str):
         return None
 
 
+def _cpo_date(value: str) -> str | None:
+    value = clean_text(value).replace(",", "")
+    for pattern in ("%b %d %Y", "%B %d %Y", "%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"):
+        try:
+            return datetime.strptime(value, pattern).date().isoformat()
+        except ValueError:
+            continue
+    return None
+
+
+def _cpo_points_from_html(content: bytes, source: str) -> list[dict]:
+    """Extract date/close pairs from a provider page without trusting scripts."""
+    soup = BeautifulSoup(content, "html.parser")
+    points = {}
+    for row in soup.select("tr"):
+        cells = [clean_text(cell.get_text(" ", strip=True)) for cell in row.select("th, td")]
+        if len(cells) < 2:
+            continue
+        day = _cpo_date(cells[0])
+        if not day:
+            continue
+        price = None
+        for cell in cells[1:]:
+            match = re.search(r"(?<!\d)(\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{2,6}(?:\.\d{1,2})?)(?!\d)", cell.replace(" ", ""))
+            if match:
+                try:
+                    price = float(match.group(1).replace(",", ""))
+                except ValueError:
+                    pass
+                if price and price > 0:
+                    break
+        if price:
+            points[day] = {"date": day, "price": round(price, 2), "source": source, "currency": "MYR"}
+    return sorted(points.values(), key=lambda p: p["date"])
+
+
+def fetch_cpo_history() -> tuple[list[dict], str | None, list[str]]:
+    """Fetch a rolling daily FCPO series, preferring Investing.com over fallback."""
+    errors = []
+    providers = [
+        ("Investing.com", CPO_PRIMARY_URL),
+        ("Trading Economics", CPO_FALLBACK_URL),
+    ]
+    cutoff = date.today() - timedelta(days=CPO_LOOKBACK_DAYS)
+    for source, url in providers:
+        try:
+            response = requests.get(url, timeout=22, headers={"User-Agent": USER_AGENT, "Cache-Control": "no-cache"})
+            response.raise_for_status()
+            points = [p for p in _cpo_points_from_html(response.content, source) if p["date"] >= cutoff.isoformat()]
+            if points:
+                return points[-CPO_LOOKBACK_DAYS:], source, errors
+            errors.append(f"{source}: no usable price points")
+        except Exception as exc:
+            errors.append(f"{source}: {type(exc).__name__}")
+    return [], None, errors
+
+
+def update_cpo_history(points: list[dict], source: str | None, generated_at: str) -> list[dict]:
+    """Merge fresh CPO observations with persisted history and retain one year."""
+    path = DATA / "cpo_history.json"
+    existing = fetch_json(CPO_HISTORY_URL)
+    if not isinstance(existing, dict):
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        except Exception:
+            existing = {}
+    merged = {(p.get("date"), p.get("currency", "MYR")): p for p in existing.get("points", []) if isinstance(p, dict)}
+    for point in points:
+        merged[(point.get("date"), point.get("currency", "MYR"))] = point
+    cutoff = date.today() - timedelta(days=CPO_LOOKBACK_DAYS)
+    ordered = sorted(
+        (p for p in merged.values() if p.get("date") and p["date"] >= cutoff.isoformat() and float(p.get("price", 0)) > 0),
+        key=lambda p: p["date"],
+    )[-CPO_LOOKBACK_DAYS:]
+    payload = {"updated_at": generated_at, "source": source or existing.get("source"), "currency": "MYR", "points": ordered}
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return ordered
+
+
 def update_history(prices: list[dict], generated_at: str) -> None:
     """Append this week's TBS readings to a long-lived series.
 
@@ -683,6 +766,9 @@ def main() -> int:
     STAGE_STATUS["feeds"] = "ok" if not feed_errors else f"{len(feed_errors)}/{len(SOURCES)} sources failed"
     tbs_prices, tbs_errors = collect_tbs_prices()
     STAGE_STATUS["tbs"] = "ok" if tbs_prices else "unavailable"
+    cpo_points, cpo_source, cpo_errors = fetch_cpo_history()
+    cpo_history = update_cpo_history(cpo_points, cpo_source, datetime.now(timezone.utc).isoformat())
+    STAGE_STATUS["cpo"] = "ok" if cpo_history else "unavailable"
     existing = DATA / "latest.json"
     if not stories:
         # The committed data/latest.json is only a seed. Publishing it would
@@ -714,9 +800,12 @@ def main() -> int:
         "master_summary": master_summary, "master_summary_type": master_type,
         "ai_summary_count": sum(s["summary_type"] == "ai" for s in stories),
         "tbs_prices": tbs_prices, "tbs_price_updated_at": now.isoformat(),
+        "cpo_history": cpo_history, "cpo_price_updated_at": now.isoformat(),
+        "cpo_source": cpo_source,
         "stories": stories,
         # Store counts only. Exception strings can contain request URLs and secrets.
-        "health": {"feed_error_count": len(feed_errors), "tbs_error_count": len(tbs_errors), "summary_error_count": len(ai_errors),
+        "health": {"feed_error_count": len(feed_errors), "tbs_error_count": len(tbs_errors), "cpo_error_count": len(cpo_errors),
+                   "summary_error_count": len(ai_errors),
                    "sources_total": len(SOURCES), "sources_failed": len(feed_errors),
                    "rejected_price_count": len(REJECTED_PRICES), "stages": dict(STAGE_STATUS)}
     }
