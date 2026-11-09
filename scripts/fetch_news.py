@@ -610,24 +610,49 @@ def fetch_cpo_history() -> tuple[list[dict], str | None, list[str]]:
     return [], None, errors
 
 
+def _cpo_point_key(point: dict) -> tuple:
+    return (point.get("date"), point.get("currency", "MYR"))
+
+
+def _cpo_points(payload: object) -> list[dict]:
+    """Return the usable point dicts from a history payload, ignoring junk."""
+    if not isinstance(payload, dict):
+        return []
+    return [point for point in payload.get("points", []) if isinstance(point, dict)]
+
+
 def update_cpo_history(points: list[dict], source: str | None, generated_at: str) -> list[dict]:
-    """Merge fresh CPO observations with persisted history and retain one year."""
+    """Merge fresh CPO observations with persisted history and retain one year.
+
+    Both the published file and the restored data-branch file are kept. The
+    published copy used to win outright, so a longer locally restored history
+    was silently dropped whenever the published copy was shorter. Fresh
+    observations still win on a date collision.
+    """
     path = DATA / "cpo_history.json"
-    existing = fetch_json(CPO_HISTORY_URL)
-    if not isinstance(existing, dict):
-        try:
-            existing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
-        except Exception:
-            existing = {}
-    merged = {(p.get("date"), p.get("currency", "MYR")): p for p in existing.get("points", []) if isinstance(p, dict)}
+    published = fetch_json(CPO_HISTORY_URL)
+    try:
+        restored = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    except Exception:
+        restored = None
+    merged = {}
+    for payload in (published, restored):
+        for point in _cpo_points(payload):
+            merged[_cpo_point_key(point)] = point
     for point in points:
-        merged[(point.get("date"), point.get("currency", "MYR"))] = point
+        merged[_cpo_point_key(point)] = point
     cutoff = date.today() - timedelta(days=CPO_LOOKBACK_DAYS)
     ordered = sorted(
         (p for p in merged.values() if p.get("date") and p["date"] >= cutoff.isoformat() and float(p.get("price", 0)) > 0),
         key=lambda p: p["date"],
     )[-CPO_LOOKBACK_DAYS:]
-    payload = {"updated_at": generated_at, "source": source or existing.get("source"), "currency": "MYR", "points": ordered}
+    label = source
+    if not label:
+        for payload in (published, restored):
+            if isinstance(payload, dict) and payload.get("source"):
+                label = payload["source"]
+                break
+    payload = {"updated_at": generated_at, "source": label, "currency": "MYR", "points": ordered}
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     return ordered
 
