@@ -322,7 +322,7 @@ def _summarize_chunk(selected: list[dict], active_model: str, batch_index: int) 
     """Summarize one small batch. A failure here costs only this batch."""
     errors: list[str] = []
     source_items = [{"id": story["id"], "title": story["title"], "preview": story["snippet"]} for story in selected]
-    prompt = f"""Ringkas setiap berita kelapa sawit pada input JSON berikut. Kembalikan HANYA array JSON yang valid dengan urutan yang sama, berisi objek dengan tepat dua kunci: id dan summary. Setiap summary berisi 3 sampai 5 kalimat faktual, maksimum 130 kata, mencakup apa yang terjadi, detail yang relevan, dan mengapa hal itu penting. Gunakan hanya judul dan pratinjau penerbit yang diberikan. Jangan pernah mengarang fakta; bila detailnya terbatas, nyatakan hal itu dengan jujur daripada menambah kalimat kosong.
+    prompt = f"""Ringkas setiap berita kelapa sawit pada input JSON berikut. Kembalikan HANYA array JSON yang valid dengan urutan yang sama, berisi objek dengan tepat dua kunci: id dan summary. Setiap summary berisi 1 sampai 5 kalimat faktual, maksimum 130 kata, mencakup apa yang terjadi, detail yang relevan, dan mengapa hal itu penting. Sesuaikan panjang dengan isi pratinjau: bila pratinjau hanya memuat judul, cukup 1 atau 2 kalimat dan jangan menyebut keterbatasan pratinjau. Gunakan hanya judul dan pratinjau penerbit yang diberikan. Jangan pernah mengarang fakta.
 
 WAJIB: tulis setiap summary dalam Bahasa Indonesia yang baku dan mudah dipahami pekebun, walaupun judul dan pratinjaunya berbahasa Inggris. Terjemahkan isinya, jangan sekadar menyalin. Pertahankan istilah dan singkatan resmi apa adanya: CPO, TBS, FFB, FCPO, MPOB, GAPKI, RSPO, ISPO, MSPO, EUDR, DMO, B40, B50. Nilai kunci id harus disalin persis seperti pada input.
 

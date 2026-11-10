@@ -8,7 +8,7 @@ A polished, installable palm-oil news dashboard for Indonesia, Malaysia and glob
 - Indonesia, Malaysia, market, policy and plantation filters
 - Daily automated collection at **06:30 Singapore/Malaysia / 05:30 WIB**
 - Structured master AI summary with bullet-point sections, generated before individual summaries
-- Individual AI summaries expanded to 3–5 sentences
+- Individual AI summaries of 1–5 sentences, matching the detail in each publisher preview
 - Only two AI requests per run: master summary first, then all article summaries in one batch
 - Automatic headline + publisher-preview fallback
 - Deduplication, simple market-impact tags and JSON feed
