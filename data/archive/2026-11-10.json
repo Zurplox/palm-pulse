@@ -1,0 +1,1507 @@
+{
+  "generated_at": "2026-11-10T04:33:45.213017+00:00",
+  "timezone": "Asia/Singapore",
+  "market_signal": "Constructive",
+  "story_count": 18,
+  "gemini_enabled": true,
+  "ai_model": "gemini-3.6-flash",
+  "master_summary": "RINGKASAN EKSEKUTIF\n- Harga CPO global dan pasar berjangka mengalami tekanan hingga menyentuh level terendah dalam 8 bulan terakhir akibat rekor penumpukan stok dan pelemahan harga minyak mentah dunia.\n- Di Indonesia, persiapan program B50 terus didorong di mana Kalimantan Timur disiapkan menjadi penyangga bahan baku utama dengan melibatkan petani sawit rakyat secara langsung.\n- APKASINDO mendesak kepatuhan harga penetapan TBS oleh PKS di Aceh Singkil serta mengajukan rekomendasi strategis kepada Dewan Ekonomi Nasional, sementara program peremajaan sawit rakyat terus dipercepat.\n- Di Malaysia, pemerintah sedang meninjau ulang mandat avtur berkelanjutan 1 persen akibat ketidakpastian energi global, serta terdapat desakan kemudahan skema replanting bagi pekebun kecil di Sarawak.\nINDONESIA\n- Kalimantan Timur siap menjadi penyangga bahan baku biodiesel B50 nasional dan mendorong petani sawit rakyat masuk ke dalam rantai pasokan resmi.\n- FPKS Kaltim membidik percepatan pelaksanaan program Peremajaan Sawit Rakyat (PSR) guna meningkatkan produktivitas kebun masyarakat.\n- APKASINDO mendesak pabrik kelapa sawit (PKS) di Aceh Singkil mematuhi harga penetapan TBS dan menyampaikan tiga rekomendasi strategis kepada Dewan Ekonomi Nasional.\n- Data RSPO menunjukkan bahwa area kebakaran hutan dan lahan pada konsesi bersertifikat RSPO hanya mencapai 0,8 persen dari total area terbakar di Indonesia.\n- GAPKI menekankan pentingnya menjaga keseimbangan antara penguatan program biodiesel, ketahanan pangan, dan ekspor di tengah ketidakpastian dunia.\nMALAYSIA\n- Pemerintah Malaysia sedang meninjau kembali rencana mandat pencampuran 1 persen bahan bakar penerbangan berkelanjutan karena ketidakpastian pasar energi global.\n- Organisasi pekebun DOPPA meminta pemerintah agar skema bantuan peremajaan sawit TSPKS 2.0 dibuat lebih mudah diakses oleh para pekebun kecil di Sarawak.\nPENGGERAK HARGA DAN PASAR\n- Harga CPO berjangka merosot ke tingkat terendah dalam 8 bulan terakhir akibat kombinasi rekor tingginya stok minyak sawit dan pelemahan harga minyak mentah.\n- Perdagangan CPO berjangka diperkirakan bergerak secara hati-hati menjelang rilis data laporan bulanan terbaru dari MPOB.\n- Tingginya penumpukan pasokan CPO diperkirakan masih membatasi kenaikan harga jangka pendek, dengan potensi perbaikan harga baru diproyeksikan terjadi pada 2027.\n- Di pasar lokal Indonesia, harga transaksi CPO pada PT KPBN Inacom tercatat mengalami kenaikan tipis.\nDAMPAK BAGI PEKEBUN\n- Pekebun rakyat di Kaltim berpeluang mendapat kepastian pasar melalui penyerapan bahan baku program B50 dan percepatan peremajaan kebun.\n- Pekebun di Aceh Singkil masih menghadapi tantangan ketidakpatuhan PKS terhadap harga penetapan TBS pemerintah, yang kini sedang didesak oleh APKASINDO.\n- Pekebun kecil di Sarawak membutuhkan penyesuaian aturan agar lebih mudah mendapatkan akses dana bantuan replanting kebun mereka.\n- Pelemahan harga CPO berjangka dunia berisiko menahan kenaikan harga pembelian TBS di tingkat petani.\nPANTAUAN\n- Hasil evaluasi kebijakan pemerintah Malaysia mengenai mandat 1 persen bahan bakar penerbangan berkelanjutan.\n- Rilis data resmi angka produksi, ekspor, dan stok minyak sawit periode terbaru dari MPOB.\n- Tingkat kepatuhan PKS di Aceh Singkil terhadap pelaksanaan harga TBS hasil penetapan dinas terkait.\n- Perkembangan penyusunan rantai pasok biodiesel B50 dan realisasi percepatan program peremajaan sawit rakyat di daerah.",
+  "master_summary_type": "ai",
+  "ai_summary_count": 18,
+  "tbs_prices": [
+    {
+      "region": "Riau",
+      "reference_for": "Siak",
+      "scheme": "Plasma",
+      "palm_age_years": 9,
+      "price_rp_per_kg": 3762.61,
+      "age_prices_rp_per_kg": {
+        "9": 3762.61
+      },
+      "change_rp_per_kg": -294.0,
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-12",
+      "published_at": "2026-11-06T22:11:32+00:00",
+      "source_name": "InfoSAWIT",
+      "source_url": "https://www.infosawit.com/2026/11/07/harga-cpo-kpbn-inacom-masih-withdraw-pada-jumat-6-10-2026-perdagangan-cpo-di-bursa-malaysia-anjlok/",
+      "cross_checked_sources": 1,
+      "confidence": "infosawit",
+      "data_quality": "benchmark_only",
+      "price_source": "published",
+      "status": "current_period",
+      "trend": "down",
+      "change_percent": -7.25
+    },
+    {
+      "region": "Riau",
+      "reference_for": "Siak",
+      "scheme": "Swadaya",
+      "palm_age_years": 9,
+      "price_rp_per_kg": 3729.47,
+      "age_prices_rp_per_kg": {
+        "9": 3729.47,
+        "4": 3257.2,
+        "5": 3333.17,
+        "6": 3424.02
+      },
+      "change_rp_per_kg": -0.53,
+      "valid_from": "2026-11-06",
+      "valid_to": "2026-11-12",
+      "published_at": "2026-11-09T04:25:00+00:00",
+      "source_name": "InfoSAWIT",
+      "source_url": "https://www.infosawit.com/2026/11/09/smile-tingkatkan-target-sertifikasi-rspo-menjadi-7-000-petani-sawit-swadaya/",
+      "cross_checked_sources": 1,
+      "confidence": "infosawit",
+      "data_quality": "full_age_table",
+      "price_source": "published",
+      "status": "current_period",
+      "trend": "down",
+      "change_percent": -0.01
+    }
+  ],
+  "tbs_price_updated_at": "2026-11-10T04:33:45.213017+00:00",
+  "cpo_history": [
+    {
+      "date": "2025-11-10",
+      "price": 4137,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-11",
+      "price": 4124,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-12",
+      "price": 4125,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-13",
+      "price": 4128,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-17",
+      "price": 4209,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-18",
+      "price": 4226,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-19",
+      "price": 4155,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-20",
+      "price": 4069,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-24",
+      "price": 3990,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-25",
+      "price": 4024,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-26",
+      "price": 4090,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-11-27",
+      "price": 4114,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-01",
+      "price": 4159,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-02",
+      "price": 4153,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-03",
+      "price": 4105,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-04",
+      "price": 4152,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-08",
+      "price": 4106,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-09",
+      "price": 4063,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-10",
+      "price": 4063,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-11",
+      "price": 4018,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-15",
+      "price": 3962,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-16",
+      "price": 3966,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-17",
+      "price": 3980,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-18",
+      "price": 3905,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-22",
+      "price": 4036,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-23",
+      "price": 4037,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-26",
+      "price": 4089,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-29",
+      "price": 4070,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2025-12-30",
+      "price": 4050,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-02",
+      "price": 3991,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-05",
+      "price": 3990,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-06",
+      "price": 4033,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-07",
+      "price": 4043,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-08",
+      "price": 4036,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-12",
+      "price": 4064,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-13",
+      "price": 4040,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-14",
+      "price": 3980,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-15",
+      "price": 4072,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-19",
+      "price": 4094,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-20",
+      "price": 4154,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-21",
+      "price": 4197,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-22",
+      "price": 4175,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-26",
+      "price": 4260,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-27",
+      "price": 4272,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-28",
+      "price": 4317,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-01-29",
+      "price": 4229,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-03",
+      "price": 4225,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-04",
+      "price": 4206,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-05",
+      "price": 4154,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-09",
+      "price": 4095,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-10",
+      "price": 4061,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-11",
+      "price": 4037,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-12",
+      "price": 4050,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-16",
+      "price": 4016,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-19",
+      "price": 4092,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-23",
+      "price": 4053,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-24",
+      "price": 4053,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-25",
+      "price": 4005,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-02-26",
+      "price": 4042,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-02",
+      "price": 4186,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-03",
+      "price": 4179,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-04",
+      "price": 4207,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-05",
+      "price": 4367,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-09",
+      "price": 4428,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-10",
+      "price": 4499,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-11",
+      "price": 4541,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-12",
+      "price": 4572,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-16",
+      "price": 4581,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-17",
+      "price": 4528,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-18",
+      "price": 4611,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-24",
+      "price": 4496,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-25",
+      "price": 4583,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-26",
+      "price": 4631,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-30",
+      "price": 4828,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-03-31",
+      "price": 4769,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-01",
+      "price": 4791,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-02",
+      "price": 4839,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-06",
+      "price": 4765,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-07",
+      "price": 4586,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-08",
+      "price": 4643,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-09",
+      "price": 4538,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-13",
+      "price": 4466,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-14",
+      "price": 4472,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-15",
+      "price": 4495,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-16",
+      "price": 4450,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-20",
+      "price": 4559,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-21",
+      "price": 4628,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-22",
+      "price": 4579,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-23",
+      "price": 4597,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-27",
+      "price": 4536,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-28",
+      "price": 4578,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-04-29",
+      "price": 4570,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-04",
+      "price": 4710,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-05",
+      "price": 4579,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-06",
+      "price": 4541,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-07",
+      "price": 4505,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-11",
+      "price": 4481,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-12",
+      "price": 4438,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-13",
+      "price": 4393,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-14",
+      "price": 4420,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-18",
+      "price": 4585,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-19",
+      "price": 4583,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-20",
+      "price": 4458,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-21",
+      "price": 4486,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-25",
+      "price": 4496,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-05-28",
+      "price": 4535,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-03",
+      "price": 4601,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-04",
+      "price": 4554,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-08",
+      "price": 4528,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-09",
+      "price": 4538,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-10",
+      "price": 4551,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-11",
+      "price": 4475,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-15",
+      "price": 4574,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-18",
+      "price": 4646,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-22",
+      "price": 4658,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-23",
+      "price": 4633,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-24",
+      "price": 4557,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-25",
+      "price": 4568,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-29",
+      "price": 4546,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-06-30",
+      "price": 4557,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-01",
+      "price": 4506,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-02",
+      "price": 4480,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-06",
+      "price": 4547,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-07",
+      "price": 4609,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-08",
+      "price": 4594,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-09",
+      "price": 4513,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-13",
+      "price": 4573,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-14",
+      "price": 4569,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-15",
+      "price": 4606,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-16",
+      "price": 4597,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-20",
+      "price": 4610,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-21",
+      "price": 4622,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-22",
+      "price": 4710,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-23",
+      "price": 4722,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-27",
+      "price": 4642,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-28",
+      "price": 4664,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-29",
+      "price": 4683,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-07-30",
+      "price": 4643,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-03",
+      "price": 4696,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-04",
+      "price": 4702,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-05",
+      "price": 4686,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-06",
+      "price": 4677,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-10",
+      "price": 4748,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-11",
+      "price": 4697,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-12",
+      "price": 4724,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-13",
+      "price": 4710,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-17",
+      "price": 4860,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-18",
+      "price": 4893,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-19",
+      "price": 4961,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-20",
+      "price": 5018,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-24",
+      "price": 4946,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-26",
+      "price": 4816,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-08-27",
+      "price": 4894,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-01",
+      "price": 4958,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-02",
+      "price": 4904,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-03",
+      "price": 4929,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-07",
+      "price": 4976,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-08",
+      "price": 4966,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-09",
+      "price": 4885,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-10",
+      "price": 4814,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-14",
+      "price": 4884,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-17",
+      "price": 4898,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-21",
+      "price": 4810,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-22",
+      "price": 4768,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-23",
+      "price": 4772,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-24",
+      "price": 4672,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-28",
+      "price": 4624,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-29",
+      "price": 4610,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-09-30",
+      "price": 4554,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-01",
+      "price": 4535,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-05",
+      "price": 4560,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-06",
+      "price": 4524,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-07",
+      "price": 4661.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-08",
+      "price": 4592.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-12",
+      "price": 4682.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-13",
+      "price": 4700.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-14",
+      "price": 4619.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-15",
+      "price": 4769.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-19",
+      "price": 4797.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-20",
+      "price": 4767.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-21",
+      "price": 4792.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-22",
+      "price": 4818.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-26",
+      "price": 4701.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-27",
+      "price": 4701.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-28",
+      "price": 4685.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-29",
+      "price": 4616.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-10-30",
+      "price": 4681.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-02",
+      "price": 4649.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-03",
+      "price": 4551.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-04",
+      "price": 4496.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-05",
+      "price": 4377.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-06",
+      "price": 4258.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    }
+  ],
+  "cpo_price_updated_at": "2026-11-10T04:33:45.213017+00:00",
+  "cpo_source": "Investing.com",
+  "stories": [
+    {
+      "id": "petani sawit rakyat kaltim didorong masuk rantai pasok b50 rri co id",
+      "title": "Petani Sawit Rakyat Kaltim Didorong Masuk Rantai Pasok B50 - RRI.co.id",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZ2hWZE9MNTB5MW1abkltX25hbjdEbmlwZWF6OTEtX0F4VjBGVGpqdmJLOGxIQjR1SVpGeUJjeFVJVC1pYUY0VElUZFozWmFrNmFUNHgxVWlPSFVfeV9CUlg5Y2pQalMteUNxR0wwTE9LRHhUa2lTUXZxdGFXWUIyNTdGaFREM3ZwZjV2c3R0SGZBMzB2UGhQVFRwaS1qZkdQUlBmTEw0NA?oc=5",
+      "source": "Google News · Perkebunan (Bahasa)",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Positive",
+      "published_at": "2026-11-10T03:45:00+00:00",
+      "lang": "id",
+      "snippet": "Petani Sawit Rakyat Kaltim Didorong Masuk Rantai Pasok B50 RRI.co.id",
+      "summary": "Petani sawit rakyat di Kalimantan Timur saat ini didorong untuk terlibat langsung dalam rantai pasok program biodiesel B50. Langkah ini bertujuan agar hasil panen petani lokal dapat terserap ke dalam rantai pasok energi nasional. Namun, rincian mengenai mekanisme pendampingan maupun kebijakan pendukung belum dijelaskan secara detail dalam pemberitaan ini. Keterlibatan petani sangat penting untuk meningkatkan kesejahteraan mereka sekaligus memperkuat ketersediaan bahan baku B50.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "kaltim siap jadi penyangga bahan baku biodiesel b50 nasional rri co id",
+      "title": "Kaltim Siap Jadi Penyangga Bahan Baku Biodiesel B50 Nasional - RRI.co.id",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPTjhELTFsalF5dFR1WUtvVC1aMFVHVE1jTnFhaWc5VWhYX25uMTNWcm9YbHhaQWUzOVliZGR5TzJjSzN6UzFvRFE1eVpkWHZ0M1RKQ3VZNjhXazdOa0FEYlljSFBlU0dVVnFaOXZYVnFCNEFnSWJTY0FBN1NreDU3MFlPTWl0cEdLMktFdnNPNWprbTM3eUtwTW1waGV3cWFFY1RPLTl3dUFaQQ?oc=5",
+      "source": "Google News · Perkebunan (Bahasa)",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Positive",
+      "published_at": "2026-11-10T03:42:00+00:00",
+      "lang": "id",
+      "snippet": "Kaltim Siap Jadi Penyangga Bahan Baku Biodiesel B50 Nasional RRI.co.id",
+      "summary": "Provinsi Kalimantan Timur menyatakan kesiapannya untuk menjadi daerah penyangga utama bahan baku biodiesel B50 tingkat nasional. Kesiapan ini diharapkan dapat mendukung ketahanan energi nasional berbasis minyak kelapa sawit. Meskipun demikian, pratinjau berita belum memuat rincian target produksi maupun strategi teknis yang akan diterapkan. Peran penyangga ini penting untuk memastikan kelancaran pasokan bahan baku program B50 secara berkelanjutan.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "expert palm kernel oil has 10 amazing benefits",
+      "title": "Expert: Palm Kernel Oil Has 10 Amazing Benefits",
+      "url": "https://gapki.id/en/news/2026/11/10/expert-palm-kernel-oil-has-10-amazing-benefits/",
+      "source": "GAPKI",
+      "country": "Indonesia",
+      "category": "Indonesia",
+      "impact": "Neutral",
+      "published_at": "2026-11-10T02:30:11+00:00",
+      "lang": "en",
+      "snippet": "Extracted from the seeds of the palm fruit, palm kernel oil (PKO) has been used for thousands of years for its medicinal properties.",
+      "summary": "Seorang ahli menyatakan bahwa minyak inti sawit memiliki 10 manfaat luar biasa bagi kesehatan. Minyak ini diekstrak langsung dari biji buah kelapa sawit dan telah digunakan selama ribuan tahun karena khasiat obatnya. Informasi ini penting untuk menunjukkan nilai tambah produk olahan kelapa sawit di luar sektor energi dan pangan. Namun, rincian mengenai sepuluh manfaat tersebut tidak dijelaskan lebih lanjut dalam pratinjau berita ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "rspo kebakaran di konsesi bersertifikat hanya 0 8 dari total area terbakar di indonesia",
+      "title": "RSPO: Kebakaran di Konsesi Bersertifikat Hanya 0,8% dari Total Area Terbakar di Indonesia",
+      "url": "https://www.infosawit.com/2026/11/10/rspo-kebakaran-di-konsesi-bersertifikat-hanya-08-dari-total-area-terbakar-di-indonesia/",
+      "source": "InfoSAWIT",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Neutral",
+      "published_at": "2026-11-10T02:25:00+00:00",
+      "lang": "id",
+      "snippet": "InfoSAWIT, JAKARTA – Kebakaran hutan dan lahan yang melanda Indonesia sepanjang 2026 menjadi perhatian dalam konferensi tahunan Roundtable on Sustainable Palm Oil [Baca Selengkapnya] The post RSPO: Kebakaran di Konsesi Bersertifikat Hanya 0,8% dari Total Area Terbakar di Indonesia appeared first…",
+      "summary": "Konferensi tahunan RSPO menyoroti isu kebakaran hutan dan lahan yang terjadi di Indonesia. Berdasarkan data yang dipaparkan, kebakaran di area konsesi yang bersertifikat RSPO hanya menyumbang 0,8% dari total area yang terbakar. Hal ini penting karena membuktikan bahwa penerapan standar keberlanjutan efektif menekan risiko kebakaran di perkebunan sawit. Informasi lebih lanjut mengenai rincian wilayah serta langkah penanganan tidak dijelaskan secara lengkap dalam pratinjau ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "industri sawit harus bangun strategi pengembangan talenta untuk menarik sdm unggul",
+      "title": "Industri Sawit Harus Bangun Strategi Pengembangan Talenta untuk Menarik SDM Unggul",
+      "url": "https://www.infosawit.com/2026/11/10/industri-sawit-harus-bangun-strategi-pengembangan-talenta-untuk-menarik-sdm-unggul/",
+      "source": "InfoSAWIT",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-10T00:25:00+00:00",
+      "lang": "id",
+      "snippet": "InfoSAWIT, JAKARTA – Persaingan mendapatkan sumber daya manusia (SDM) berkualitas menjadi tantangan tersendiri bagi industri perkebunan kelapa sawit.",
+      "summary": "Industri perkebunan kelapa sawit menghadapi tantangan besar berupa persaingan ketat dalam mendapatkan sumber daya manusia yang berkualitas. Untuk mengatasi masalah tersebut, industri sawit didorong membangun strategi pengembangan talenta yang matang demi menarik SDM unggul. Pemenuhan SDM berkualitas sangat penting untuk meningkatkan efisiensi dan pengelolaan perkebunan secara modern. Namun, rincian bentuk strategi pengembangan tersebut belum dipaparkan dalam pratinjau berita ini.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "doppa make tspks 2 0 more accessible sarawak smallholders",
+      "title": "Doppa: Make TSPKS 2.0 more accessible to Sarawak smallholders",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdDRvNmlYUVRFM2JZTUNBMlUydWlMQlpNUUFvMFpad0JtTUN4MEVLSVltOVh0dkZsemZJWFEydnp1YmF4bXJLQ2toQVduT1hDcmIzUE81OExaY1FtTjBSd2hScUl6OFJQM20taXlURldETURpWlBabWlMdUUxbHdhc2xublNMaVBPTzEyUTFhLUNSS2c5SmxDbkx4bl95ZnB6b1hCXw?oc=5",
+      "source": "Borneo Post",
+      "country": "Global",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-10T00:02:09+00:00",
+      "lang": "en",
+      "snippet": "Doppa: Make TSPKS 2.0 more accessible to Sarawak smallholders Borneo Post",
+      "summary": "Organisasi DOPPA mendesak agar skema TSPKS 2.0 dibuat lebih mudah diakses oleh para petani swadaya kelapa sawit di Sarawak. Kemudahan akses ini dinilai penting untuk mendukung kelancaran program dan kelangsungan usaha tani rakyat setempat. Langkah ini diharapkan mampu membantu petani kecil mengatasi berbagai kendala administratif maupun teknis di lapangan. Meskipun demikian, rincian syarat dan kendala terkait TSPKS 2.0 belum dijelaskan secara detail dalam sumber berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.6-flash"
+    },
+    {
+      "id": "wawancara ketum gapki eddy martono jelang ipoc 2026 menjaga biodiesel mengamankan pangan dan ekspor sawit di tengah dunia yang terfragmentas",
+      "title": "Wawancara Ketum GAPKI Eddy Martono Jelang IPOC 2026: Menjaga Biodiesel, Mengamankan Pangan dan Ekspor Sawit di Tengah Dunia yang Terfragmentasi - elaeis.co",
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQaEJZT0RsbjZwT0cyTm5sVEVKelpHQnVuOWk4TS1UUmI0REg2YUlsQmR5ZVdGMTJTZFRiZHdYUnNhZ25BNnkwN1F4dWRCem10Ynp5ZExvUWZvRDAwcGtUTEM4UmRnbFVVSWFUdUphVnM1Tl9mc3c4RUdfeWw1Q0FCZHFhQXRRYWo2NGRWWnhKMkg0YVBzSkRidU1TMFZUN1NpVlNORVZOMld5a2pwbERLeGlfakE3OEtWc3gzTFdkY2c2U1NiTDZSX2ZpRno4MkFRNTRWd3llLXdJeFJoZ253VmFXLTJYVGdmY3dZa0NrbmJwSXg0ZTdVMmdoWVNRajdK?oc=5",
+      "source": "Google News · Kebijakan (Bahasa)",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Neutral",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "lang": "id",
+      "snippet": "Wawancara Ketum GAPKI Eddy Martono Jelang IPOC 2026: Menjaga Biodiesel, Mengamankan Pangan dan Ekspor Sawit di Tengah Dunia yang Terfragmentasi elaeis.co",
+      "summary": "Ketua Umum GAPKI Eddy Martono memberikan wawancara khusus menjelang pelaksanaan IPOC 2026. Pembahasan utama berfokus pada upaya menjaga program biodiesel, mengamankan pasokan pangan, serta mempertahankan ekspor sawit di tengah kondisi global yang terfragmentasi. Informasi lebih rinci terkait hasil wawancara tersebut belum dijabarkan dalam pratinjau berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "harga cpo kpbn inacom naik tipis pada senin 9 11 2026",
+      "title": "Harga CPO KPBN Inacom Naik Tipis Pada Senin (9/11/2026)",
+      "url": "https://www.infosawit.com/2026/11/10/harga-cpo-kpbn-inacom-naik-tipis-pada-senin-10-11-2026/",
+      "source": "InfoSAWIT",
+      "country": "Indonesia",
+      "category": "Market",
+      "impact": "Positive",
+      "published_at": "2026-11-09T22:25:00+00:00",
+      "lang": "id",
+      "snippet": "InfoSAWIT, JAKARTA – Harga minyak sawit mentah (CPO) pada PT. Kharisma Pemasaran Bersama Nusantara (KPBN) ditetapkan Rp.",
+      "summary": "Harga minyak sawit mentah atau CPO pada lelang PT Kharisma Pemasaran Bersama Nusantara atau KPBN dilaporkan mengalami kenaikan tipis pada perdagangan Senin, 9 November 2026. Penetapan harga ini menjadi acuan penting bagi para pelaku usaha dan pekebun untuk memantau tren pasar komoditas sawit. Sayangnya, angka nominal harga pasti tidak disebutkan secara lengkap dalam pratinjau berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "apkasindo desak pks di aceh singkil patuhi harga tbs rri co id",
+      "title": "APKASINDO Desak PKS di Aceh Singkil Patuhi Harga TBS - RRI.co.id",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONTBpU1pReXZWWU4wY1RFR1pGOXRCVWV2WnVZaVdmd0hMbHp3aUJ4Z3NCWDMxRFU2V2RWb0pHOUxGZDNqWTFTaU95MHJNWklXTGl4NzhYREw5VEtzSlAtX05vNU45eHhHbDE1YzhaVkZMZUVHT1ljcVRJWGNhQmpvUWpHYlZ5ZU9QdVR1VFo1Z1dBeEFWUzJJWERJQTkxUTBlcEZyd2s4bUNFUQ?oc=5",
+      "source": "Google News · Bahasa",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T15:18:00+00:00",
+      "lang": "id",
+      "snippet": "APKASINDO Desak PKS di Aceh Singkil Patuhi Harga TBS RRI.co.id",
+      "summary": "Organisasi pekebun APKASINDO mendesak seluruh Pabrik Kelapa Sawit atau PKS di wilayah Aceh Singkil agar mematuhi aturan penetapan harga TBS. Kepatuhan ini sangat penting untuk melindungi kesejahteraan pekebun sawit swadaya maupun plasma di daerah tersebut. Detail tambahan mengenai sanksi atau respons pihak pabrik belum dimuat dalam sumber berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "palm oil under heavy pressure record stocks meet weak crude",
+      "title": "Palm Oil Under Heavy Pressure as Record Stocks Meet Weak Crude",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOelE3XzB1M0xXQkZGSlVZb2pfUDNrQWZwZTVIUE11ckxyMDVuNUFFQV9kV2puUHhGNGF4OHI2bEcxbjNPYU5ucjZMa3lVU3Bzcm1YTUgtc1dnU2llLXhZS3E5REFSYUFXc2lsRkw4T0E5Y3g3ZVBHY2tNTWFZOVlHaDVQaFRDWFhNSGhTZVpjVzE2TG94?oc=5",
+      "source": "CMB News",
+      "country": "Malaysia",
+      "category": "Market",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T13:34:19+00:00",
+      "lang": "en",
+      "snippet": "Palm Oil Under Heavy Pressure as Record Stocks Meet Weak Crude CMB News",
+      "summary": "Pasar minyak kelapa sawit berada di bawah tekanan berat akibat rekor tingginya stok yang bertemu dengan melemahnya harga minyak mentah global. Kondisi ini berpotensi memengaruhi stabilitas harga komoditas sawit secara internasional. Penjelasan lebih lanjut mengenai langkah mitigasi bagi para pelaku industri belum tercantum dalam pratinjau.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "apkasindo sampaikan tiga rekomendasi strategis kepada dewan ekonomi nasional",
+      "title": "APKASINDO Sampaikan Tiga Rekomendasi Strategis Kepada Dewan Ekonomi Nasional",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTFN2aG9tcVYzZFp3T2lCVk00b2JGNHNuUzM4SXdwM2Z2bjJYNkdoNks3RTRoYVhLV3FaOFRxLW5odnBDeS11cDNIc3NzU1V2U1cxbVVLVi16VFNJZDd6cll6RWFEMkpGbGpLZGRlZmRsQW9ubG9nYVhHUEFfaHRMQWxPVDB5R2xYenFUbk4yTWt2TmY0eTRmWm1qUHZ5ZFJtdTVsZThn?oc=5",
+      "source": "Sawit Indonesia",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T11:48:29+00:00",
+      "lang": "id",
+      "snippet": "APKASINDO Sampaikan Tiga Rekomendasi Strategis Kepada Dewan Ekonomi Nasional Sawit Indonesia",
+      "summary": "APKASINDO secara resmi telah menyampaikan tiga rekomendasi strategis kepada pihak Dewan Ekonomi Nasional. Langkah ini bertujuan untuk memperkuat sektor kelapa sawit nasional demi kepentingan para pekebun dan industri. Rincian isi ketiga rekomendasi strategis tersebut belum dijabarkan secara spesifik dalam pratinjau berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "fpks kaltim bidik percepatan peremajaan sawit rakyat",
+      "title": "FPKS Kaltim Bidik Percepatan Peremajaan Sawit Rakyat",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNR054VVI0cVJiZjMzUnEyZG85WVlUMDZCMFcxem56X0tEN2lRd1haZVB5TDE2MnhGUGN1aWx6UHZWWFZFVWV6QnBBcDVlcDg3a2pHWGM2YmRZQXNUZURYRVpsZXdIUHFoeVRiekFRaEJGYkRJYjd5SFlnY0tDUlRoc2Y2THF3aHNUVVE0?oc=5",
+      "source": "indeks media kaltim",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T10:10:26+00:00",
+      "lang": "id",
+      "snippet": "FPKS Kaltim Bidik Percepatan Peremajaan Sawit Rakyat indeks media kaltim",
+      "summary": "FPKS Kalimantan Timur menargetkan percepatan program peremajaan sawit rakyat di wilayahnya. Upaya ini penting dilakukan untuk mendongkrak produktivitas kebun sawit milik pekebun yang sudah tua dan tidak produktif. Informasi lebih mendalam mengenai mekanisme pelaksanaan program tersebut belum disertakan dalam sumber berita.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "palm oil futures hit 8 month low record stocks weak crude oil",
+      "title": "Palm Oil Futures Hit 8-Month Low on Record Stocks and Weak Crude Oil",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRmNnZ2pDOFVLdm5jWVhtMThrTF9hdkd3U01jYlpWTDM3QVJUb0FuY29fQkdkUjBuMjN1eHRIam5HQVdDc0RfSmh2UVA5TWZ3WHRXRlFnSnd4X2N3Szhtd0dGS2hXSi1vOU95ZFRNdTR5eFV2d0d2LWk3aG1TOFhBRGxiRHg4OFBBUW1Fa1RlYU8wRUN5Q2FMUGtUUHROZ2lo?oc=5",
+      "source": "CMB News",
+      "country": "Global",
+      "category": "Market",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T07:50:07+00:00",
+      "lang": "en",
+      "snippet": "Palm Oil Futures Hit 8-Month Low on Record Stocks and Weak Crude Oil CMB News",
+      "summary": "Harga berjangka minyak sawit jatuh ke level terendah dalam delapan bulan terakhir akibat rekor stok yang tinggi serta harga minyak mentah yang melemah. Penurunan ini berdampak langsung pada nilai jual hasil panen pekebun di pasar global. Kondisi ini penting dipantau karena dapat menekan pendapatan sektor sawit secara keseluruhan dalam waktu dekat.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "indigenous papuans warn wildlife loss oil palms rise through west papua",
+      "title": "Indigenous Papuans warn of wildlife loss as oil palms rise through West Papua",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONnUtUUZ1M1QwUG5OQUFGWVkzc2xrRFhzY3YwSGJoMUEzWFRiaHNyX1hFdjJxRkJxUFlCVnpScnpHOExEQzQybkVVa1ByVndvalBVbHh5UkhyRzRRTG1fY2RsZ180NDdHN21NZm9hM1ZkVGlRaHpaWkNiRlhJREhQRzNOTnlJdzE4T20tZUZSR2ZsanlIS3FJbTZwTXMwaVAxaXNHdU1kSzVPc3llOE5hUEpsYw?oc=5",
+      "source": "National Indigenous Times",
+      "country": "Global",
+      "category": "Plantation",
+      "impact": "Positive",
+      "published_at": "2026-11-09T05:30:00+00:00",
+      "lang": "en",
+      "snippet": "Indigenous Papuans warn of wildlife loss as oil palms rise through West Papua National Indigenous Times",
+      "summary": "Masyarakat adat Papua memperingatkan adanya ancaman kehilangan satwa liar seiring ekspansi kebun kelapa sawit yang terus meningkat di wilayah Papua Barat. Perluasan lahan ini memicu kekhawatiran serius terhadap kelestarian lingkungan dan ruang hidup flora serta fauna lokal. Isu ini penting karena menyoroti tantangan keberlanjutan dan perlindungan ekosistem di daerah perbatasan.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "cpo supply overhang could curb price rise improvement seen 2027",
+      "title": "CPO Supply Overhang Could Curb Price Rise, Improvement Seen In 2027",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNT09NLU0tbkt2ZzV3Y3FtUllFNUs5bFFvTm55YVRwLV9xUml0SnAtZGk2QVBGY1YzSTFyVVBxbDB5cnZ6VEZhZTh3WEc2bW9vY28zYmN2Nkd5Z1dYTlEyVWotNVRETnhhR3NmTExQVWdiQVZNc2JYSkxCUWJMVzlyY3lzNVNXQ25MRUJjSEZwWEZ3U3JMM1NKUld5bTB6SEZ2SjV2VV9aelJkd0p1TnVpVg?oc=5",
+      "source": "BusinessToday Malaysia",
+      "country": "Malaysia",
+      "category": "Market",
+      "impact": "Positive",
+      "published_at": "2026-11-09T03:53:40+00:00",
+      "lang": "en",
+      "snippet": "CPO Supply Overhang Could Curb Price Rise, Improvement Seen In 2027 BusinessToday Malaysia",
+      "summary": "Pasokan CPO yang berlebih di pasar berpotensi menahan laju kenaikan harga, di mana pemulihan pasar baru diprediksi terlihat pada tahun 2027. Kelebihan stok ini menjadi tantangan utama bagi kestabilan harga tandan buah segar di tingkat petani. Situasi ini penting untuk dicermati agar pekebun dapat merencanakan strategi usaha tani dengan lebih berhati-hati.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "palm oil waste into electricity fertiliser animal feed",
+      "title": "Palm Oil Waste into Electricity, Fertiliser, and Animal Feed",
+      "url": "https://gapki.id/en/news/2026/11/09/palm-oil-waste-into-electricity-fertiliser-and-animal-feed/",
+      "source": "GAPKI",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-09T02:00:00+00:00",
+      "lang": "en",
+      "snippet": "Palm Oil Innovation · Circular Economy Processing fresh fruit bunches (FFB) in a palm oil mill produces oil as the main product, together with a large volume of biomass.",
+      "summary": "Pengolahan tandan buah segar atau FFB di pabrik sawit menghasilkan minyak sebagai produk utama serta limbah biomassa dalam jumlah besar. Limbah sawit tersebut dapat dimanfaatkan kembali menjadi sumber listrik, pupuk, dan pakan ternak. Langkah ekonomi sirkular ini sangat penting untuk meningkatkan efisiensi pabrik dan mengurangi dampak pencemaran lingkungan.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "govt reviewing 1 sustainable aviation fuel blending mandate due global energy market uncertainties minister",
+      "title": "Govt reviewing 1% sustainable aviation fuel blending mandate due to global energy market uncertainties — minister",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1BaDNFS1NKZ1NaazM2dTQ2TWthc3VHVGZMN1hIMnBETVlSM3R1SnlPNmxLcXB6S0tDamllMDE0UVhrYmROZ1hZaVdVc0gxanln?oc=5",
+      "source": "The Edge Malaysia",
+      "country": "Malaysia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-08T20:23:40+00:00",
+      "lang": "en",
+      "snippet": "Govt reviewing 1% sustainable aviation fuel blending mandate due to global energy market uncertainties — minister The Edge Malaysia",
+      "summary": "Pemerintah sedang meninjau kembali mandatori pencampuran bahan bakar penerbangan berkelanjutan sebesar satu persen akibat ketidakpastian pasar energi global. Kebijakan ini disampaikan langsung oleh pejabat setingkat menteri untuk menyesuaikan kondisi ekonomi internasional. Peninjauan ulang ini penting karena dapat mempengaruhi arah penyerapan produk turunan minyak sawit di masa depan.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "cpo futures expected trade cautiously next week ahead mpob report bernama",
+      "title": "CPO Futures Expected To Trade Cautiously Next Week Ahead Of MPOB Report - Bernama",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1mV1B6emtHUkp0cG9laHJac0dmdTM5ak84Z2xEUXBLWkdteV9kSWFkWVBqSEhQbWhnQnlPRjZPSGd5b2llTElZLXpzQXF2MGl3QktvRm5NVHlLMENDdzhCajZNYw?oc=5",
+      "source": "Google News · Malaysia",
+      "country": "Malaysia",
+      "category": "Market",
+      "impact": "Neutral",
+      "published_at": "2026-11-08T06:55:37+00:00",
+      "lang": "en",
+      "snippet": "CPO Futures Expected To Trade Cautiously Next Week Ahead Of MPOB Report Bernama",
+      "summary": "Kontrak berjangka CPO diperkirakan akan diperdagangkan secara hati-hati pada pekan depan menjelang rilis laporan resmi dari MPOB. Pelaku pasar cenderung menahan diri untuk melihat data terbaru mengenai produksi dan tingkat persediaan stok. Laporan ini sangat penting bagi pekebun dan pelaku industri sebagai acuan arah pergerakan harga selanjutnya.",
+      "summary_type": "ai",
+      "summary_model": "gemini-3.5-flash-lite"
+    }
+  ],
+  "health": {
+    "feed_error_count": 0,
+    "tbs_error_count": 0,
+    "cpo_error_count": 0,
+    "summary_error_count": 5,
+    "sources_total": 15,
+    "sources_failed": 0,
+    "rejected_price_count": 4,
+    "stages": {
+      "feeds": "ok",
+      "tbs": "ok",
+      "cpo": "ok",
+      "master": "ok",
+      "summaries": "ok"
+    }
+  }
+}
