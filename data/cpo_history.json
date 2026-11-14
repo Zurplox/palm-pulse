@@ -1,14 +1,8 @@
 {
-  "updated_at": "2026-11-13T03:04:57.496000+00:00",
+  "updated_at": "2026-11-14T02:54:51.872440+00:00",
   "source": "Investing.com",
   "currency": "MYR",
   "points": [
-    {
-      "date": "2025-11-13",
-      "price": 4128,
-      "source": "Investing.com",
-      "currency": "MYR"
-    },
     {
       "date": "2025-11-17",
       "price": 4209,
@@ -1152,6 +1146,12 @@
     {
       "date": "2026-11-12",
       "price": 4440.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-13",
+      "price": 4462.0,
       "source": "Investing.com",
       "currency": "MYR"
     }
