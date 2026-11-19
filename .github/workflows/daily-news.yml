@@ -15,7 +15,7 @@ on:
       - "requirements.txt"
       - ".github/workflows/daily-news.yml"
   schedule:
-    - cron: "30 22 * * *" # 06:30 Singapore/Malaysia, 05:30 WIB
+    - cron: "0 22 * * *" # 06:00 Singapore/Malaysia, 05:00 WIB
   workflow_dispatch:
 
 permissions:
