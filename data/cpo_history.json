@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T03:14:57.923447+00:00",
+  "updated_at": "2026-11-22T02:14:45.197890+00:00",
   "source": "Investing.com",
   "currency": "MYR",
   "points": [
@@ -1128,6 +1128,36 @@
     {
       "date": "2026-11-13",
       "price": 4462.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-16",
+      "price": 4547.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-17",
+      "price": 4436.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-18",
+      "price": 4386.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-19",
+      "price": 4333.0,
+      "source": "Investing.com",
+      "currency": "MYR"
+    },
+    {
+      "date": "2026-11-20",
+      "price": 4217.0,
       "source": "Investing.com",
       "currency": "MYR"
     }
