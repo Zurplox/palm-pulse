@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write # needed to persist generated data on the data branch
+  actions: read
   pages: write
   id-token: write
 
@@ -81,7 +82,21 @@ jobs:
         with:
           path: .
       - name: Wait for Pages artifact metadata
-        run: sleep 20
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for attempt in $(seq 1 12); do
+            count=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" \
+              --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length')
+            if [ "$count" -gt 0 ]; then
+              echo "github-pages artifact is visible."
+              exit 0
+            fi
+            echo "Waiting for github-pages artifact metadata (${attempt}/12)..."
+            sleep 5
+          done
+          echo "github-pages artifact metadata never became visible."
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
 
