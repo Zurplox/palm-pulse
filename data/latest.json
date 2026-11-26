@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-25T19:57:00.948356+00:00",
+  "generated_at": "2026-11-26T04:21:13.039917+00:00",
   "timezone": "Asia/Singapore",
-  "market_signal": "Cautious",
+  "market_signal": "Balanced",
   "story_count": 18,
   "gemini_enabled": true,
-  "ai_model": "gemini-3.5-flash-lite",
-  "master_summary": "RINGKASAN EKSEKUTIF\n- Industri sawit global menghadapi dinamika harga yang beragam, di mana harga CPO di Malaysia diperkirakan bertahan di atas RM4.100 atau sekitar 996 dolar Amerika Serikat per ton pada Desember, sementara harga TBS di berbagai wilayah Indonesia mengalami penurunan.\n- Pasar internasional dipengaruhi oleh pergeseran permintaan India ke minyak kelapa sawit yang mendinginkan lonjakan ekspor minyak kedelai China, serta ancaman risiko El Nino terhadap pasokan.\n- Tantangan operasional dan kebijakan juga terjadi di tingkat lokal, termasuk ancaman protes produsen sawit di Ghana akibat impor dan penyelundupan, serta penunjukan anggota independen baru pada Komite Eksekutif RSPO.\nINDONESIA\n- Harga TBS sawit di Riau tercatat mengalami penurunan secara kompak pada periode 25 November 2026, dengan harga TBS swadaya turun ke posisi Rp3.527,12 per kilogram dan mitra plasma menjadi Rp3.675,09 per kilogram.\n- Asosiasi Petani Kelapa Sawit Indonesia atau Apkasindo menyatakan keheranannya atas anjloknya harga TBS secara terus-menerus dan mempertanyakan kondisi yang terjadi di pasar CPO.\n- Menyongsong tahun 2027, nasib sawit Indonesia diprediksi menghadapi ancaman pada sektor ekspor, meskipun di sisi lain harga CPO justru diprediksi akan mengalami kenaikan.\n- Ekspansi infrastruktur pendukung juga terjadi di Kalimantan dengan diresmikannya cabang baru Indomobil JAC di Balikpapan untuk memperluas layanan kendaraan listrik komersial.\nMALAYSIA\n- Dewan Minyak Sawit Malaysia atau MPOC memprakirakan bahwa harga CPO Malaysia akan tetap bertahan di level lebih dari RM4.100 atau setara dengan lebih dari 996 dolar Amerika Serikat per ton sepanjang bulan Desember.\n- Pasar berjangka FCPO di Malaysia sempat mengalami tekanan dan harga sawit di negeri jiran ini turun yang dipicu oleh pelemahan pada kontrak berjangka minyak kedelai global.\n- Di tengah fluktuasi pasar, Roundtable on Sustainable Palm Oil atau RSPO mengumumkan pengangkatan Ian Hay, Norhafishah Malek, dan Juliana Souto sebagai Anggota Independen Komite Eksekutif terhitung efektif sejak 2 November 2026.\nPENGGERAK HARGA DAN PASAR\n- Harga CPO dan FCPO dipengaruhi secara langsung oleh pelemahan harga kontrak berjangka minyak kedelai global yang menyeret turun harga sawit di bursa Malaysia.\n- Permintaan global menunjukkan dinamika baru di mana India beralih kembali ke minyak kelapa sawit, sehingga mendinginkan lonjakan ekspor minyak kedelai dari China yang sempat terjadi secara mengejutkan.\n- Faktor cuaca global seperti potensi risiko El Nino turut menjadi sentimen yang mendorong pemulihan atau rebound harga sawit di pasar internasional.\n- Gangguan rantai pasok regional seperti kerugian besar akibat penyelundupan minyak sawit dan ancaman protes produsen lokal terhadap produk impor di Ghana turut mempengaruhi stabilitas perdagangan internasional.\nDAMPAK BAGI PEKEBUN\n- Penurunan harga TBS yang terjadi secara serentak di Riau, baik untuk kelompok swadaya maupun mitra plasma, secara langsung mengurangi pendapatan harian para pekebun sawit di daerah tersebut.\n- Apkasindo mewakili keresahan para pekebun dengan mempertanyakan ketidakpastian pasar CPO yang membuat harga TBS terus mengalami tren anjlok di tingkat petani.\n- Prospek jangka panjang menuju tahun 2027 memberikan sinyal campuran bagi pekebun, di mana terdapat prediksi kenaikan harga CPO yang diimbangi dengan kekhawatiran terhadap ancaman hambatan ekspor.\n- Ancaman keamanan operasional perkebunan, seperti masalah penambangan ilegal yang mengancam operasional kebun sawit di Twifo Praso, Ghana, menjadi pengingat pentingnya perlindungan aset fisik bagi para produsen di tingkat lapang.\nPANTAUAN\n- Pantau terus perkembangan harga TBS di tingkat lokal secara berkala untuk mengantisipasi tren penurunan lanjutan yang dikeluhkan oleh Apkasindo.\n- Cermati pergerakan harga acuan CPO Malaysia dan harga minyak nabati pesaing seperti minyak kedelai yang menjadi penggerak utama pasar global.\n- Waspadai informasi resmi terkait kebijakan ekspor Indonesia menuju tahun 2027 serta perkembangan penanganan risiko cuaca seperti El Nino yang dapat mempengaruhi produktivitas kebun.",
-  "master_summary_type": "ai",
-  "ai_summary_count": 6,
+  "ai_model": null,
+  "master_summary": "RINGKASAN EKSEKUTIF\n- Edisi hari ini memuat 18 berita kelapa sawit: 9 dari Indonesia, 6 dari Malaysia dan 3 berita global.\n\nBERITA UTAMA\n- Malaysian Palm Oil Rose As China’s Edible Oils Firmed - Finimize\n- Standar Keberlanjutan dan Pembiayaan Global Bisa Menekan Petani Sawit, Arif Havas Ingatkan Risiko Rantai Pasok\n- Tiga Indikator Pasar Seharusnya Kerek Harga CPO, Apkasindo Pertanyakan Penyebab Anjloknya Harga TBS Sawit di Riau hingga Rp2.600 per Kilogram di Tingkat RAM\n- Workshop Nasional Kemitraan Perkebunan Sawit Berlangsung di Yogyakarta, Ini Rundown Kegiatannya\n- Harga TBS Sawit Sumbar Periode IV November 2026 Naik, Umur 10–20 Tahun Rp3.657,33 per Kg\n\nCATATAN PENTING\n- Sintesis AI sedang tidak tersedia. Silakan periksa pratinjau penerbit dan sumber aslinya di bawah ini.",
+  "master_summary_type": "extract",
+  "ai_summary_count": 0,
   "tbs_prices": [
     {
       "region": "Riau",
@@ -54,14 +54,8 @@
       "trend": "flat"
     }
   ],
-  "tbs_price_updated_at": "2026-11-25T19:57:00.948356+00:00",
+  "tbs_price_updated_at": "2026-11-26T04:21:13.039917+00:00",
   "cpo_history": [
-    {
-      "date": "2025-11-25",
-      "price": 4024,
-      "source": "Investing.com",
-      "currency": "MYR"
-    },
     {
       "date": "2025-11-26",
       "price": 4090,
@@ -1209,9 +1203,79 @@
       "currency": "MYR"
     }
   ],
-  "cpo_price_updated_at": "2026-11-25T19:57:00.948356+00:00",
+  "cpo_price_updated_at": "2026-11-26T04:21:13.039917+00:00",
   "cpo_source": null,
   "stories": [
+    {
+      "id": "malaysian palm oil rose china s edible oils firmed finimize",
+      "title": "Malaysian Palm Oil Rose As China’s Edible Oils Firmed - Finimize",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONG8wS2pqT1NTVzExa21wSnNmTTJCemt0TS1pLW51VFZCbllDM2NFZXprbVp6VkpBOWJvVC1NMFprV3JncnVpOFphaWdTYl94MXNoejVjc1ZZdXJLT2N6bUNiZm52bjdJWE5Cc3MyQlZmX1RiaGFXUmQxS2c2SU9MOEF5RlZKVVAx?oc=5",
+      "source": "Google News · Malaysia",
+      "country": "Malaysia",
+      "category": "Malaysia",
+      "impact": "Neutral",
+      "published_at": "2026-11-26T03:21:20+00:00",
+      "lang": "en",
+      "snippet": "Malaysian Palm Oil Rose As China’s Edible Oils Firmed Finimize",
+      "summary": "Malaysian Palm Oil Rose As China’s Edible Oils Firmed Finimize",
+      "summary_type": "extract"
+    },
+    {
+      "id": "standar keberlanjutan dan pembiayaan global bisa menekan petani sawit arif havas ingatkan risiko rantai pasok",
+      "title": "Standar Keberlanjutan dan Pembiayaan Global Bisa Menekan Petani Sawit, Arif Havas Ingatkan Risiko Rantai Pasok",
+      "url": "https://www.infosawit.com/2026/11/26/standar-keberlanjutan-dan-pembiayaan-global-bisa-menekan-petani-sawit-arif-havas-ingatkan-risiko-rantai-pasok/",
+      "source": "InfoSAWIT",
+      "country": "Indonesia",
+      "category": "Policy",
+      "impact": "Neutral",
+      "published_at": "2026-11-26T03:15:00+00:00",
+      "lang": "id",
+      "snippet": "InfoSAWIT, BALI – Persyaratan keberlanjutan dan kebijakan pembiayaan internasional berpotensi menjadi tantangan baru bagi industri kelapa sawit Indonesia.",
+      "summary": "InfoSAWIT, BALI – Persyaratan keberlanjutan dan kebijakan pembiayaan internasional berpotensi menjadi tantangan baru bagi industri kelapa sawit Indonesia.",
+      "summary_type": "extract"
+    },
+    {
+      "id": "tiga indikator pasar seharusnya kerek harga cpo apkasindo pertanyakan penyebab anjloknya harga tbs sawit di riau hingga rp2 600 per kilogram",
+      "title": "Tiga Indikator Pasar Seharusnya Kerek Harga CPO, Apkasindo Pertanyakan Penyebab Anjloknya Harga TBS Sawit di Riau hingga Rp2.600 per Kilogram di Tingkat RAM",
+      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNaGZSUFAwU19GMkZvQUtlU3JtSmtlbmZDaXhoRU83UmkzSS1SVng1UzlmZi1NWEFtTkR6UmFMYkJBbzJocGRVU0ZDLTRIVU8ybXVmZndpSUN0WTVzV01fczlOYWZaSkUtLTV4ZWFyMDByVTFfemNjNFI1MW5ESFVvWUhTODFQMFhqcjVSWlJITFBNSHkxZ0R5a01tV2V4SE04SERLNkQ0QW13d2FSeGp5VER4Q05BN0Z6T0Y2eTdmb2YtT0Z1MC1LdHJzNDQ1QlpCNW45aHk1bkRaMXFhWjJVTU1hMkdCSTR3ZEtyekFqUXlBazVpYnBWTzdVQjM4N0ZJQ2ZPcGxWaHlqRFZXT0Rn?oc=5",
+      "source": "Sawit Indonesia",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Negative",
+      "published_at": "2026-11-26T03:03:57+00:00",
+      "lang": "id",
+      "snippet": "Tiga Indikator Pasar Seharusnya Kerek Harga CPO, Apkasindo Pertanyakan Penyebab Anjloknya Harga TBS Sawit di Riau hingga Rp2.600 per Kilogram di Tingkat RAM Sawit Indonesia",
+      "summary": "Tiga Indikator Pasar Seharusnya Kerek Harga CPO, Apkasindo Pertanyakan Penyebab Anjloknya Harga TBS Sawit di Riau hingga Rp2.600 per Kilogram di Tingkat RAM Sawit Indonesia",
+      "summary_type": "extract"
+    },
+    {
+      "id": "workshop nasional kemitraan perkebunan sawit berlangsung di yogyakarta ini rundown kegiatannya",
+      "title": "Workshop Nasional Kemitraan Perkebunan Sawit Berlangsung di Yogyakarta, Ini Rundown Kegiatannya",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSnF1b3o4X2VIR19KWlVnVDlFeS1ud3NPVWVZcXZRNnpSTWdlYVpfU3FDQU9lbkxTUE5xOVl2MU9TdXg2cGtHckNJcG1wSld2cGl5QXNwQkFUcWY2aHpGOEltbk9JVWx3eVBjelY5ZjFjcHNoV2h4dXJ5ZWRYMldGa0JBSG1pcklnY2tYdmRHeTllZ3U4Q2x3VFBsX25JSmEtb3I3c0FVRnJ2YjlyaS1aSUpWdThvQWxCUzBQMTRn?oc=5",
+      "source": "Sawit Indonesia",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Neutral",
+      "published_at": "2026-11-26T01:18:52+00:00",
+      "lang": "id",
+      "snippet": "Workshop Nasional Kemitraan Perkebunan Sawit Berlangsung di Yogyakarta, Ini Rundown Kegiatannya Sawit Indonesia",
+      "summary": "Workshop Nasional Kemitraan Perkebunan Sawit Berlangsung di Yogyakarta, Ini Rundown Kegiatannya Sawit Indonesia",
+      "summary_type": "extract"
+    },
+    {
+      "id": "harga tbs sawit sumbar periode iv november 2026 naik umur 10 20 tahun rp3 657 33 per kg",
+      "title": "Harga TBS Sawit Sumbar Periode IV November 2026 Naik, Umur 10–20 Tahun Rp3.657,33 per Kg",
+      "url": "https://www.infosawit.com/2026/11/26/harga-tbs-sawit-sumbar-periode-iv-november-2026-naik-umur-10-20-tahun-rp3-65733-per-kg/",
+      "source": "InfoSAWIT",
+      "country": "Indonesia",
+      "category": "Plantation",
+      "impact": "Positive",
+      "published_at": "2026-11-26T01:15:00+00:00",
+      "lang": "id",
+      "snippet": "InfoSAWIT, PADANG – Harga tandan buah segar (TBS) kelapa sawit produksi pekebun mitra di Provinsi Sumatera Barat mengalami kenaikan untuk periode IV [Baca Selengkapnya] The post Harga TBS Sawit Sumbar Periode IV November 2026 Naik, Umur 10–20 Tahun Rp3.657,33 per Kg appeared first on InfoSAWIT .",
+      "summary": "InfoSAWIT, PADANG – Harga tandan buah segar (TBS) kelapa sawit produksi pekebun mitra di Provinsi Sumatera Barat mengalami kenaikan untuk periode IV [Baca Selengkapnya] The post Harga TBS Sawit Sumbar Periode IV November 2026 Naik, Umur 10–20 Tahun Rp3.657,33 per Kg appeared first on InfoSAWIT .",
+      "summary_type": "extract"
+    },
     {
       "id": "oil palm producers threaten protests gra offices over imported palm oil citinewsroom com",
       "title": "Oil palm producers threaten protests at GRA offices over imported palm oil - CitiNewsroom.com",
@@ -1229,7 +1293,7 @@
     {
       "id": "illegal mining threatens operations twifo praso oil palm plantation",
       "title": "Illegal mining threatens operations of Twifo Praso Oil Palm Plantation",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBaNFVpMWc1SFd3WXNYMjBpbEFVcmhMOG9tSDU1SFYzZ050Vk43X3pfZ1pxVU8yS1Zad09lY1pNcEFFTTVvQjN4LUFZV2NiN2xZdVFXa19QUFpfQ0lOODVwSnY4RdIBXEFVX3lxTE9pQ3RwamU2Y0xzQ3NLb1FyNmlUOXVFVGFIRTBJOGRuaDhxYVhIc2Q2dGtuaGE1WW1MQjgzakFlVnI4MnhoRF9OV3dwLVhNUlBGeE1vS0Q5cHJLWlk3?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE40X2I5TldWUWFYUDREdWtrQ2EySmFZRkdiUmVMbjdDdlZZRDV0ak5aZ2JVR0hjVW1xNGhZYVY3cDh5eWRRVEZLRWwyckY0Y2hSUEh5b2hzY29QdWlZY3fSAVxBVV95cUxPaUN0cGplNmNMc0NzS29RcjZpVDl1RVRhSEUwSThkbmg4cWFYSHNkNnRrbmhhNVltTEI4M2pBZVZyODJ4aERfTld3cC1YTVJQRnhNb0tEOXByS1pZNw?oc=5",
       "source": "Modern Ghana",
       "country": "Global",
       "category": "Plantation",
@@ -1252,6 +1316,20 @@
       "lang": "id",
       "snippet": "INFO SAWIT, BALIKPAPAN – JAC Motors Indonesia memperluas jaringan bisnis dan layanan kendaraan komersial di Indonesia dengan meresmikan Branch Indomobil JAC di [Baca Selengkapnya] The post JAC Motors Buka Cabang di Balikpapan, Perluas Layanan Kendaraan Listrik Komersial di Kalimantan appeared…",
       "summary": "INFO SAWIT, BALIKPAPAN – JAC Motors Indonesia memperluas jaringan bisnis dan layanan kendaraan komersial di Indonesia dengan meresmikan Branch Indomobil JAC di [Baca Selengkapnya] The post JAC Motors Buka Cabang di Balikpapan, Perluas Layanan Kendaraan Listrik Komersial di Kalimantan appeared…",
+      "summary_type": "extract"
+    },
+    {
+      "id": "genting plantations 3q net profit rises 8 warns near term palm oil price pressure",
+      "title": "Genting Plantations’ 3Q net profit rises 8%, warns of near-term palm oil price pressure",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5zWWNLQ0JuS3RPdklhUi0zSU5xc0FaTXppOWxRLVA4VkpRRUFqRmJKbVNCT2V3ajdyMkFEX21lalZpZU5wZ0NIQ0ZxOE40ZDFs?oc=5",
+      "source": "The Edge Malaysia",
+      "country": "Malaysia",
+      "category": "Plantation",
+      "impact": "Positive",
+      "published_at": "2026-11-25T14:03:12+00:00",
+      "lang": "en",
+      "snippet": "Genting Plantations’ 3Q net profit rises 8%, warns of near-term palm oil price pressure The Edge Malaysia",
+      "summary": "Genting Plantations’ 3Q net profit rises 8%, warns of near-term palm oil price pressure The Edge Malaysia",
       "summary_type": "extract"
     },
     {
@@ -1325,20 +1403,6 @@
       "summary_type": "extract"
     },
     {
-      "id": "riau turunkan harga tbs sawit pada 25 november 2026 limapagi",
-      "title": "Riau Turunkan Harga TBS Sawit pada 25 November 2026 - Limapagi",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1OVURsckdYWTlpcVNZTXVxdV9WeXhRRHV1QkQ1TEFHbGMzUUxCTHNaTmVPeVFYZkRibzRNWjN3YndYb3dUODdfTFhCNHMyaUFMMXA2TW9FZkNUaDNNZFJTTmlMbU92Qy1UVnc?oc=5",
-      "source": "Google News · Perkebunan (Bahasa)",
-      "country": "Indonesia",
-      "category": "Plantation",
-      "impact": "Negative",
-      "published_at": "2026-11-25T12:27:33+00:00",
-      "lang": "id",
-      "snippet": "Riau Turunkan Harga TBS Sawit pada 25 November 2026 Limapagi",
-      "summary": "Riau Turunkan Harga TBS Sawit pada 25 November 2026 Limapagi",
-      "summary_type": "extract"
-    },
-    {
       "id": "rspo board governors appoints independent members executive committee",
       "title": "RSPO Board of Governors Appoints Independent Members of the Executive Committee",
       "url": "https://rspo.org/rspo-board-of-governors-appoints-independent-members-of-the-executive-committeerspo-board-of-governors-appoints-independent-members-of-the-executive-committee/",
@@ -1367,20 +1431,6 @@
       "summary_type": "extract"
     },
     {
-      "id": "posisi harga komoditas pada penutupan bursa pasar fisik 24 november 2026",
-      "title": "Posisi Harga Komoditas pada Penutupan Bursa & Pasar Fisik, 24 November 2026",
-      "url": "https://gapki.id/news/2026/11/25/posisi-harga-komoditas-pada-penutupan-bursa-pasar-fisik-24-november-2026/",
-      "source": "GAPKI (Bahasa)",
-      "country": "Indonesia",
-      "category": "Market",
-      "impact": "Neutral",
-      "published_at": "2026-11-25T10:14:14+00:00",
-      "lang": "id",
-      "snippet": "Posisi harga komoditas pada penutupan bursa pasar fisik 24 November 2026 menunjukkan pergerakan yang perlu dicermati pelaku industri.",
-      "summary": "Posisi harga komoditas pada penutupan bursa pasar fisik 24 November 2026 menunjukkan pergerakan yang perlu dicermati pelaku industri.",
-      "summary_type": "extract"
-    },
-    {
       "id": "china s surprise soyoil export boom cools india turns palm",
       "title": "China’s surprise soyoil export boom cools as India turns to palm",
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1EcUxGY2FjS3dfd3h4TDd4SG8xRnV3cHZJOHdHT1o4a3Y0eXVycVlVV2tJQzc3QWhpZW1nV2xqWm82WUlDRmx2dEluNzhucy1w?oc=5",
@@ -1391,39 +1441,8 @@
       "published_at": "2026-11-25T09:23:07+00:00",
       "lang": "en",
       "snippet": "China’s surprise soyoil export boom cools as India turns to palm The Edge Malaysia",
-      "summary": "Lonjakan ekspor minyak kedelai dari China mulai mereda karena India kembali beralih membeli minyak kelapa sawit. Perubahan tren pasar ini penting bagi petani karena menunjukkan pulihnya permintaan global terhadap sawit.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
-    },
-    {
-      "id": "kompak melemah pekan ini harga tbs sawit swadaya riau turun ke rp3 527 12 dan mitra plasma jadi rp3 675 09 per kilogram",
-      "title": "Kompak Melemah Pekan Ini, Harga TBS Sawit Swadaya Riau Turun ke Rp3.527,12 dan Mitra Plasma Jadi Rp3.675,09 per Kilogram",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdlFHUENhR1FDYXdLLTlJVlEyOWk0LVJRNnJnQ2FwR0s2R3B5TzdrQ2ZoN2EzcXBjdzIzbHgxeEVWa3oyaUZ2N1VKcUpMZHRaV3JYM0U4eWFFb1ZuclVvdVdVeWxVeEVwZTJxNFRKeXdjN1F2NkltS2ItcEhsZEkweU13cGwtalZPcS04VkMwN19sSTJrTjN3SG1KZmQ3c0lkUkNGbE5QWUQ1UVdZN2xDZkNZT0JjZnJsZ3Fsa2g4N1NqZ25XV0trSHhVMTRGR3lEQWVZU1NQcWh1TlkzcVRJ?oc=5",
-      "source": "Sawit Indonesia",
-      "country": "Indonesia",
-      "category": "Plantation",
-      "impact": "Negative",
-      "published_at": "2026-11-25T09:03:05+00:00",
-      "lang": "id",
-      "snippet": "Kompak Melemah Pekan Ini, Harga TBS Sawit Swadaya Riau Turun ke Rp3.527,12 dan Mitra Plasma Jadi Rp3.675,09 per Kilogram Sawit Indonesia",
-      "summary": "Harga Tandan Buah Segar (TBS) sawit di Riau mengalami penurunan secara kompak pada pekan ini. Harga TBS petani swadaya turun menjadi Rp3.527,12 per kilogram, sementara mitra plasma menjadi Rp3.675,09 per kilogram. Penurunan ini penting diketahui pekebun untuk memantau fluktuasi harga di tingkat lokal.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
-    },
-    {
-      "id": "apkasindo heran harga tbs sawit terus anjlok ada apa dengan pasar cpo riauaktual com",
-      "title": "Apkasindo Heran Harga TBS Sawit Terus Anjlok, Ada Apa dengan Pasar CPO? - RiauAktual.com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPcHcxTzJhaElJWVhMMTVmay1MSjhuYVVhN2F4UFR2a3lJcmJKb2VsYzU4Qkg0cldsa3BjeFM5ZzBpZFlfbkJFSWVLeHpXQTZnQXk2WXRldWxMaHRhV1BneWx5ZE5TNFNQbDNQYlNYVUJxQkVHVV9sRFhUN1NXSW4xTTR3Tzl2bUJzcDVtY2c5Q3BzeWtHd1BMblhMSlo1bkJTYy0tTlhacWRXQmdnYWJJbtIBrwFBVV95cUxQZ1UxMk1Rc3lZS0pVemd1aVJjdVpCcGRsRzl6YzkzUlhPckhkWWc0VVFER1JzMU44RUplMjFDQk1xNnBfOWdjdlg1ZEVXX09fUHFFd2hBem9vV1l6a3JzZE1qYXBnSGh6T3g0ZWxxZ2MtUWh0RnlnbWt5c0hERWs2Q1hWWDM4a0NNNjVjN1dPZWFfbjc5LUhWSlczbUtLeFZHTnJRcTlBdGlOa1A1ZURz?oc=5",
-      "source": "Google News · Bahasa",
-      "country": "Indonesia",
-      "category": "Plantation",
-      "impact": "Negative",
-      "published_at": "2026-11-25T07:57:05+00:00",
-      "lang": "id",
-      "snippet": "Apkasindo Heran Harga TBS Sawit Terus Anjlok, Ada Apa dengan Pasar CPO?",
-      "summary": "Apkasindo merasa heran karena harga TBS sawit terus mengalami penurunan. Kondisi ini memicu tanda tanya mengenai situasi yang sedang terjadi di pasar CPO. Informasi ini penting untuk memahami dinamika harga yang berdampak langsung pada pendapatan petani.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
+      "summary": "China’s surprise soyoil export boom cools as India turns to palm The Edge Malaysia",
+      "summary_type": "extract"
     },
     {
       "id": "palm oil prices 25 nov 2026 rebound el ni o risks cmb news",
@@ -1436,55 +1455,23 @@
       "published_at": "2026-11-25T07:35:49+00:00",
       "lang": "en",
       "snippet": "Palm Oil Prices, 25 Nov 2026: Rebound on El Niño Risks — CMB News CMB News",
-      "summary": "Harga minyak sawit terpantau kembali menguat atau rebound pada 25 November 2026 akibat adanya risiko cuaca El Nino. Kenaikan harga ini penting dicermati karena potensi gangguan cuaca dapat memengaruhi produksi dan pasar global.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
-    },
-    {
-      "id": "malaysia crude palm oil prices hold over rm4 100 per ton december mpoc says",
-      "title": "Malaysia crude palm oil prices to hold at over RM4,100 per ton in December, MPOC says",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNQXl1RzRCckg2NENqSm9TalVtTENKSndSUnVVUExQMDFBUHdTOXVrdnNCUDdEOGFydVJJRDJQaDdoZ2dwOHRwbV9kV0xZampOU1laNWdiaEhXWW1UQ0pKMkYyVkpoQ2tVOWQyZVd2VGY4OTVHcHE4ZGZOLTFRSnhGTWdIazhKUmUzNkFYcjR0NHNGaDBES3lfcWQyU3dZcUNjeUFQcnA5MDR5b1M3WWIybXdxTzExM2RDdGpJNFc5OHpKX19QTWhYMnl4dW1lb0dyaThOZDV3WWptd29J?oc=5",
-      "source": "The Star",
-      "country": "Malaysia",
-      "category": "Market",
-      "impact": "Neutral",
-      "published_at": "2026-11-25T07:21:00+00:00",
-      "lang": "en",
-      "snippet": "Malaysia crude palm oil prices to hold at over RM4,100 per ton in December, MPOC says The Star",
-      "summary": "MPOC menyatakan bahwa harga CPO Malaysia diprediksi bertahan di atas RM4.100 per ton pada bulan Desember. Informasi ini penting bagi pelaku usaha sawit untuk membaca proyeksi tren harga di pasar internasional.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
-    },
-    {
-      "id": "malaysia crude palm oil prices hold over 996 per ton december mpoc says tradingview",
-      "title": "Malaysia crude palm oil prices to hold at over $996 per ton in December, MPOC says - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOS2ljRTZ5eXhtakdnX2FLeGFjbkdfRFlUNXlJSlVGcU1Lenp2TDgxOXlkeTFUZk4wME1oSmdrbGVfdUdSdjQzOUJzcXVKLWVyM1dicHRtZVNNZ01mTkNvbnJfUDdYenhvS29zbWR1ZUN5UktSeE1ValJaNXk4VTJHZHp6bF9JaUlja241c3dRVkRTTU1LVDdBY2pFckx2STRqRzUwQnhJUVo4MDQydzg5X3JqbFdwTFFrbE5EYXNVZFlTNC1kOWxUN1FyVklVMm9zbWlUOU9rY2xTbjBsM2lpR2VUcXo?oc=5",
-      "source": "Google News · Malaysia",
-      "country": "Malaysia",
-      "category": "Market",
-      "impact": "Neutral",
-      "published_at": "2026-11-25T07:09:00+00:00",
-      "lang": "en",
-      "snippet": "Malaysia crude palm oil prices to hold at over $996 per ton in December, MPOC says TradingView",
-      "summary": "MPOC menyampaikan bahwa harga CPO Malaysia akan tetap berada di atas $996 per ton pada bulan Desember. Proyeksi ini penting untuk memantau kestabilan harga jual minyak sawit di pasar global.",
-      "summary_type": "ai",
-      "summary_model": "gemini-3.5-flash-lite"
+      "summary": "Palm Oil Prices, 25 Nov 2026: Rebound on El Niño Risks — CMB News CMB News",
+      "summary_type": "extract"
     }
   ],
   "health": {
-    "feed_error_count": 2,
+    "feed_error_count": 0,
     "tbs_error_count": 0,
     "cpo_error_count": 2,
-    "summary_error_count": 8,
+    "summary_error_count": 3,
     "sources_total": 15,
-    "sources_failed": 2,
-    "rejected_price_count": 6,
+    "sources_failed": 0,
+    "rejected_price_count": 5,
     "stages": {
-      "feeds": "2/15 sources failed",
+      "feeds": "ok",
       "tbs": "ok",
       "cpo": "ok",
-      "master": "ok",
-      "summaries": "partial 6/18"
+      "master": "HTTP 503"
     }
   }
 }
